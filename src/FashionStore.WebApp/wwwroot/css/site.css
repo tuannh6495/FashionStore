@@ -1,4 +1,4 @@
-html {
+﻿html {
   font-size: 14px;
 }
 
@@ -20,3 +20,119 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/*CSS CHO NO-LOGIN*/
+.no-login {
+    background-color: #000;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+    position: relative;
+}
+
+    .no-login a {
+        color: white;
+        text-decoration: underline;
+        font-weight: bold;
+    }
+
+        .no-login a:hover {
+            text-decoration: underline;
+        }
+
+        .no-login a:visited {
+            color: white; 
+        }
+
+.close-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%; 
+    transform: translateY(-50%); 
+    color: #fff;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/*CSS CHO NAVBAR*/
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+.navbar-logo a {
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: bold;
+    color: #000 !important;
+    margin-left: 35px;
+}
+
+navbar-logo a:visited {
+    color: black !important;
+}
+
+.nav-link {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    margin-left: 20px;
+}
+
+    .nav-link li a {
+        text-decoration: none;
+        font-size: 16px;
+        color: #000;
+    }
+
+        .nav-link    li a:hover {
+            color: #888;
+        }
+
+        .fas fa-chevron-down dropdown-icon {
+            font-size: 16px;
+            margin-left: 5px;
+        }
+
+.search-bar {
+    position: relative;
+    flex-grow: 1;
+    margin: 0 20px;
+    max-width: 500px;
+}
+
+    .search-bar input {
+        width: 100%;
+        padding: 8px 25px 8px 45px;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        font-size: 14px;
+        background-color: #f0f0f0;
+    }
+
+.search-icon {
+    position: absolute;
+    left: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #888;
+}
+
+.icons a {
+    text-decoration: none;
+    color: #000 !important;
+    margin-right: 33px;
+    font-size: 20px;
+}
+
+    .icons a:hover {
+        color: #888;
+    }
