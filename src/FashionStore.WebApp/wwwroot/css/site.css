@@ -136,3 +136,108 @@ navbar-logo a:visited {
     .icons a:hover {
         color: #888;
     }
+
+/*CSS CHO FOOTER*/
+.bg-light {
+    padding: 5%;
+}
+
+h2.font-weight-bold {
+    font-size: 28px; 
+    padding-left: 5%;
+}
+
+h3.font-weight-bold {
+    justify-content: flex-start;
+}
+
+p.mt-3 {
+    color: #777;
+    line-height: 1.6;
+}
+
+.footer-bottom img {
+    margin-right: 10px; 
+}
+
+.footer h5 {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.footer ul {
+    padding-left: 0; 
+}
+
+    .footer ul li a {
+        text-decoration: none;
+        color: #777; 
+    }
+
+        .footer ul li a:hover {
+            color: #000; 
+        }
+
+.d-flex{
+    gap: 10px;
+}
+
+.d-flex a {
+    width: 30px; 
+    height: 28px; 
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.d-flex a.facebook-icon {
+    background-color: #000;
+    color: #fff !important;
+    border-color: #000; 
+}
+
+.newsletter {
+    border-radius: 10px;
+}
+
+    .newsletter h2 {
+        font-size: 40px;
+        font-weight: 700;
+    }
+
+.form-control {
+    border-radius: 25px; 
+    padding: 10px 20px;
+}
+
+.btn-light {
+    border-radius: 25px; 
+    padding: 10px 30px;
+    font-weight: bold;
+}
+
+.container {
+    padding-right: 20px;
+}
+
+.email-input {
+    position: relative;
+}
+
+.envelope-icon {
+    position: absolute;
+    pointer-events: none; 
+}
+
+.form-control {
+    padding-left: 40px;
+}
+
+.list-unstyled li a {
+    text-decoration: none;
+}
+
+.list-unstyled li {
+    margin-bottom: 10px;
+}
+
