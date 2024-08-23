@@ -3,4 +3,210 @@
 @{
     ViewData["Title"] = "Home page";
 }
+<div class="container-fluid p-5" style="background-color: #F2F2F2;">
+    <div class="row">
+        <!-- Left side with text -->
+        <div class="col-lg-6 d-flex flex-column justify-content-center">
+            <h1 class="display-4 font-weight-bold">FIND CLOTHES THAT MATCHES YOUR STYLE</h1>
+            <p class="lead">Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.</p>
+            <a asp-controller="Shop" asp-action="Index" class="btn btn-dark  ">Shop Now</a>
+            <div class="row mt-4">
+                <div class="col-4">
+                    <h3>200+</h3>
+                    <p>International Brands</p>
+                </div>
+                <div class="col-4">
+                    <h3>2,000+</h3>
+                    <p>High-Quality Products</p>
+                </div>
+                <div class="col-4">
+                    <h3>30,000+</h3>
+                    <p>Happy Customers</p>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- Right side with image -->
+        <div class="col-lg-6 position-relative overflow-hidden d-none d-lg-block">
+            <div class="h-100 w-100 d-flex align-items-end">
+                <img src="~/images/HomeBanner.jpg" alt="Fashion Style" class="img-fluid w-100" style="height: 50vh; object-fit: cover; object-position: top;">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid bg-dark text-white p-3">
+    <div class="row text-center">
+        <div class="col-6 col-sm">
+            <h5>
+                <a asp-controller="Brand" asp-action="Details" asp-route-name="Versace" class="text-white custom-font">VERSACE</a>
+            </h5>
+        </div>
+        <div class="col-6 col-sm">
+            <h5>
+                <a asp-controller="Brand" asp-action="Details" asp-route-name="Zara" class="text-white custom-font">ZARA</a>
+            </h5>
+        </div>
+        <div class="col-6 col-sm">
+            <h5>
+                <a asp-controller="Brand" asp-action="Details" asp-route-name="Gucci" class="text-white custom-font">GUCCI</a>
+            </h5>
+        </div>
+        <div class="col-6 col-sm">
+            <h5>
+                <a asp-controller="Brand" asp-action="Details" asp-route-name="Prada" class="text-white custom-font">PRADA</a>
+            </h5>
+        </div>
+        <div class="col-6 col-sm">
+            <h5>
+                <a asp-controller="Brand" asp-action="Details" asp-route-name="CalvinKlein" class="text-white custom-font">Calvin Klein</a>
+            </h5>
+        </div>
+    </div>
+</div>
+
+
+<div class="container my-5">
+    <div class="text-center mb-4">
+        <h2 class="font-weight-bold">NEW ARRIVALS</h2>
+    </div>
+    <div class="row justify-content-center">
+        <!-- Product 1 -->
+        <div class="col-6 col-md-3 mb-4">
+            <div class="card h-100">
+                <img src="~/images/T-SHIRTWITHTAPEDETAILS.jpg" class="card-img-top" alt="T-shirt with Tape Details">
+                <div class="card-body text-center">
+                    <h6 class="card-title">T-shirt with Tape Details</h6>
+                    <p class="text-muted mb-1">
+                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.5/5
+                    </p>
+                    <h5 class="font-weight-bold">$120</h5>
+                </div>
+            </div>
+        </div>
+        <!-- Product 2 -->
+        <div class="col-6 col-md-3 mb-4">
+            <div class="card h-100">
+                <img src="~/images/SKINNY-FIT-JEANS.jpg" class="card-img-top" alt="Skinny Fit Jeans">
+                <div class="card-body text-center">
+                    <h6 class="card-title">Skinny Fit Jeans</h6>
+                    <p class="text-muted mb-1">
+                        <span class="text-warning">&#9733; &#9733; &#9733; &#9734; &#9734;</span> 3.5/5
+                    </p>
+                    <h5 class="font-weight-bold">$240 <span class="text-muted"><del>$260</del></span></h5>
+                    <span class="badge badge-danger">-20%</span>
+                </div>
+            </div>
+        </div>
+        <!-- Product 3 -->
+        <div class="col-6 col-md-3 mb-4">
+            <div class="card h-100">
+                <img src="~/images/checkered-shirt.jpg" class="card-img-top" alt="Checkered Shirt">
+                <div class="card-body text-center">
+                    <h6 class="card-title">Checkered Shirt</h6>
+                    <p class="text-muted mb-1">
+                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.5/5
+                    </p>
+                    <h5 class="font-weight-bold">$180</h5>
+                </div>
+            </div>
+        </div>
+        <!-- Product 4 -->
+        <div class="col-6 col-md-3 mb-4">
+            <div class="card h-100">
+                <img src="~/images/SLEEVE-STRIPED-T-SHIRT.jpg" class="card-img-top" alt="Sleeve Striped T-shirt">
+                <div class="card-body text-center">
+                    <h6 class="card-title">Sleeve Striped T-shirt</h6>
+                    <p class="text-muted mb-1">
+                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.5/5
+                    </p>
+                    <h5 class="font-weight-bold">$130 <span class="text-muted"><del>$160</del></span></h5>
+                    <span class="badge badge-danger">-20%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-4">
+        <a asp-controller="Shop" asp-action="Index" class="btn btn-outline-dark btn-lg">View All</a>
+    </div>
+</div>
+
+<div class="container my-5">
+    <hr class="my-4" style="border: 1px solid #ccc;">
+</div>
+
+
+<div class="container my-5">
+    <div class="text-center mb-4">
+        <h2 class="font-weight-bold">TOP SELLING</h2>
+    </div>
+    <div class="row justify-content-center">
+        <!-- Product 1 -->
+        <div class="col-6 col-md-3 mb-4">
+            <div class="card h-100">
+                <img src="~/images/VERTICAL-STRIPED-SHIRT.jpg" class="card-img-top" alt="T-shirt with Tape Details">
+                <div class="card-body text-center">
+                    <h6 class="card-title">T-shirt with Tape Details</h6>
+                    <p class="text-muted mb-1">
+                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9733;</span> 5.0/5
+                    </p>
+                    <h5 class="font-weight-bold">$212 <span class="text-muted"><del>$232</del></span></h5>
+                </div>
+            </div>
+        </div>
+        <!-- Product 2 -->
+        <div class="col-6 col-md-3 mb-4">
+            <div class="card h-100">
+                <img src="~/images/COURAGE-GRAPHIC-T-SHIRT.jpg" class="card-img-top" alt="Skinny Fit Jeans">
+                <div class="card-body text-center">
+                    <h6 class="card-title">Skinny Fit Jeans</h6>
+                    <p class="text-muted mb-1">
+                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; </span> 4.0/5
+                    </p>
+                    <h5 class="font-weight-bold">$145 </h5>
+                    <span class="badge badge-danger">-20%</span>
+                </div>
+            </div>
+        </div>
+        <!-- Product 3 -->
+        <div class="col-6 col-md-3 mb-4">
+            <div class="card h-100">
+                <img src="~/images/LOOSE-FIT-BERMUDA-SHORTS.jpg" class="card-img-top" alt="Checkered Shirt">
+                <div class="card-body text-center">
+                    <h6 class="card-title">Checkered Shirt</h6>
+                    <p class="text-muted mb-1">
+                        <span class="text-warning">&#9733; &#9733; &#9733;</span> 3/5
+                    </p>
+                    <h5 class="font-weight-bold">$80</h5>
+                </div>
+            </div>
+        </div>
+        <!-- Product 4 -->
+        <div class="col-6 col-md-3 mb-4">
+            <div class="card h-100">
+                <img src="~/images/FADED-SKINNY-JEANS.jpg" class="card-img-top" alt="Sleeve Striped T-shirt">
+                <div class="card-body text-center">
+                    <h6 class="card-title">Sleeve Striped T-shirt</h6>
+                    <p class="text-muted mb-1">
+                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.5/5
+                    </p>
+                    <h5 class="font-weight-bold">$210</h5>
+                    <span class="badge badge-danger">-20%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-4">
+        <a asp-controller="Shop" asp-action="Index" class="btn btn-outline-dark btn-lg">View All</a>
+    </div>
+</div>
+
+<div class="<div class=" container-fluid p-5" style="background-color: #F2F2F2;">
+    
+    <h1 class="text-center mb-4">BROWSE BY DRESS STYLE</h1>
+    
+</div>
+
 
