@@ -7,26 +7,38 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/FashionStore.WebApp.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">FashionStore.WebApp</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
+        <div class="no-login">
+            <span>Sign up and get 20% off to your first order.</span>
+            <a href="#">Sign Up Now</a>
+            <span class="close-icon">&times;</span>
+        </div>
+
+        <nav class="navbar">
+            <div class="navbar-logo">
+                <a href="#">SHOP.CO</a>
+            </div>
+
+            <ul class="nav-link">
+                <li><a href="#">Shop
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                </a></li>
+                <li><a href="#">On Sale</a></li>
+                <li><a href="#">New Arrivals</a></li>
+                <li><a href="#">Brands</a></li>
+            </ul>
+
+            <div class="search-bar">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" placeholder="Search for products...">
+            </div>
+
+            <div class="icons">
+                <a href="#"><i class="fas fa-shopping-cart cart-icon"></i></a>
+                <a href="#"><i class="fas fa-user user-icon"></i></a>
             </div>
         </nav>
     </header>
@@ -38,7 +50,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2024 - FashionStore.WebApp - <a asp-area="" asp-page="/Privacy">Privacy</a>
+             <a asp-area="" asp-page="/Privacy"></a>
         </div>
     </footer>
 
