@@ -183,5 +183,12 @@ navbar-logo a:visited {
         color: white; /* Giữ nguyên màu chữ */
     }
 
+.container{
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0;
+}
+
 
 

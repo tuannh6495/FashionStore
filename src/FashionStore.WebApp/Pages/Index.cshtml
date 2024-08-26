@@ -3,13 +3,15 @@
 @{
     ViewData["Title"] = "Home page";
 }
-<div class="container-fluid p-5" style="background-color: #F2F2F2;">
+
+<div class="container" >
+    <div class="container-fluid p-5" style="background-color: #F2F2F2;">
     <div class="row">
         <!-- Left side with text -->
         <div class="col-lg-6 d-flex flex-column justify-content-center">
             <h1 class="display-4 font-weight-bold">FIND CLOTHES THAT MATCHES YOUR STYLE</h1>
             <p class="lead">Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.</p>
-            <a asp-controller="Shop" asp-action="Index" class="btn btn-dark  ">Shop Now</a>
+                <a asp-controller="Shop" asp-action="Index" class="btn btn-dark btn-lg  " style="width: 200px; ">Shop Now</a>
             <div class="row mt-4">
                 <div class="col-4">
                     <h3>200+</h3>
@@ -23,20 +25,19 @@
                     <h3>30,000+</h3>
                     <p>Happy Customers</p>
                 </div>
-            </div>
-            
+            </div>            
         </div>
 
         <!-- Right side with image -->
-        <div class="col-lg-6 position-relative overflow-hidden d-none d-lg-block">
-            <div class="h-100 w-100 d-flex align-items-end">
-                <img src="~/images/HomeBanner.jpg" alt="Fashion Style" class="img-fluid w-100" style="height: 50vh; object-fit: cover; object-position: top;">
+            <div class="col-lg-6 position-relative overflow-hidden d-none d-lg-block" >
+               @*  <img src="~/images/HomeBanner.jpg" alt="Fashion Style" class="img-fluid" style="position: relative; top: -50px;"> *@
+
             </div>
-        </div>
     </div>
 </div>
+</div>
 
-
+<div class="container"  >
 <div class="container-fluid bg-dark text-white p-3">
     <div class="row text-center">
         <div class="col-6 col-sm">
@@ -67,7 +68,7 @@
     </div>
 </div>
 
-
+    <div class="container-fluid p-5 ">
 <div class="container my-5">
     <div class="text-center mb-4">
         <h2 class="font-weight-bold">NEW ARRIVALS</h2>
@@ -138,7 +139,7 @@
 </div>
 
 
-<div class="container my-5">
+<div class="container my-5 p-5">
     <div class="text-center mb-4">
         <h2 class="font-weight-bold">TOP SELLING</h2>
     </div>
@@ -203,10 +204,52 @@
     </div>
 </div>
 
-<div class="<div class=" container-fluid p-5" style="background-color: #F2F2F2;">
-    
-    <h1 class="text-center mb-4">BROWSE BY DRESS STYLE</h1>
-    
-</div>
 
+        <div class="card p-4 shadow-sm" style="background-color: #F2F2F2;">
+                <h3 class="text-center font-weight-bold">BROWSE BY DRESS STYLE</h3>
+
+                <!-- Hàng trên: Casual và Formal -->
+                <div class="row mt-4">
+                    <div class="col-md-4 mb-3">
+                    <div class="card" style="height: 300px;">
+                            @* <img src="~/images/casual.jpg" class="card-img-top" alt="Casual"> *@
+                            <div class="card-body text-left">
+                                <h5 class="card-title">Casual</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 mb-3">
+                    <div class="card" style="height: 300px;">
+@*                             <img src="~/images/formal.jpg" class="card-img-top" alt="Formal"> *@
+                        <div class="card-body text-left">
+                                <h5 class="card-title">Formal</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hàng dưới: Party và Gym -->
+                <div class="row">
+                    <div class="col-md-8 mb-3">
+                    <div class="card" style="height: 300px;">
+                            @* <img src="~/images/party.jpg" class="card-img-top" alt="Party"> *@
+                        <div class="card-body text-left">
+                                <h5 class="card-title">Party</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                    <div class="card" style="height: 300px;">
+                            
+                        <div class="card-body text-left">
+                                <h5 class="card-title">Gym</h5>
+                            </div>
+                        @* <img src="~/images/gym.jpg" class="card-img-top" alt="Gym"> *@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+</div>
 
