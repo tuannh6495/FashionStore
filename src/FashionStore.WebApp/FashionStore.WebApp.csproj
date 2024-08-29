@@ -7,12 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot\css\font.css" />
     <Content Remove="wwwroot\Images\HomeBanner.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\css\font.css" />
     <None Include="wwwroot\Images\HomeBanner.jpg" />
   </ItemGroup>
 

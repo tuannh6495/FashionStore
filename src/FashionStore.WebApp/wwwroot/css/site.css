@@ -1,4 +1,6 @@
-﻿html {
+﻿@import url('https://example.com/styles.css');
+
+html {
   font-size: 14px;
 }
 
