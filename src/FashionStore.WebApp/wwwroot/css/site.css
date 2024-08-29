@@ -145,24 +145,7 @@ navbar-logo a:visited {
     position: relative; /* Đặt phần tử có vị trí tương đối để ảnh có thể đè lên */
 }
 
-.image-container {
-    position: absolute; /* Đặt phần tử chứa ảnh ở vị trí tuyệt đối */
-    top: 0; /* Bắt đầu từ cạnh trên của main-banner */
-    right: 8%; /* Đặt ảnh ở bên phải của phần tử chứa */
-    height: 100%; /* Hiển thị 50% chiều cao của ảnh */
-    overflow: hidden; /* Ẩn phần của ảnh nằm ngoài vùng hiển thị */
-    width: 35%; /* Chiều rộng của vùng hiển thị ảnh, có thể điều chỉnh theo nhu cầu */
-    z-index: 1; /* Đặt thứ tự hiển thị để ảnh có thể đè lên các phần tử khác */
-}
 
-    .image-container img {
-        position: absolute; /* Đặt ảnh ở vị trí tuyệt đối trong phần tử chứa */
-        top: -10%; /* Dịch ảnh lên trên để chỉ hiển thị phần trên */
-        right: 0;
-        transform: translateX(0); /* Không dịch chuyển theo chiều ngang vì ảnh đã được căn bên phải */
-        width: 100%;
-        height: auto; /* Để giữ tỷ lệ khung hình gốc của ảnh */
-    }
 .custom-heading {
     font-family: 'Integral CF', sans-serif; /* Sử dụng font-family tùy chỉnh */
     font-size: 64px; /* Kích thước font */
@@ -183,11 +166,11 @@ navbar-logo a:visited {
         color: white; /* Giữ nguyên màu chữ */
     }
 
-.container{
-    width: 100% !important;
+.container-1 {
     max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0;
+    width: 1440px;
+    height: 663px;
+    flex-shrink: 0;
 }
 
 

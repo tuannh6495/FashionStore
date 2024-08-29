@@ -4,40 +4,40 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="container" >
-    <div class="container-fluid p-5" style="background-color: #F2F2F2;">
-    <div class="row">
-        <!-- Left side with text -->
-        <div class="col-lg-6 d-flex flex-column justify-content-center">
-            <h1 class="display-4 font-weight-bold">FIND CLOTHES THAT MATCHES YOUR STYLE</h1>
-            <p class="lead">Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.</p>
-                <a asp-controller="Shop" asp-action="Index" class="btn btn-dark btn-lg  " style="width: 200px; ">Shop Now</a>
-            <div class="row mt-4">
-                <div class="col-4">
-                    <h3>200+</h3>
-                    <p>International Brands</p>
+<div class="container-1" style=" background-image: url('/Images/Rectangle 2.jpg'),
+        linear-gradient(lightgray, lightgray); background-size:
+        cover, 714px 46.048px;
+    background-position:
+        center center, -46.048px 46.659%;
+    background-repeat:
+        no-repeat, no-repeat;
+    background-color: #F2F0F1;" ;>
+    <div class="container-fluid p-5">
+        <div class="row align-items-center ">
+            <div class="col-lg-6 py-5 ">
+                <div class="row mb-3 ml-3" style="width: 100%; color: black; font-size: 64px; font-family: Integral CF; font-weight: 700; line-height: 64px; word-wrap: break-word">FIND CLOTHES THAT MATCHES YOUR STYLE</div>
+                <div class="row mb-3" style="width: 100%; color: rgba(0, 0, 0, 0.60); font-size: 16px; font-family: Satoshi; font-weight: 400; line-height: 22px; word-wrap: break-word">Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.</div>
+                <a asp-controller="Shop" asp-action="Index" class="btn btn-dark btn-lg" style="width: 200px;">Shop Now</a>
+                <div class="row mt-5">
+                    <div class="col-4">
+                        <h3>200+</h3>
+                        <p>International Brands</p>
+                    </div>
+                    <div class="col-4">
+                        <h3>2,000+</h3>
+                        <p>High-Quality Products</p>
+                    </div>
+                    <div class="col-4">
+                        <h3>30,000+</h3>
+                        <p>Happy Customers</p>
+                    </div>
                 </div>
-                <div class="col-4">
-                    <h3>2,000+</h3>
-                    <p>High-Quality Products</p>
-                </div>
-                <div class="col-4">
-                    <h3>30,000+</h3>
-                    <p>Happy Customers</p>
-                </div>
-            </div>            
+            
         </div>
-
-        <!-- Right side with image -->
-            <div class="col-lg-6 position-relative overflow-hidden d-none d-lg-block" >
-               @*  <img src="~/images/HomeBanner.jpg" alt="Fashion Style" class="img-fluid" style="position: relative; top: -50px;"> *@
-
-            </div>
     </div>
 </div>
-</div>
 
-<div class="container"  >
+<div class="container-1">
 <div class="container-fluid bg-dark text-white p-3">
     <div class="row text-center">
         <div class="col-6 col-sm">
@@ -68,8 +68,8 @@
     </div>
 </div>
 
-    <div class="container-fluid p-5 ">
-<div class="container my-5">
+  <div class="container-fluid p-5 ">
+    <div class="container my-5">
     <div class="text-center mb-4">
         <h2 class="font-weight-bold">NEW ARRIVALS</h2>
     </div>
@@ -139,7 +139,6 @@
 </div>
 
 
-<div class="container my-5 p-5">
     <div class="text-center mb-4">
         <h2 class="font-weight-bold">TOP SELLING</h2>
     </div>
@@ -205,6 +204,7 @@
 </div>
 
 
+    <div class="container-fluid p-5 ">
         <div class="card p-4 shadow-sm" style="background-color: #F2F2F2;">
                 <h3 class="text-center font-weight-bold">BROWSE BY DRESS STYLE</h3>
 
@@ -248,8 +248,93 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        
+        </div>
     </div>
+        <div class="container-fluid p-5">
+            <div class="text-left mb-4">
+                <h1 class="font-weight-bold">OUR HAPPY CUSTOMERS</h1>
+            </div>
+            <div id="customerCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active">
+                        <div class="d-flex flex-column flex-md-row justify-content-center">
+                            <div class="card mx-3 mb-4 mb-md-0" style="width: 100%; max-width: 20rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">David M.</h5>
+                                    <p class="card-text">
+                                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9733;</span><br>
+                                        Tôi rất hài lòng với dịch vụ của họ! Sản phẩm tuyệt vời. Thời gian vận chuyển nhanh chóng. Tôi chắc chắn sẽ mua sắm tại đây lần nữa.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card mx-3 mb-4 mb-md-0" style="width: 100%; max-width: 20rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Alexa R.</h5>
+                                    <p class="card-text">
+                                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9733;</span><br>
+                                        Họ đã cung cấp dịch vụ tuyệt vời từ đầu đến cuối. Sản phẩm chất lượng cao và giao hàng rất nhanh. Sẽ quay lại!
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card mx-3 mb-4 mb-md-0" style="width: 100%; max-width: 20rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Johnny L.</h5>
+                                    <p class="card-text">
+                                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9733;</span><br>
+                                        Đây là lần đầu tiên tôi mua hàng tại đây, và tôi rất hài lòng với trải nghiệm. Sản phẩm đúng như quảng cáo và chất lượng tuyệt vời!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="carousel-item">
+                        <div class="d-flex flex-column flex-md-row justify-content-center">
+                            <div class="card mx-3 mb-4 mb-md-0" style="width: 100%; max-width: 20rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Alice T.</h5>
+                                    <p class="card-text">
+                                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9733;</span><br>
+                                        Sản phẩm của họ rất tuyệt vời, từ thiết kế đến chất liệu. Tôi chắc chắn sẽ giới thiệu cho bạn bè!
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card mx-3 mb-4 mb-md-0" style="width: 100%; max-width: 20rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Mark J.</h5>
+                                    <p class="card-text">
+                                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9733;</span><br>
+                                        Đây là một trong những trải nghiệm mua sắm trực tuyến tốt nhất mà tôi từng có. Rất đáng để thử!
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card mx-3 mb-4 mb-md-0" style="width: 100%; max-width: 20rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Linda S.</h5>
+                                    <p class="card-text">
+                                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9733;</span><br>
+                                        Tôi đã mua hàng ở đây nhiều lần và luôn rất hài lòng với mọi thứ. Sản phẩm, dịch vụ và giao hàng đều tuyệt vời!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Thêm các slide khác nếu cần -->
+
+                </div>
+                <!-- Điều khiển carousel -->
+                <a class="carousel-control-prev" href="#customerCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#customerCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+
 </div>
+
 
