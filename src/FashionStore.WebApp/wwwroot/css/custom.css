@@ -2,7 +2,7 @@
     margin-top: 70px;
     display: flex;
     width: 296.6px;
-    height: 1221.6px;
+    height: 1261.6px;
     padding: 20px 24px;
     flex-direction: column;
     align-items: flex-start;
@@ -83,4 +83,104 @@
     align-self: stretch;
     padding-bottom: 0px;
 }
+
+.colors {
+    display: flex;
+    width: 247px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.circle {
+    width: 37px;
+    height: 37px;
+    flex-shrink: 0;
+    position: relative; /* Để đặt vị trí của ảnh tick */
+    border-radius: 50%; /* Đảm bảo các vòng tròn có bo tròn */
+    cursor: pointer; /* Con trỏ chuột sẽ thay đổi khi di chuyển qua các vòng tròn */
+}
+
+    .circle img.icon-image {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+
+    .circle img.tick {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 20px; /* Kích thước của ảnh tick */
+        height: 20px;
+    }
+
+.selected {
+    border: 2px solid blue; /* Có thể tùy chỉnh viền khi được chọn */
+}
+
+
+.size {
+    display: flex;
+    width: 247px;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.size-box {
+    display: flex;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    border-radius: 62px;
+    background: #F0F0F0;
+    color: rgba(0, 0, 0, 0.60);
+    font-family: Satoshi;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    transition: background 0.3s, color 0.3s; /* Hiệu ứng chuyển màu khi hover */
+}
+
+    .size-box:hover {
+        background: #000; /* Màu nền khi hover */
+        color: #fff; /* Màu chữ khi hover */
+    }
+
+    .size-box.selected {
+        background: #000; /* Màu nền đen cho ô được chọn */
+        color: #fff; /* Màu chữ trắng khi được chọn */
+    }
+
+.apply-filter {
+    display: flex;
+    height: 48px;
+    padding: 16px 54px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    align-self: stretch;
+    border-radius: 62px;
+    background: #000;
+    color: #FFF;
+    font-family: Satoshi;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    cursor: pointer; /* Hiển thị con trỏ khi hover */
+    
+    text-decoration: none; /* Bỏ gạch chân */
+}
+
+    .apply-filter:hover {
+        background: #e0e0e0; /* Đổi màu nền khi hover (nếu muốn), không đổi màu chữ */
+        color: rgba(0, 0, 0, 0.60); /* Giữ nguyên màu chữ khi hover */
+        text-decoration: none; /* Đảm bảo không có gạch chân khi hover */
+    }
 
