@@ -1,0 +1,70 @@
+﻿@page
+@model CategoryModel
+@{
+    ViewData["Title"] = "Category";
+}
+
+<div class="container" style="padding-left: 0px;padding-right: 0px">
+    <div class="filters-box">
+        <div class="row-layout">
+            <h1 class="header-text">Filter</h1>
+            <div class="icon">  
+                    <img src="/Images/Select.png" alt="Icon" class="icon-image">    
+            </div>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="row-layout">
+            <a href="#" class="select-text">T-shirts</a>
+            <div class="icon">
+                <img src="/Images/Right.png" alt="Icon" class="icon-image">
+            </div>
+        </div>
+        <div class="row-layout">
+            <a href="#" class="select-text">Shorts</a>
+            <div class="icon">
+                <img src="/Images/Right.png" alt="Icon" class="icon-image">
+            </div>
+        </div>
+        <div class="row-layout">
+            <a href="#" class="select-text">Shirts</a>
+            <div class="icon">
+                <img src="/Images/Right.png" alt="Icon" class="icon-image">
+            </div>
+        </div>
+        <div class="row-layout">
+            <a href="#" class="select-text">Hoodie</a>
+            <div class="icon">
+                <img src="/Images/Right.png" alt="Icon" class="icon-image">
+            </div>
+        </div>
+        <div class="row-layout">
+            <a href="#" class="select-text">Jeans</a>
+            <div class="icon">
+                <img src="/Images/Right.png" alt="Icon" class="icon-image">
+            </div>
+        </div>
+
+
+        <div class="line"></div>
+
+        <div class="price">
+            <h1 class="header-text">Price</h1>     
+                <input type="range" class="form-range" id="rangeSlider" min="50" max="200" step="1" value="50">                
+                    <span id="minValue">50</span>    
+        </div>
+
+        <div class="line"></div>
+
+        <div class="row-layout">
+            <h1 class="header-text">Colors</h1>
+
+            <div class="icon">
+                <img src="/Images/Up.png" alt="Icon" class="icon-image">
+            </div>
+        </div>
+    </div>
+</div>
+
+

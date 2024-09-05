@@ -1,4 +1,12 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿document.addEventListener('DOMContentLoaded', function () {
+    const slider = document.getElementById('rangeSlider');
+    const minValueDisplay = document.getElementById('minValue');
+    const maxValueDisplay = document.getElementById('maxValue');
 
-// Write your JavaScript code.
+    // Cập nhật giá trị hiển thị khi người dùng thay đổi thanh trượt
+    slider.addEventListener('input', function () {
+        const value = slider.value;
+        minValueDisplay.textContent = value;
+        maxValueDisplay.textContent = value;
+    });
+});
