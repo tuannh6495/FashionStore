@@ -1,0 +1,52 @@
+﻿.mast-head {
+    background-image: url('/Images/Rectangle 2.jpg');
+    background-size: auto 100%;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-color: #F2F0F1;
+    height: 663px;
+}
+
+.headline {
+    width: 577px;
+    height: 173px;
+    margin-top: 55px;
+    margin-bottom: 32px;
+    font-family: "Integral CF";
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 64px;
+}
+
+.masthead-desc {
+    color: rgba(0, 0, 0, 0.60);
+    font-family: Satoshi;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    margin-bottom: 32px;
+}
+
+.statistic h3 {
+    color: #000;
+    font-family: Satoshi;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.statistic p {
+    color: rgba(0, 0, 0, 0.60);
+    font-family: Satoshi;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+.brand-nav h5 {
+
+}

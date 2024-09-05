@@ -4,20 +4,15 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="container-fluid" style=" background-image: url('/Images/Rectangle 2.jpg'),
-    linear-gradient(lightgray, lightgray); background-size:
-    cover, 714px 46.048px;
-background-position:
-    center center, -46.048px 46.659%;
-background-repeat:
-    no-repeat, no-repeat;
-background-color: #F2F0F1;" ;>
+<link rel="stylesheet" href="~/css/Index.css" asp-append-version="true" />
+
+<div class="container-fluid mast-head">
     <div class="row align-items-center ">
-        <div class="col-lg-6 py-5" style="margin-left: 88px;">
-            <div class="row mb-3 ml-3" style="width: 100%; color: black; font-size: 64px; font-family: Integral CF; font-weight: 700; line-height: 64px; word-wrap: break-word">FIND CLOTHES THAT MATCHES YOUR STYLE</div>
-            <div class="row mb-3" style="width: 100%; color: rgba(0, 0, 0, 0.60); font-size: 16px; font-family: Satoshi; font-weight: 400; line-height: 22px; word-wrap: break-word">Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.</div>
-            <a asp-controller="Shop" asp-action="Index" class="btn btn-dark btn-lg" style="width: 200px;">Shop Now</a>
-            <div class="row mt-5">
+        <div class="col-lg-6 py-5" style="margin-left: 5%;">
+            <div class="row headline">FIND CLOTHES THAT MATCHES YOUR STYLE</div>
+            <div class="row masthead-desc" style="width: 545px; height: 33px;">Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.</div>
+            <a asp-controller="Shop" asp-action="Index" class="btn btn-dark btn-lg" style="width: 210px; height: 52px; margin-bottom: 48px; border-radius: 25px;">Shop Now</a>
+            <div class="row statistic">
                 <div class="col-4">
                     <h3>200+</h3>
                     <p>International Brands</p>
@@ -32,38 +27,48 @@ background-color: #F2F0F1;" ;>
                 </div>
             </div>
         </div>
+
+        <div class="col-lg-6 invisible"></div>
     </div>
 </div>
 
-<div class="container-1">
-<div class="container-fluid bg-dark text-white p-3">
-    <div class="row text-center">
-        <div class="col-6 col-sm">
+<div class="container-fluid bg-dark text-white" style="padding-left: 5%; padding-right: 5%;">
+    <div class="row brand-nav text-center align-items-center justify-content-between" style="height: 122px;">
+        <div class="col-lg-2 col-sm">
             <h5>
-                <a asp-controller="Brand" asp-action="Details" asp-route-name="Versace" class="text-white custom-font">VERSACE</a>
+                <a asp-controller="Brand" asp-action="Details" asp-route-name="Versace"> <img src="\Images\Versace.png" alt="Versace"></a>
             </h5>
         </div>
-        <div class="col-6 col-sm">
+        <div class="col-lg-2 col-sm">
             <h5>
-                <a asp-controller="Brand" asp-action="Details" asp-route-name="Zara" class="text-white custom-font">ZARA</a>
+                <a asp-controller="Brand" asp-action="Details" asp-route-name="Zara"> <img src="\Images\Zara.png" alt="Zara"></a>
             </h5>
         </div>
-        <div class="col-6 col-sm">
+        <div class="col-lg-2 col-sm">
             <h5>
-                <a asp-controller="Brand" asp-action="Details" asp-route-name="Gucci" class="text-white custom-font">GUCCI</a>
+                <a asp-controller="Brand" asp-action="Details" asp-route-name="Gucci"> <img src="\Images\Gucci.png" alt="Gucci"></a>
             </h5>
         </div>
-        <div class="col-6 col-sm">
+        <div class="col-lg-2 col-sm">
             <h5>
-                <a asp-controller="Brand" asp-action="Details" asp-route-name="Prada" class="text-white custom-font">PRADA</a>
+                <a asp-controller="Brand" asp-action="Details" asp-route-name="Prada"> <img src="\Images\Prada.png" alt="Prada"></a>
             </h5>
         </div>
-        <div class="col-6 col-sm">
+        <div class="col-lg-2 col-sm">
             <h5>
-                <a asp-controller="Brand" asp-action="Details" asp-route-name="CalvinKlein" class="text-white custom-font">Calvin Klein</a>
+                <a asp-controller="Brand" asp-action="Details" asp-route-name="CalvinKlein"> <img src="\Images\CalvinKlein.png" alt="CalvinKlein"></a>
             </h5>
         </div>
     </div>
+</div>
+
+<div class="row">
+  @*   @foreach (var product in Model.Products)
+        { *@
+        <div class="col-md-3">
+            @await Component.InvokeAsync("ProductCard");
+        </div>
+        @* } *@
 </div>
 
   <div class="container-fluid p-5 ">
@@ -333,6 +338,5 @@ background-color: #F2F0F1;" ;>
             </div>
         </div>
 
-</div>
 
 
