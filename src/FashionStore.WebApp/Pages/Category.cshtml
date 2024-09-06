@@ -5,152 +5,188 @@
 }
 
 <div class="container" style="padding-left: 0px;padding-right: 0px">
-    <div class="filters-box">
-        <div class="row-layout">
-            <h1 class="header-text">Filter</h1>
-            <div class="icon">  
-                    <img src="/Images/Select.png" alt="Icon" class="icon-image">    
+    <div class="row">
+        <div class="col-3" style="padding-right: 0px">
+            <div class="in-line">
+                <a asp-controller="Home" asp-action="Category" asp-route-name="Home" class="select-text">Home</a>
+                <div class="icon">
+                    <img src="/Images/Right.png" alt="Icon" class="icon-image">
+                </div>
+                <a asp-controller="Casual" asp-action="Category" asp-route-name="Casual" class="text-page">Casual</a>
             </div>
-        </div>
+            <div class="filters-box" style="flex: 1;">
+                <div class="row-layout">
+                    <h1 class="header-text">Filter</h1>
+                    <div class="icon">
+                        <img src="/Images/Select.png" alt="Icon" class="icon-image">
+                    </div>
+                </div>
 
-        <div class="line"></div>
+                <div class="line"></div>
 
-        <div class="row-layout">
-            <a asp-controller="Product" asp-action="Category" asp-route-name="T-shirts" class="select-text">T-shirts</a>
-            <div class="icon">
-                <img src="/Images/Right.png" alt="Icon" class="icon-image">
-            </div>
-        </div>
-        <div class="row-layout">
-            <a asp-controller="Product" asp-action="Category" asp-route-name="Shorts" class="select-text">Shorts</a>
-            <div class="icon">
-                <img src="/Images/Right.png" alt="Icon" class="icon-image">
-            </div>
-        </div>
-        <div class="row-layout">
-            <a asp-controller="Product" asp-action="Category" asp-route-name="Shirts" class="select-text">Shirts</a>
-            <div class="icon">
-                <img src="/Images/Right.png" alt="Icon" class="icon-image">
-            </div>
-        </div>
-        <div class="row-layout">
-            <a asp-controller="Product" asp-action="Category" asp-route-name="Hoodie" class="select-text">Hoodie</a>
-            <div class="icon">
-                <img src="/Images/Right.png" alt="Icon" class="icon-image">
-            </div>
-        </div>
-        <div class="row-layout">
-            <a asp-controller="Product" asp-action="Category" asp-route-name="Jeans" class="select-text">Jeans</a>
-            <div class="icon">
-                <img src="/Images/Right.png" alt="Icon" class="icon-image">
-            </div>
-        </div>
+                <div class="row-layout">
+                    <a asp-controller="Product" asp-action="Category" asp-route-name="T-shirts" class="select-text">T-shirts</a>
+                    <div class="icon">
+                        <img src="/Images/Right.png" alt="Icon" class="icon-image">
+                    </div>
+                </div>
+                <div class="row-layout">
+                    <a asp-controller="Product" asp-action="Category" asp-route-name="Shorts" class="select-text">Shorts</a>
+                    <div class="icon">
+                        <img src="/Images/Right.png" alt="Icon" class="icon-image">
+                    </div>
+                </div>
+                <div class="row-layout">
+                    <a asp-controller="Product" asp-action="Category" asp-route-name="Shirts" class="select-text">Shirts</a>
+                    <div class="icon">
+                        <img src="/Images/Right.png" alt="Icon" class="icon-image">
+                    </div>
+                </div>
+                <div class="row-layout">
+                    <a asp-controller="Product" asp-action="Category" asp-route-name="Hoodie" class="select-text">Hoodie</a>
+                    <div class="icon">
+                        <img src="/Images/Right.png" alt="Icon" class="icon-image">
+                    </div>
+                </div>
+                <div class="row-layout">
+                    <a asp-controller="Product" asp-action="Category" asp-route-name="Jeans" class="select-text">Jeans</a>
+                    <div class="icon">
+                        <img src="/Images/Right.png" alt="Icon" class="icon-image">
+                    </div>
+                </div>
 
-        <div class="line"></div>
+                <div class="line"></div>
 
-        <div class="price">
-            <h1 class="header-text">Price</h1>     
-                <input type="range" class="form-range" id="rangeSlider" min="50" max="200" step="1" value="50">                
-                    <span id="minValue">50</span>    
+                <div class="price">
+                    <div class="row-layout">
+                        <h1 class="header-text">Price</h1>
+                        <div class="icon">
+                            <img src="/Images/Up.png" alt="Icon" class="icon-image">
+                        </div>
+                    </div>
+                    <div class="price-slider">
+                        <div class="slider-track"></div>
+                        <div class="slider-range"></div>
+                        <div class="slider-handle" id="minHandle"></div>
+                        <div class="slider-handle" id="maxHandle"></div>
+                        <div class="price-values">
+                        </div>
+                        <div class="price-value" id="minPrice">$50</div>
+                        <div class="price-value" id="maxPrice">$200</div>
+                    </div>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="row-layout">
+                    <h1 class="header-text">Colors</h1>
+                    <div class="icon">
+                        <img src="/Images/Up.png" alt="Icon" class="icon-image">
+                    </div>
+                </div>
+
+                <div class="colors">
+                    <div class="circle" onclick="selectColor(this)">
+                        <img src="/Images/Ellipse 1.png" alt="Icon" class="icon-image">
+                    </div>
+                    <div class="circle" onclick="selectColor(this)">
+                        <img src="/Images/Ellipse 2.png" alt="Icon" class="icon-image">
+                    </div>
+                    <div class="circle" onclick="selectColor(this)">
+                        <img src="/Images/Ellipse 3.png" alt="Icon" class="icon-image">
+                    </div>
+                    <div class="circle" onclick="selectColor(this)">
+                        <img src="/Images/Ellipse 4.png" alt="Icon" class="icon-image">
+                    </div>
+                    <div class="circle" onclick="selectColor(this)">
+                        <img src="/Images/Ellipse 5.png" alt="Icon" class="icon-image">
+                    </div>
+                </div>
+
+                <div class="colors">
+                    <div class="circle" onclick="selectColor(this)">
+                        <img src="/Images/Ellipse 6.png" alt="Icon" class="icon-image">
+                    </div>
+                    <div class="circle" onclick="selectColor(this)">
+                        <img src="/Images/Ellipse 7.png" alt="Icon" class="icon-image">
+                    </div>
+                    <div class="circle" onclick="selectColor(this)">
+                        <img src="/Images/Ellipse 8.png" alt="Icon" class="icon-image">
+                    </div>
+                    <div class="circle" onclick="selectColor(this)">
+                        <img src="/Images/Ellipse 9.png" alt="Icon" class="icon-image">
+                    </div>
+                    <div class="circle" onclick="selectColor(this)">
+                        <img src="/Images/Ellipse 10.png" alt="Icon" class="icon-image">
+                    </div>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="row-layout">
+                    <h1 class="header-text">Size</h1>
+                    <div class="icon">
+                        <img src="/Images/Up.png" alt="Icon" class="icon-image">
+                    </div>
+                </div>
+
+                <div class="size">
+                    @foreach (var size in new[] { "XX-Small", "X-Small", "Small", "Medium", "Large", "X-Large", "XX-Large", "3X-Large", "4X-Large" })
+                    {
+                        <div class="size-box">@size</div>
+                    }
+                </div>
+
+                <div class="line"></div>
+
+                <div class="row-layout">
+                    <h1 class="header-text">Dress Style</h1>
+                    <div class="icon">
+                        <img src="/Images/Up.png" alt="Icon" class="icon-image">
+                    </div>
+                </div>
+
+                <div class="row-layout">
+                    <a href="#" class="select-text">Casual</a>
+                    <div class="icon">
+                        <img src="/Images/Right.png" alt="Icon" class="icon-image">
+                    </div>
+                </div>
+                <div class="row-layout">
+                    <a href="#" class="select-text">Formal</a>
+                    <div class="icon">
+                        <img src="/Images/Right.png" alt="Icon" class="icon-image">
+                    </div>
+                </div>
+                <div class="row-layout">
+                    <a href="#" class="select-text">Party</a>
+                    <div class="icon">
+                        <img src="/Images/Right.png" alt="Icon" class="icon-image">
+                    </div>
+                </div>
+                <div class="row-layout">
+                    <a href="#" class="select-text">Gym</a>
+                    <div class="icon">
+                        <img src="/Images/Right.png" alt="Icon" class="icon-image">
+                    </div>
+                </div>
+                <a asp-controller="Home" asp-action="Filter" class="apply-filter">Apply Filter</a>
+            </div>
         </div>
-
-        <div class="line"></div>
-
-        <div class="row-layout">
-            <h1 class="header-text">Colors</h1>
-            <div class="icon">
-                <img src="/Images/Up.png" alt="Icon" class="icon-image">
-            </div>
+        <div class="col-9" style="padding-left: 0px;">
+            <div class="row-layout" style="margin-top: 70px">
+                <h1 class=".text-shop">Casual</h1>
+                <div class="in-line">
+                    <p class="showing">Showing 1-10 of 100 Products</p>
+                    <p class="showing">
+                        Sort by: <span class="most-popular">Most Popular</span>
+                    </p>
+                    <div class="icon">
+                        <img src="/Images/Down.png" alt="Icon" class="icon-image">
+                    </div>
+                </div>
+            </div>          
         </div>
-
-        <div class="colors">
-            <div class="circle" onclick="selectColor(this)">
-                <img src="/Images/Ellipse 1.png" alt="Icon" class="icon-image">
-            </div>
-            <div class="circle" onclick="selectColor(this)">
-                <img src="/Images/Ellipse 2.png" alt="Icon" class="icon-image">
-            </div>
-            <div class="circle" onclick="selectColor(this)">
-                <img src="/Images/Ellipse 3.png" alt="Icon" class="icon-image">
-            </div>
-            <div class="circle" onclick="selectColor(this)">
-                <img src="/Images/Ellipse 4.png" alt="Icon" class="icon-image">
-            </div>
-            <div class="circle" onclick="selectColor(this)">
-                <img src="/Images/Ellipse 5.png" alt="Icon" class="icon-image">
-            </div>
-        </div>
-
-        <div class="colors">
-            <div class="circle" onclick="selectColor(this)">
-                <img src="/Images/Ellipse 6.png" alt="Icon" class="icon-image">
-            </div>
-            <div class="circle" onclick="selectColor(this)">
-                <img src="/Images/Ellipse 7.png" alt="Icon" class="icon-image">
-            </div>
-            <div class="circle" onclick="selectColor(this)">
-                <img src="/Images/Ellipse 8.png" alt="Icon" class="icon-image">
-            </div>
-            <div class="circle" onclick="selectColor(this)">
-                <img src="/Images/Ellipse 9.png" alt="Icon" class="icon-image">
-            </div>
-            <div class="circle" onclick="selectColor(this)">
-                <img src="/Images/Ellipse 10.png" alt="Icon" class="icon-image">
-            </div>
-        </div>
-
-        <div class="line"></div>
-
-        <div class="row-layout">
-            <h1 class="header-text">Size</h1>
-            <div class="icon">
-                <img src="/Images/Up.png" alt="Icon" class="icon-image">
-            </div>
-        </div>
-
-        <div class="size">
-            @foreach (var size in new[] { "XX-Small", "X-Small", "Small", "Medium", "Large", "X-Large", "XX-Large", "3X-Large", "4X-Large" })
-            {
-                <div class="size-box">@size</div>
-            }
-        </div>
-
-        <div class="line"></div>
-
-        <div class="row-layout">
-            <h1 class="header-text">Dress Style</h1>
-            <div class="icon">
-                <img src="/Images/Up.png" alt="Icon" class="icon-image">
-            </div>
-        </div>
-
-        <div class="row-layout">
-            <a href="#" class="select-text">Casual</a>
-            <div class="icon">
-                <img src="/Images/Right.png" alt="Icon" class="icon-image">
-            </div>
-        </div>
-        <div class="row-layout">
-            <a href="#" class="select-text">Formal</a>
-            <div class="icon">
-                <img src="/Images/Right.png" alt="Icon" class="icon-image">
-            </div>
-        </div>
-        <div class="row-layout">
-            <a href="#" class="select-text">Party</a>
-            <div class="icon">
-                <img src="/Images/Right.png" alt="Icon" class="icon-image">
-            </div>
-        </div>
-        <div class="row-layout">
-            <a href="#" class="select-text">Gym</a>
-            <div class="icon">
-                <img src="/Images/Right.png" alt="Icon" class="icon-image">
-            </div>
-        </div>
-
-        <a asp-controller="Home" asp-action="Filter" class="apply-filter">Apply Filter</a>
-        
     </div>
 </div>
 
