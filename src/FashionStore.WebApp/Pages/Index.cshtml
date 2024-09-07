@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="~/css/Index.css" asp-append-version="true" />
 
 <div class="container-fluid mast-head">
-    <div class="row align-items-center ">
+    <div class="row align-items-center">
         <div class="col-lg-6 py-5" style="margin-left: 5%;">
             <div class="row headline">FIND CLOTHES THAT MATCHES YOUR STYLE</div>
             <div class="row masthead-desc" style="width: 545px; height: 33px;">Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.</div>
@@ -28,11 +28,13 @@
             </div>
         </div>
 
-        <div class="col-lg-6 invisible"></div>
+        <div class="col-lg-6 invisible">
+
+        </div>
     </div>
 </div>
 
-<div class="container-fluid bg-dark text-white" style="padding-left: 5%; padding-right: 5%;">
+<div class="container-fluid bg-dark text-white mb-5" style="padding-left: 5%; padding-right: 5%;">
     <div class="row brand-nav text-center align-items-center justify-content-between" style="height: 122px;">
         <div class="col-lg-2 col-sm">
             <h5>
@@ -62,281 +64,102 @@
     </div>
 </div>
 
-<div class="row">
-  @*   @foreach (var product in Model.Products)
-        { *@
-        <div class="col-md-3">
-            @await Component.InvokeAsync("ProductCard");
+<div class="container-fluid outstanding-product mb-5" style="padding-left: 7%; padding-right: 7%;">
+    <div class = "container-fluid new-arrivals mb-5">
+        <div class="text-center my-5">
+            <h1 class="outstanding">NEW ARRIVALS</h1>
         </div>
-        @* } *@
+
+        <div class="row">
+            @foreach (var product in Model.Products1)
+            {
+                    <div class="col-md-3">
+                    @await Component.InvokeAsync("ProductCard", product)
+                    </div>
+            }
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-12 col-md-2 offset-md-5 mt-3">
+                <a asp-controller="Shop" asp-action="Index" class="btn btn-outline-dark btn-lg w-100" style="border-radius: 62px; max-width: 500px;">View All</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid my-5">
+        <hr class="my-4 w-100" style="border: 1px solid rgba(0, 0, 0, 0.10);">
+    </div>
+
+    <div class="container-fluid top-selling">
+        <div class="text-center my-5">
+            <h1 class="outstanding">TOP SELLING</h1>
+        </div>
+
+        <div class="row">
+            @foreach (var product in Model.Products2)
+            {
+                <div class="col-md-3">
+                    @await Component.InvokeAsync("ProductCard", product)
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-md-2 offset-md-5 mt-3">
+            <a asp-controller="Shop" asp-action="Index" class="btn btn-outline-dark btn-lg w-100" style="border-radius: 62px; max-width: 500px;">View All</a>
+        </div>
+    </div>
+
 </div>
 
-  <div class="container-fluid p-5 ">
-    <div class="container my-5">
-    <div class="text-center mb-4">
-        <h2 class="font-weight-bold">NEW ARRIVALS</h2>
-    </div>
-    <div class="row justify-content-center">
-        <!-- Product 1 -->
-        <div class="col-6 col-md-3 mb-4">
-            <div class="card h-100">
-                <img src="~/images/T-SHIRTWITHTAPEDETAILS.jpg" class="card-img-top" alt="T-shirt with Tape Details">
-                <div class="card-body text-center">
-                    <h6 class="card-title">T-shirt with Tape Details</h6>
-                    <p class="text-muted mb-1">
-                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.5/5
-                    </p>
-                    <h5 class="font-weight-bold">$120</h5>
-                </div>
-            </div>
-        </div>
-        <!-- Product 2 -->
-        <div class="col-6 col-md-3 mb-4">
-            <div class="card h-100">
-                <img src="~/images/SKINNY-FIT-JEANS.jpg" class="card-img-top" alt="Skinny Fit Jeans">
-                <div class="card-body text-center">
-                    <h6 class="card-title">Skinny Fit Jeans</h6>
-                    <p class="text-muted mb-1">
-                        <span class="text-warning">&#9733; &#9733; &#9733; &#9734; &#9734;</span> 3.5/5
-                    </p>
-                    <h5 class="font-weight-bold">$240 <span class="text-muted"><del>$260</del></span></h5>
-                    <span class="badge badge-danger">-20%</span>
-                </div>
-            </div>
-        </div>
-        <!-- Product 3 -->
-        <div class="col-6 col-md-3 mb-4">
-            <div class="card h-100">
-                <img src="~/images/checkered-shirt.jpg" class="card-img-top" alt="Checkered Shirt">
-                <div class="card-body text-center">
-                    <h6 class="card-title">Checkered Shirt</h6>
-                    <p class="text-muted mb-1">
-                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.5/5
-                    </p>
-                    <h5 class="font-weight-bold">$180</h5>
-                </div>
-            </div>
-        </div>
-        <!-- Product 4 -->
-        <div class="col-6 col-md-3 mb-4">
-            <div class="card h-100">
-                <img src="~/images/SLEEVE-STRIPED-T-SHIRT.jpg" class="card-img-top" alt="Sleeve Striped T-shirt">
-                <div class="card-body text-center">
-                    <h6 class="card-title">Sleeve Striped T-shirt</h6>
-                    <p class="text-muted mb-1">
-                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.5/5
-                    </p>
-                    <h5 class="font-weight-bold">$130 <span class="text-muted"><del>$160</del></span></h5>
-                    <span class="badge badge-danger">-20%</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="text-center mt-4">
-        <a asp-controller="Shop" asp-action="Index" class="btn btn-outline-dark btn-lg">View All</a>
-    </div>
-</div>
+<div class="container-fluid dress-style mt-5" style="padding-left: 7%; padding-right: 7%;">
+    <div class="card p-5 shadow-sm" style="background-color: #F2F2F2; border-radius: 40px;">
+        <h3 class="outstanding my-5">BROWSE BY DRESS STYLE</h3>
 
-<div class="container my-5">
-    <hr class="my-4" style="border: 1px solid #ccc;">
-</div>
+        <div class="row mt-4 d-flex">
+            <div class="col-md-4 mb-3 d-flex">
+                <div class="card w-100" style="border-radius: 20px; overflow: hidden;">
+                    <img src="\Images\CasualDS.png" class="card-img" style="object-fit: cover; height: 100%; width: 100%;">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title fs-1">Casual</h5>
+                    </div>
+                </div>
+            </div>
 
+            <div class="col-md-8 mb-3 d-flex">
+                <div class="card w-100" style=" border-radius: 20px; overflow: hidden;">
+                    <img src="\Images\FormalDS.png" class="card-img" style="object-fit: cover; height: 100%; width: 100%;">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title fs-1">Formal</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <div class="text-center mb-4">
-        <h2 class="font-weight-bold">TOP SELLING</h2>
-    </div>
-    <div class="row justify-content-center">
-        <!-- Product 1 -->
-        <div class="col-6 col-md-3 mb-4">
-            <div class="card h-100">
-                <img src="~/images/VERTICAL-STRIPED-SHIRT.jpg" class="card-img-top" alt="T-shirt with Tape Details">
-                <div class="card-body text-center">
-                    <h6 class="card-title">T-shirt with Tape Details</h6>
-                    <p class="text-muted mb-1">
-                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9733;</span> 5.0/5
-                    </p>
-                    <h5 class="font-weight-bold">$212 <span class="text-muted"><del>$232</del></span></h5>
+        <div class="row d-flex">
+            <div class="col-md-8 mb-3 d-flex">
+                <div class="card w-100" style=" border-radius: 20px; overflow: hidden;">
+                    <img src="\Images\PartyDS.png" class="card-img" style="object-fit: cover; height: 100%; width: 100%;">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title fs-1">Party</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3 d-flex">
+                <div class="card w-100" style=" border-radius: 20px; overflow: hidden;">
+                    <img src="\Images\GymDS.png" class="card-img" style="object-fit: cover; height: 100%; width: 100%;">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title fs-1">Gym</h5>
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- Product 2 -->
-        <div class="col-6 col-md-3 mb-4">
-            <div class="card h-100">
-                <img src="~/images/COURAGE-GRAPHIC-T-SHIRT.jpg" class="card-img-top" alt="Skinny Fit Jeans">
-                <div class="card-body text-center">
-                    <h6 class="card-title">Skinny Fit Jeans</h6>
-                    <p class="text-muted mb-1">
-                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; </span> 4.0/5
-                    </p>
-                    <h5 class="font-weight-bold">$145 </h5>
-                    <span class="badge badge-danger">-20%</span>
-                </div>
-            </div>
-        </div>
-        <!-- Product 3 -->
-        <div class="col-6 col-md-3 mb-4">
-            <div class="card h-100">
-                <img src="~/images/LOOSE-FIT-BERMUDA-SHORTS.jpg" class="card-img-top" alt="Checkered Shirt">
-                <div class="card-body text-center">
-                    <h6 class="card-title">Checkered Shirt</h6>
-                    <p class="text-muted mb-1">
-                        <span class="text-warning">&#9733; &#9733; &#9733;</span> 3/5
-                    </p>
-                    <h5 class="font-weight-bold">$80</h5>
-                </div>
-            </div>
-        </div>
-        <!-- Product 4 -->
-        <div class="col-6 col-md-3 mb-4">
-            <div class="card h-100">
-                <img src="~/images/FADED-SKINNY-JEANS.jpg" class="card-img-top" alt="Sleeve Striped T-shirt">
-                <div class="card-body text-center">
-                    <h6 class="card-title">Sleeve Striped T-shirt</h6>
-                    <p class="text-muted mb-1">
-                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.5/5
-                    </p>
-                    <h5 class="font-weight-bold">$210</h5>
-                    <span class="badge badge-danger">-20%</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="text-center mt-4">
-        <a asp-controller="Shop" asp-action="Index" class="btn btn-outline-dark btn-lg">View All</a>
     </div>
 </div>
 
 
-    <div class="container-fluid p-5 ">
-        <div class="card p-4 shadow-sm" style="background-color: #F2F2F2;">
-                <h3 class="text-center font-weight-bold">BROWSE BY DRESS STYLE</h3>
-
-                <!-- Hàng trên: Casual và Formal -->
-                <div class="row mt-4">
-                    <div class="col-md-4 mb-3">
-                    <div class="card" style="height: 300px;">
-                            @* <img src="~/images/casual.jpg" class="card-img-top" alt="Casual"> *@
-                            <div class="card-body text-left">
-                                <h5 class="card-title">Casual</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-8 mb-3">
-                    <div class="card" style="height: 300px;">
-@*                             <img src="~/images/formal.jpg" class="card-img-top" alt="Formal"> *@
-                        <div class="card-body text-left">
-                                <h5 class="card-title">Formal</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Hàng dưới: Party và Gym -->
-                <div class="row">
-                    <div class="col-md-8 mb-3">
-                    <div class="card" style="height: 300px;">
-                            @* <img src="~/images/party.jpg" class="card-img-top" alt="Party"> *@
-                        <div class="card-body text-left">
-                                <h5 class="card-title">Party</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <div class="card" style="height: 300px;">
-                            
-                        <div class="card-body text-left">
-                                <h5 class="card-title">Gym</h5>
-                            </div>
-                        @* <img src="~/images/gym.jpg" class="card-img-top" alt="Gym"> *@
-                        </div>
-                    </div>
-                </div>
-        </div>
-    </div>
-        <div class="container-fluid p-5">
-            <div class="text-left mb-4">
-                <h1 class="font-weight-bold">OUR HAPPY CUSTOMERS</h1>
-            </div>
-            <div id="customerCarousel" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <!-- Slide 1 -->
-                    <div class="carousel-item active">
-                        <div class="d-flex flex-column flex-md-row justify-content-center">
-                            <div class="card mx-3 mb-4 mb-md-0" style="width: 100%; max-width: 20rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">David M.</h5>
-                                    <p class="card-text">
-                                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9733;</span><br>
-                                        Tôi rất hài lòng với dịch vụ của họ! Sản phẩm tuyệt vời. Thời gian vận chuyển nhanh chóng. Tôi chắc chắn sẽ mua sắm tại đây lần nữa.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="card mx-3 mb-4 mb-md-0" style="width: 100%; max-width: 20rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Alexa R.</h5>
-                                    <p class="card-text">
-                                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9733;</span><br>
-                                        Họ đã cung cấp dịch vụ tuyệt vời từ đầu đến cuối. Sản phẩm chất lượng cao và giao hàng rất nhanh. Sẽ quay lại!
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="card mx-3 mb-4 mb-md-0" style="width: 100%; max-width: 20rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Johnny L.</h5>
-                                    <p class="card-text">
-                                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9733;</span><br>
-                                        Đây là lần đầu tiên tôi mua hàng tại đây, và tôi rất hài lòng với trải nghiệm. Sản phẩm đúng như quảng cáo và chất lượng tuyệt vời!
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Slide 2 -->
-                    <div class="carousel-item">
-                        <div class="d-flex flex-column flex-md-row justify-content-center">
-                            <div class="card mx-3 mb-4 mb-md-0" style="width: 100%; max-width: 20rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Alice T.</h5>
-                                    <p class="card-text">
-                                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9733;</span><br>
-                                        Sản phẩm của họ rất tuyệt vời, từ thiết kế đến chất liệu. Tôi chắc chắn sẽ giới thiệu cho bạn bè!
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="card mx-3 mb-4 mb-md-0" style="width: 100%; max-width: 20rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Mark J.</h5>
-                                    <p class="card-text">
-                                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9733;</span><br>
-                                        Đây là một trong những trải nghiệm mua sắm trực tuyến tốt nhất mà tôi từng có. Rất đáng để thử!
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="card mx-3 mb-4 mb-md-0" style="width: 100%; max-width: 20rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Linda S.</h5>
-                                    <p class="card-text">
-                                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9733;</span><br>
-                                        Tôi đã mua hàng ở đây nhiều lần và luôn rất hài lòng với mọi thứ. Sản phẩm, dịch vụ và giao hàng đều tuyệt vời!
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Thêm các slide khác nếu cần -->
-
-                </div>
-                <!-- Điều khiển carousel -->
-                <a class="carousel-control-prev" href="#customerCarousel" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#customerCarousel" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
 
 
 

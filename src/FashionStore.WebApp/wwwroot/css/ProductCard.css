@@ -1,0 +1,16 @@
+﻿.custom-card {
+    border: none;
+}
+
+.card-title {
+    color: #000;
+    font-family: Satoshi;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.card-img-top {
+    border-radius: 20px;
+}

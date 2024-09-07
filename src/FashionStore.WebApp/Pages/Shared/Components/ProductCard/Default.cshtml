@@ -1,40 +1,40 @@
 ﻿@using XTLAB
-@model List<Product>
+@model Product
 
+<link rel="stylesheet" href="~/css/ProductCard.css" asp-append-version="true" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-<div class="card">
-    @{
-        foreach(var product in Model) {
-            <img class="card-img-top" src="@product.ImageUrl">
-            <div class="card-body">
-                <h1 class="card-title">@product.Name</h1>
-                <div class="card-text">
-                    <div class="card-rate">
-                        @for (int i = 1; i <= 5; i ++)
-                        {
-                            if (i <= Math.Floor(product.Rating))
-                            {
-                                <i class="fa fa-star" style="color: gold;"></i> 
-                            }
-                            else if (i == Math.Ceiling(product.Rating) && product.Rating % 1 == 0.5)
-                            {
-                                <i class="fa fa-star-half-alt" style="color: gold;"></i> 
-                            }
-                            else
-                            {
-                                <i class="fa fa-star-o"></i> 
-                            }
-                        }
-                        <span>@product.Rating/5</span>
-                    </div>
-     
-                    <div class="price">
-                        <h5>@product.Price</h5> 
-                    </div>
-                </div>
+<div class="card custom-card">
+    <img class="card-img-top" src="@Model.ImageUrl">
+    <div class="card-body">
+        <h1 class="card-title">@Model.Name</h1>
+        <div class="card-text">
+            <div class="card-rate">
+                @for (int i = 1; i <= 5; i++)
+                {
+                    if (i <= Math.Floor(Model.Rating))
+                    {
+                        <i class="fa fa-star" style="color: gold;"></i>
+                    }
+                    else if (i == Math.Ceiling(Model.Rating) && Model.Rating % 1 == 0.5)
+                    {
+                        <i class="fa fa-star-half-alt" style="color: gold;"></i>
+                    }
+                    else
+                    {
+                        <i class="fa fa-star-o"></i>
+                    }
+                }
+                <span>@Model.Rating.ToString("0.0")/5</span>
             </div>
-        }
-    }
+
+            <div class="price">
+                <h5>@Model.Unit@Model.Price</h5>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+
 

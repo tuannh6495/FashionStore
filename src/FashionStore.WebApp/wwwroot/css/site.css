@@ -143,37 +143,6 @@ navbar-logo a:visited {
     background-color: #f2f0f1;
 }
 
-.main-banner {
-    position: relative; /* Đặt phần tử có vị trí tương đối để ảnh có thể đè lên */
-}
-
-
-.custom-heading {
-    font-family: 'Integral CF', sans-serif; /* Sử dụng font-family tùy chỉnh */
-    font-size: 64px; /* Kích thước font */
-    font-weight: 700; /* Độ đậm của font */
-    line-height: 64px; /* Chiều cao dòng */
-    text-align: left; /* Canh trái văn bản */
-    margin: 0; /* Loại bỏ margin mặc định */
-}
-
-/* Font chữ chung cho tất cả các liên kết */
-.brand-link {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-    .brand-link:hover {
-        color: white; /* Giữ nguyên màu chữ */
-    }
-
-.container-1 {
-    max-width: 100% !important;
-    width: 1440px;
-    height: 663px;
-    flex-shrink: 0;
-}
 
 
 
