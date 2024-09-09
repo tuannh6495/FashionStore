@@ -4,8 +4,12 @@ const maxHandle = document.getElementById('maxHandle');
 const range = document.querySelector('.slider-range');
 const minPrice = document.getElementById('minPrice');
 const maxPrice = document.getElementById('maxPrice');
-
 let isDragging = null;
+
+const MIN_PRICE = 0;
+const MAX_PRICE = 250;
+const DEFAULT_MIN = 50;
+const DEFAULT_MAX = 200;
 
 function setHandlePosition(handle, position) {
     const sliderRect = slider.getBoundingClientRect();
@@ -25,8 +29,8 @@ function updateRange() {
 function updatePrices() {
     const minPos = parseFloat(minHandle.style.left) / 100;
     const maxPos = parseFloat(maxHandle.style.left) / 100;
-    const minValue = Math.round(50 + (minPos * 150));
-    const maxValue = Math.round(50 + (maxPos * 150));
+    const minValue = Math.round(MIN_PRICE + (minPos * (MAX_PRICE - MIN_PRICE)));
+    const maxValue = Math.round(MIN_PRICE + (maxPos * (MAX_PRICE - MIN_PRICE)));
     minPrice.textContent = `$${minValue}`;
     maxPrice.textContent = `$${maxValue}`;
     minPrice.style.left = minHandle.style.left;
@@ -53,16 +57,22 @@ function drag(e) {
     updatePrices();
 }
 
+function initializeSlider() {
+    const minPos = (DEFAULT_MIN - MIN_PRICE) / (MAX_PRICE - MIN_PRICE);
+    const maxPos = (DEFAULT_MAX - MIN_PRICE) / (MAX_PRICE - MIN_PRICE);
+    setHandlePosition(minHandle, slider.getBoundingClientRect().left + minPos * slider.offsetWidth);
+    setHandlePosition(maxHandle, slider.getBoundingClientRect().left + maxPos * slider.offsetWidth);
+    updateRange();
+    updatePrices();
+}
+
 minHandle.addEventListener('mousedown', startDragging);
 maxHandle.addEventListener('mousedown', startDragging);
 document.addEventListener('mousemove', drag);
 document.addEventListener('mouseup', stopDragging);
 
-// Initialize handle positions
-setHandlePosition(minHandle, slider.getBoundingClientRect().left + 51);  // 51px from left as in SVG
-setHandlePosition(maxHandle, slider.getBoundingClientRect().right - 50); // 50px from right as in SVG
-updateRange();
-updatePrices();
+// Initialize the slider when the page loads
+window.addEventListener('load', initializeSlider);
 
 function selectColor(element) {
     // Bỏ tích từ các màu trước đó
