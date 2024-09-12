@@ -7,56 +7,61 @@
 <link rel="stylesheet" href="~/css/Index.css" asp-append-version="true" />
 
 <div class="container-fluid mast-head">
-    <div class="row align-items-center">
-        <div class="col-lg-6 py-5" style="margin-left: 5%;">
-            <div class="row headline">FIND CLOTHES THAT MATCHES YOUR STYLE</div>
-            <div class="row masthead-desc" style="width: 545px; height: 33px;">Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.</div>
-            <a asp-controller="Shop" asp-action="Index" class="btn btn-dark btn-lg" style="width: 210px; height: 52px; margin-bottom: 48px; border-radius: 25px;">Shop Now</a>
+    <div class="row banner-lap align-items-center">
+        <div class="col-lg-7 col-12">
+            <div class="headline">FIND CLOTHES THAT MATCHES YOUR STYLE</div>
+            <div class="masthead-desc">Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.</div>
+            <a asp-controller="Shop" asp-action="Index" class="btn btn-dark btn-lg shop-btn">Shop Now</a>
             <div class="row statistic">
-                <div class="col-4">
+                <div class="col-lg-3 col-5">
                     <h3>200+</h3>
                     <p>International Brands</p>
                 </div>
-                <div class="col-4">
+                <div class="separator col-2"></div>
+                <div class="col-lg-3 col-5">
                     <h3>2,000+</h3>
                     <p>High-Quality Products</p>
                 </div>
-                <div class="col-4">
+                <div class="separator-2"></div>
+                <div class="col-lg-3 col-12">
                     <h3>30,000+</h3>
                     <p>Happy Customers</p>
                 </div>
             </div>
         </div>
+        <div class="col-lg-5 col-12 d-none d-lg-block"></div>
+    </div>
 
-        <div class="col-lg-6 invisible">
-
+    <div class="row d-lg-none">
+        <div class="col-12">
+            <img src="/Images/back-mobile.png" alt="Mobile Banner Image" class="mobile-banner-image">
         </div>
     </div>
 </div>
 
 <div class="container-fluid bg-dark text-white mb-5" style="padding-left: 5%; padding-right: 5%;">
     <div class="row brand-nav text-center align-items-center justify-content-between" style="height: 122px;">
-        <div class="col-lg-2 col-sm">
+        <div class="col-lg-2 col-4 brand-item">
             <h5>
                 <a asp-controller="Brand" asp-action="Details" asp-route-name="Versace"> <img src="\Images\Versace.png" alt="Versace"></a>
             </h5>
         </div>
-        <div class="col-lg-2 col-sm">
+        <div class="col-lg-2 col-4 brand-item">
             <h5>
                 <a asp-controller="Brand" asp-action="Details" asp-route-name="Zara"> <img src="\Images\Zara.png" alt="Zara"></a>
             </h5>
         </div>
-        <div class="col-lg-2 col-sm">
+        <div class="col-lg-2 col-4 brand-item">
             <h5>
                 <a asp-controller="Brand" asp-action="Details" asp-route-name="Gucci"> <img src="\Images\Gucci.png" alt="Gucci"></a>
             </h5>
         </div>
-        <div class="col-lg-2 col-sm">
+        <div class="col-lg-2 col-6 brand-item">
             <h5>
                 <a asp-controller="Brand" asp-action="Details" asp-route-name="Prada"> <img src="\Images\Prada.png" alt="Prada"></a>
             </h5>
         </div>
-        <div class="col-lg-2 col-sm">
+        <div class="col-lg-2 col-6 brand-item">
             <h5>
                 <a asp-controller="Brand" asp-action="Details" asp-route-name="CalvinKlein"> <img src="\Images\CalvinKlein.png" alt="CalvinKlein"></a>
             </h5>
@@ -65,17 +70,17 @@
 </div>
 
 <div class="container-fluid outstanding-product mb-5" style="padding-left: 7%; padding-right: 7%;">
-    <div class = "container-fluid new-arrivals mb-5">
+    <div class="container-fluid new-arrivals mb-5">
         <div class="text-center my-5">
             <h1 class="outstanding">NEW ARRIVALS</h1>
         </div>
 
-        <div class="row">
+        <div class="row product-row">
             @foreach (var product in Model.Products1)
             {
-                    <div class="col-md-3">
+                <div class="col-md-3 col-3">
                     @await Component.InvokeAsync("ProductCard", product)
-                    </div>
+                </div>
             }
         </div>
 
@@ -95,10 +100,10 @@
             <h1 class="outstanding">TOP SELLING</h1>
         </div>
 
-        <div class="row">
+        <div class="row product-row">
             @foreach (var product in Model.Products2)
             {
-                <div class="col-md-3">
+                <div class="col-md-3 col-3">
                     @await Component.InvokeAsync("ProductCard", product)
                 </div>
             }
@@ -117,9 +122,9 @@
     <div class="card p-5 shadow-sm" style="background-color: #F2F2F2; border-radius: 40px;">
         <h3 class="outstanding my-5">BROWSE BY DRESS STYLE</h3>
 
-        <div class="row mt-4 d-flex">
-            <div class="col-md-4 mb-3 d-flex">
-                <div class="card w-100" style="border-radius: 20px; overflow: hidden;">
+        <div class="row mt-4">
+            <div class="col-md-4 col-12 mb-3 d-flex">
+                <div class="card ds-card w-100" style="border-radius: 20px; overflow: hidden;">
                     <img src="\Images\CasualDS.png" class="card-img" style="object-fit: cover; height: 100%; width: 100%;">
                     <div class="card-img-overlay">
                         <h5 class="card-title fs-1">Casual</h5>
@@ -127,8 +132,8 @@
                 </div>
             </div>
 
-            <div class="col-md-8 mb-3 d-flex">
-                <div class="card w-100" style=" border-radius: 20px; overflow: hidden;">
+            <div class="col-md-8 col-12 mb-3 d-flex">
+                <div class="card ds-card w-100" style=" border-radius: 20px; overflow: hidden;">
                     <img src="\Images\FormalDS.png" class="card-img" style="object-fit: cover; height: 100%; width: 100%;">
                     <div class="card-img-overlay">
                         <h5 class="card-title fs-1">Formal</h5>
@@ -137,9 +142,9 @@
             </div>
         </div>
 
-        <div class="row d-flex">
-            <div class="col-md-8 mb-3 d-flex">
-                <div class="card w-100" style=" border-radius: 20px; overflow: hidden;">
+        <div class="row">
+            <div class="col-md-8 col-12 mb-3 d-flex">
+                <div class="card ds-card w-100" style=" border-radius: 20px; overflow: hidden;">
                     <img src="\Images\PartyDS.png" class="card-img" style="object-fit: cover; height: 100%; width: 100%;">
                     <div class="card-img-overlay">
                         <h5 class="card-title fs-1">Party</h5>
@@ -147,8 +152,8 @@
                 </div>
             </div>
 
-            <div class="col-md-4 mb-3 d-flex">
-                <div class="card w-100" style=" border-radius: 20px; overflow: hidden;">
+            <div class="col-md-4 col-12 mb-3 d-flex">
+                <div class="card ds-card w-100" style=" border-radius: 20px; overflow: hidden;">
                     <img src="\Images\GymDS.png" class="card-img" style="object-fit: cover; height: 100%; width: 100%;">
                     <div class="card-img-overlay">
                         <h5 class="card-title fs-1">Gym</h5>
@@ -158,6 +163,89 @@
         </div>
     </div>
 </div>
+
+<div class=".container-fluid mt-5">
+    <div class="d-flex justify-content-between align-items-center" style="padding-left: 7%; padding-right: 7%;">
+        <h3 class="outstanding-feedback">OUR HAPPY CUSTOMERS</h3>
+        <div class="feedback-nav">
+            <i class="fa-solid fa-arrow-left nav-button left"></i>
+            <i class="fa-solid fa-arrow-right nav-button right"></i>
+        </div>
+    </div>
+
+    <div class="feedback-container">
+        <div class="feedback-row">
+            <div class="feedback-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="customer-name">Sarah M.
+                    <img src="\Images\Frame.jpg">
+                </p>
+                <p class="customer-feedback">
+                    "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations."
+                </p>
+            </div>
+            <div class="feedback-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="customer-name">Alex K.
+                    <img src="\Images\Frame.jpg">
+                </p>
+                <p class="customer-feedback">
+                    "Finding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The range of options they offer is truly remarkable, catering to a variety of tastes and occasions."
+                </p>
+            </div>
+            <div class="feedback-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="customer-name">James L.
+                    <img src="\Images\Frame.jpg">
+                </p>
+                <p class="customer-feedback">
+                    "As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends."
+                </p>
+            </div>
+            <div class="feedback-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="customer-name">Moona T. 
+                    <img src="\Images\Frame.jpg">
+                </p>
+                <p class="customer-feedback">
+                    "I was pleasantly surprised by the quality of the clothes I received from Shop.co. The fit is perfect, and the styles are so trendy! I can't wait to shop here again for my next wardrobe update."
+                </p>
+            </div>
+            <div class="feedback-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="customer-name">Emily R.
+                    <img src="\Images\Frame.jpg">
+                </p>
+                <p class="customer-feedback">
+                    "Shop.co has become my go-to for fashion! The variety is amazing, and I've found pieces that are both stylish and comfortable. Every time I wear something from here, I get compliments!"
+                </p>
+            </div>
+            <div class="feedback-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="customer-name">Michael T.
+                    <img src="\Images\Frame.jpg">
+                </p>
+                <p class="customer-feedback">
+                    "I love how easy it is to find outfits that suit my style at Shop.co. Their collection is fresh and unique, and I appreciate the attention to detail in every piece. Highly recommend to everyone!"
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const feedbackRow = document.querySelector('.feedback-row');
+    const leftButton = document.querySelector('.nav-button.left');
+    const rightButton = document.querySelector('.nav-button.right');
+
+    leftButton.addEventListener('click', () => {
+        feedbackRow.scrollBy({ left: -300, behavior: 'smooth' }); 
+    });
+
+    rightButton.addEventListener('click', () => {
+        feedbackRow.scrollBy({ left: 300, behavior: 'smooth' }); 
+    });
+</script>
 
 
 

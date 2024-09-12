@@ -14,3 +14,16 @@
 .card-img-top {
     border-radius: 20px;
 }
+
+@media (max-width: 390px) {
+    .product-row {
+        display: flex; 
+        overflow: hidden; 
+        flex-wrap: nowrap;
+        width: 100%;
+    }
+
+    .col-3 {
+        flex: 0 0 50%;
+    }
+}
