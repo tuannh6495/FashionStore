@@ -1,0 +1,29 @@
+﻿.custom-card {
+    border: none;
+}
+
+.card-title {
+    color: #000;
+    font-family: Satoshi;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.card-img-top {
+    border-radius: 20px;
+}
+
+@media (max-width: 390px) {
+    .product-row {
+        display: flex; 
+        overflow: hidden; 
+        flex-wrap: nowrap;
+        width: 100%;
+    }
+
+    .col-3 {
+        flex: 0 0 50%;
+    }
+}
