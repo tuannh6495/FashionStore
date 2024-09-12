@@ -76,7 +76,7 @@
         </div>
 
         <div class="row product-row">
-            @foreach (var product in Model.Products1)
+            @foreach (var product in Model.NewArrivals)
             {
                 <div class="col-md-3 col-3">
                     @await Component.InvokeAsync("ProductCard", product)
@@ -101,7 +101,7 @@
         </div>
 
         <div class="row product-row">
-            @foreach (var product in Model.Products2)
+            @foreach (var product in Model.TopSelling)
             {
                 <div class="col-md-3 col-3">
                     @await Component.InvokeAsync("ProductCard", product)

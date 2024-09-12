@@ -7,15 +7,15 @@ namespace FashionStore.WebApp.Pages;
 public class IndexModel : PageModel
 {
     private readonly ILogger<IndexModel> _logger;
-    public List<Product> Products1;
-    public List<Product> Products2;
+    public List<Product> NewArrivals;
+    public List<Product> TopSelling;
     public IndexModel(ILogger<IndexModel> logger)
     {
         _logger = logger;
     }
     public void OnGet()
     {
-        Products1 = new List<Product>
+        NewArrivals = new List<Product>
         {
             new Product { ImageUrl = "/Images/TWTD.png", Name = "T-shirt with Tape Details", Rating = 4.5, Unit = "$", Price = 120 },
             new Product { ImageUrl = "/Images/SFJ.png", Name = "Skinny Fit Jeans", Rating = 3.5, Unit = "$", Price = 240 },
@@ -23,7 +23,7 @@ public class IndexModel : PageModel
             new Product { ImageUrl = "/Images/SST.png", Name = "Sleeve Striped T-shirt", Rating = 4.5, Unit = "$", Price = 130 }
         };
 
-        Products2 = new List<Product>
+        TopSelling = new List<Product>
         {
             new Product { ImageUrl = "/Images/VerticalStripedShirt.png", Name = "Vertical Striped Shirt", Rating = 5, Unit = "$", Price = 212 },
             new Product { ImageUrl = "/Images/CourageGraphicT-shirt.png", Name = "Courage Graphic T-shirt", Rating = 4.0, Unit = "$", Price = 145 },
