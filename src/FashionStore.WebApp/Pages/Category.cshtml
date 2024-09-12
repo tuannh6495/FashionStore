@@ -4,9 +4,9 @@
     ViewData["Title"] = "Category";
 }
 
-<div class="container" style="padding-left: 0px;padding-right: 0px">
-    <div class="row">
-        <div class="col-3" style="padding-right: 0px">
+<div class=".container-fluid">
+    <div class="row" >
+        <div class="col-md-3" style="padding-left:7%">
             <div class="in-line">
                 <a asp-controller="Home" asp-action="Category" asp-route-name="Home" class="select-text">Home</a>
                 <div class="icon">
@@ -14,46 +14,28 @@
                 </div>
                 <a asp-controller="Casual" asp-action="Category" asp-route-name="Casual" class="text-page">Casual</a>
             </div>
-            <div class="filters-box" style="flex: 1;">
+           
+            <div class="filters-box">
                 <div class="row-layout">
                     <h1 class="header-text">Filter</h1>
-                    <div class="icon">
+                    <div class="close-icon"></div>
+                    <!-- Nội dung filter box của bạn ở đây -->
+                    <div class="icon-select">
                         <img src="/Images/Select.png" alt="Icon" class="icon-image">
                     </div>
                 </div>
 
                 <div class="line"></div>
 
-                <div class="row-layout">
-                    <a asp-controller="Product" asp-action="Category" asp-route-name="T-shirts" class="select-text">T-shirts</a>
-                    <div class="icon">
-                        <img src="/Images/Right.png" alt="Icon" class="icon-image">
+                @foreach (var category in Model.Category)
+                {
+                    <div class="row-layout">
+                        <div class="select-text">@category</div>
+                        <div class="icon">
+                            <img src="/Images/Right.png" alt="Icon" class="icon-image">
+                        </div>
                     </div>
-                </div>
-                <div class="row-layout">
-                    <a asp-controller="Product" asp-action="Category" asp-route-name="Shorts" class="select-text">Shorts</a>
-                    <div class="icon">
-                        <img src="/Images/Right.png" alt="Icon" class="icon-image">
-                    </div>
-                </div>
-                <div class="row-layout">
-                    <a asp-controller="Product" asp-action="Category" asp-route-name="Shirts" class="select-text">Shirts</a>
-                    <div class="icon">
-                        <img src="/Images/Right.png" alt="Icon" class="icon-image">
-                    </div>
-                </div>
-                <div class="row-layout">
-                    <a asp-controller="Product" asp-action="Category" asp-route-name="Hoodie" class="select-text">Hoodie</a>
-                    <div class="icon">
-                        <img src="/Images/Right.png" alt="Icon" class="icon-image">
-                    </div>
-                </div>
-                <div class="row-layout">
-                    <a asp-controller="Product" asp-action="Category" asp-route-name="Jeans" class="select-text">Jeans</a>
-                    <div class="icon">
-                        <img src="/Images/Right.png" alt="Icon" class="icon-image">
-                    </div>
-                </div>
+                }
 
                 <div class="line"></div>
 
@@ -84,41 +66,12 @@
                         <img src="/Images/Up.png" alt="Icon" class="icon-image">
                     </div>
                 </div>
-
                 <div class="colors">
-                    <div class="circle" onclick="selectColor(this)">
-                        <img src="/Images/Ellipse 1.png" alt="Icon" class="icon-image">
-                    </div>
-                    <div class="circle" onclick="selectColor(this)">
-                        <img src="/Images/Ellipse 2.png" alt="Icon" class="icon-image">
-                    </div>
-                    <div class="circle" onclick="selectColor(this)">
-                        <img src="/Images/Ellipse 3.png" alt="Icon" class="icon-image">
-                    </div>
-                    <div class="circle" onclick="selectColor(this)">
-                        <img src="/Images/Ellipse 4.png" alt="Icon" class="icon-image">
-                    </div>
-                    <div class="circle" onclick="selectColor(this)">
-                        <img src="/Images/Ellipse 5.png" alt="Icon" class="icon-image">
-                    </div>
-                </div>
-
-                <div class="colors">
-                    <div class="circle" onclick="selectColor(this)">
-                        <img src="/Images/Ellipse 6.png" alt="Icon" class="icon-image">
-                    </div>
-                    <div class="circle" onclick="selectColor(this)">
-                        <img src="/Images/Ellipse 7.png" alt="Icon" class="icon-image">
-                    </div>
-                    <div class="circle" onclick="selectColor(this)">
-                        <img src="/Images/Ellipse 8.png" alt="Icon" class="icon-image">
-                    </div>
-                    <div class="circle" onclick="selectColor(this)">
-                        <img src="/Images/Ellipse 9.png" alt="Icon" class="icon-image">
-                    </div>
-                    <div class="circle" onclick="selectColor(this)">
-                        <img src="/Images/Ellipse 10.png" alt="Icon" class="icon-image">
-                    </div>
+                    @foreach (var color in Model.Colors)
+                    {
+                        <div class="circle" style="background-color: @color; border: 1px solid #00000033;" onclick="selectColor(this)">
+                        </div>
+                    }
                 </div>
 
                 <div class="line"></div>
@@ -131,7 +84,7 @@
                 </div>
 
                 <div class="size">
-                    @foreach (var size in new[] { "XX-Small", "X-Small", "Small", "Medium", "Large", "X-Large", "XX-Large", "3X-Large", "4X-Large" })
+                    @foreach (var size in Model.Sizes)
                     {
                         <div class="size-box">@size</div>
                     }
@@ -146,46 +99,18 @@
                     </div>
                 </div>
 
-                <div class="row-layout">
-                    <a href="#" class="select-text">Casual</a>
-                    <div class="icon">
-                        <img src="/Images/Right.png" alt="Icon" class="icon-image">
+                @foreach (var category in Model.Categories)
+                {
+                    <div class="row-layout">
+                        <div class="select-text">@category.Name</div>
+                        <div class="icon">
+                            <img src="/Images/Right.png" alt="Icon" class="icon-image">
+                        </div>
                     </div>
-                </div>
-                <div class="row-layout">
-                    <a href="#" class="select-text">Formal</a>
-                    <div class="icon">
-                        <img src="/Images/Right.png" alt="Icon" class="icon-image">
-                    </div>
-                </div>
-                <div class="row-layout">
-                    <a href="#" class="select-text">Party</a>
-                    <div class="icon">
-                        <img src="/Images/Right.png" alt="Icon" class="icon-image">
-                    </div>
-                </div>
-                <div class="row-layout">
-                    <a href="#" class="select-text">Gym</a>
-                    <div class="icon">
-                        <img src="/Images/Right.png" alt="Icon" class="icon-image">
-                    </div>
-                </div>
+                }
                 <a asp-controller="Home" asp-action="Filter" class="apply-filter">Apply Filter</a>
             </div>
-        </div>
-        <div class="col-9" style="padding-left: 0px;">
-            <div class="row-layout" style="margin-top: 70px">
-                <h1 class=".text-shop">Casual</h1>
-                <div class="in-line">
-                    <p class="showing">Showing 1-10 of 100 Products</p>
-                    <p class="showing">
-                        Sort by: <span class="most-popular">Most Popular</span>
-                    </p>
-                    <div class="icon">
-                        <img src="/Images/Down.png" alt="Icon" class="icon-image">
-                    </div>
-                </div>
-            </div>          
+           
         </div>
     </div>
 </div>

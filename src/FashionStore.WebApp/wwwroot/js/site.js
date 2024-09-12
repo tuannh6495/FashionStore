@@ -38,6 +38,7 @@ function updatePrices() {
 }
 
 function startDragging(e) {
+    e.preventDefault();
     isDragging = e.target;
 }
 
@@ -47,11 +48,12 @@ function stopDragging() {
 
 function drag(e) {
     if (!isDragging) return;
-    const newPos = setHandlePosition(isDragging, e.clientX);
+    const clientX = e.clientX || e.touches[0].clientX; // Xử lý cho cả chuột và cảm ứng
+    const newPos = setHandlePosition(isDragging, clientX);
     if (isDragging === minHandle && newPos > parseFloat(maxHandle.style.left) / 100) {
-        setHandlePosition(minHandle, maxHandle.getBoundingClientRect().left);
+        setHandlePosition(minHandle, parseFloat(maxHandle.style.left) / 100 * slider.offsetWidth);
     } else if (isDragging === maxHandle && newPos < parseFloat(minHandle.style.left) / 100) {
-        setHandlePosition(maxHandle, minHandle.getBoundingClientRect().left);
+        setHandlePosition(maxHandle, parseFloat(minHandle.style.left) / 100 * slider.offsetWidth);
     }
     updateRange();
     updatePrices();
@@ -66,13 +68,19 @@ function initializeSlider() {
     updatePrices();
 }
 
+// Xử lý sự kiện cho cả chuột và cảm ứng
 minHandle.addEventListener('mousedown', startDragging);
+minHandle.addEventListener('touchstart', startDragging);
 maxHandle.addEventListener('mousedown', startDragging);
+maxHandle.addEventListener('touchstart', startDragging);
 document.addEventListener('mousemove', drag);
+document.addEventListener('touchmove', drag);
 document.addEventListener('mouseup', stopDragging);
+document.addEventListener('touchend', stopDragging);
 
 // Initialize the slider when the page loads
 window.addEventListener('load', initializeSlider);
+;
 
 function selectColor(element) {
     // Bỏ tích từ các màu trước đó
@@ -90,3 +98,17 @@ function selectColor(element) {
     tickImage.classList.add('tick');
     element.appendChild(tickImage);
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const sizeBoxes = document.querySelectorAll('.size-box');
+
+    sizeBoxes.forEach(box => {
+        box.addEventListener('click', function () {
+            // Loại bỏ class 'selected' khỏi tất cả các ô
+            sizeBoxes.forEach(b => b.classList.remove('selected'));
+
+            // Thêm class 'selected' vào ô được nhấp
+            this.classList.add('selected');
+        });
+    });
+});
