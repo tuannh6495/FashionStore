@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace XTLAB
+namespace ProductVC
 {
     public class ProductCard : ViewComponent
     {

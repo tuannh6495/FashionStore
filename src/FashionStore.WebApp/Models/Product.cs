@@ -1,4 +1,4 @@
-﻿namespace XTLAB
+﻿namespace ProductVC
 {
     public class Product
     {
