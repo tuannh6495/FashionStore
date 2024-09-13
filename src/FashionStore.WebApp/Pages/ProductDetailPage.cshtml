@@ -1,0 +1,94 @@
+﻿@page
+@model FashionStore.WebApp.Pages.ProductDetailPageModel
+@using ProductVC
+@{
+	ViewData["Title"] = "Product Detail Page";
+}
+
+<div class="container">
+    <div class="in-line">
+        <a class="select-text">Home</a>
+        <div class="icon">
+            <img src="/Images/Right.png" alt="Icon" class="icon-image">
+        </div>
+        <a class="select-text">Shop</a>
+        <div class="icon">
+            <img src="/Images/Right.png" alt="Icon" class="icon-image">
+        </div>
+        <a class="select-text">Men</a>
+        <div class="icon">
+            <img src="/Images/Right.png" alt="Icon" class="icon-image">
+        </div>
+        <a class="text-page">T-shirts</a>
+    </div>
+    <!-- Cột chính -->
+    <div class="row pt-5">
+        <div class="col-12 col-md-6" >
+            <!-- Bên trong cột chính có các cột con -->
+            <div class="row">
+                <div class="col-3 d-flex flex-column gap-14">
+                    <div class="product-photo" style="background: url('/Images/OneLifeGraphicT-Shirt_Big.png') lightgray 50% / cover no-repeat;"></div>
+
+                    <div class="product-photo" style="background:  url('/Images/OneLifeGraphicT-Shirt_Big_Back.png') lightgray 50% / cover no-repeat;"></div>
+
+                    <div class="product-photo" style="background:  url('/Images/modeldress.png') lightgray 50% / cover no-repeat;"></div>
+                </div>
+      
+                <div class="col-9" style="padding-right: 0;">
+                    <div class="product-main-photo" style="background: url('/Images/OneLifeGraphicT-Shirt_Big.png') lightgray 50% / cover no-repeat;">
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6" style="padding: 0;">
+            <div class="main-text-style">
+                One Life Graphic T-shirt
+            </div>
+            <div class="star-rating">
+                <div class="rating">
+                    <i class="fa fa-star checked"></i>
+                    <i class="fa fa-star checked"></i>
+                    <i class="fa fa-star checked"></i>
+                    <i class="fa fa-star checked"></i>
+                    <i class="fa fa-star-half-alt checked"></i>
+                </div>
+
+                <div class="rating-container">
+                    <span class="rating-current">4.5</span>/<span class="rating-total">5</span>
+                </div>
+            </div>
+
+            <div class="price-container">
+                <span class="price-original">$260</span><span class="price-discount">$300</span>
+                <span class="discount">-40%</span>
+            </div>
+
+            <div class="describe">
+                This graphic t-shirt which is perfect for any occasion. Crafted from a soft and<br> breathable fabric, it offers superior comfort and style.
+            </div>
+
+            <div class="divider"></div>
+
+            <span class="select-colors">Select Colors</span>
+
+            <div class="colors">
+                @foreach (var color in Model.Colors)
+                {
+                    <div class="circle" style="background-color: @color; border: 1px solid #00000033;" onclick="selectColor(this)">
+                    </div>
+                }
+            </div>
+
+            <div class="divider"></div>
+
+            <span class="select-colors">Choose Size</span>
+
+            <div class="size">
+                @foreach (var size in Model.Sizes)
+                {
+                    <div class="size-box">@size</div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

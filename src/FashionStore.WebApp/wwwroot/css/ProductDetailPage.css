@@ -1,0 +1,268 @@
+﻿.container {
+    user-select: none; /* Ngăn chặn việc chọn văn bản và con trỏ nhập liệu xuất hiện */
+}
+.in-line
+{
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.select-text {
+    color: rgba(0, 0, 0, 0.60);
+    font-family: 'Satoshi', sans-serif; /* Đảm bảo font-family 'Satoshi' đã được tải */
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none; /* Loại bỏ gạch chân */
+    cursor: pointer; /* Hiệu ứng con trỏ khi di chuột vào */
+    transition: color 0.3s ease, background-color 0.3s ease; /* Hiệu ứng chuyển đổi màu sắc */
+    padding: 5px; /* Thêm khoảng cách xung quanh văn bản */
+}
+
+    /* Hiệu ứng khi di chuột qua phần tử */
+    .select-text:hover {
+        color: rgba(0, 0, 0, 0.80); /* Thay đổi màu chữ khi di chuột qua */
+    }
+
+    /* Hiệu ứng khi chạm cảm ứng hoặc nhấn */
+    .select-text:active {
+        color: rgba(0, 0, 0, 0.90); /* Thay đổi màu chữ khi chạm vào */
+    }
+
+.text-page {
+    color: #000;
+    font-family: Satoshi;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none; /* Bỏ gạch chân */
+}
+
+    .text-page:hover {
+        color: #000; /* Giữ màu không đổi khi trỏ vào */
+        text-decoration: none; /* Bỏ gạch chân khi trỏ vào */
+    }
+
+    .text-page:active {
+        color: rgba(0, 0, 0, 0.90); /* Thay đổi màu chữ khi chạm vào */
+    }
+
+.product-photo {
+    width: 152px;
+    height: 168px;
+    border-radius: 20px;
+    flex-shrink: 0;
+    background: lightgray 50%;
+    cursor: pointer; /* Hiển thị con trỏ chuột khi di chuột vào */
+    transition: border 0.3s ease; /* Hiệu ứng chuyển tiếp khi thay đổi border */
+}
+
+    .product-photo:hover {
+        border: 1px solid #000; /* Hiển thị đường viền khi chuột trỏ vào */
+    }
+
+    .product-photo.selected {
+        border: 1px solid #000; /* Đường viền khi phần tử được chọn */
+    }
+
+.product-main-photo {
+    width: 444px;
+    height: 531px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: lightgray 50%;
+}
+
+.gap-14 {
+    gap: 14px; /* Tạo khoảng cách giữa các phần tử */
+}
+
+.main-text-style {
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    width:auto;
+    height:auto;
+    color: black;
+    background-color: white;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    display: inline-block;
+    letter-spacing: 1px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.star-rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.rating {
+    display: flex;
+    align-items: flex-start; /* Căn chỉnh các sao với lề trên của container */
+    gap: 7.1px; /* Khoảng cách giữa các sao */
+}
+
+    .rating .fa-star,
+    .rating .fa-star-half-alt {
+        font-size: 24px; /* Kích thước sao */
+        color: #ccc; /* Màu sao mặc định (xám) */
+    }
+
+    .rating .checked {
+        color: #ffcc00; /* Màu vàng cho các sao được chọn */
+    }
+
+.rating-container {
+    font-family: Satoshi, sans-serif; /* Đảm bảo font-family được áp dụng cho toàn bộ phần tử */
+}
+
+.rating-current {
+    color: #000; /* Màu đen cho số hiện tại */
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.rating-total {
+    color: rgba(0, 0, 0, 0.60); /* Màu xám nhạt cho số tổng */
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.price-container {
+    font-family: Satoshi; /* Đảm bảo font-family được áp dụng cho toàn bộ phần tử */
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.price-original {
+    color: #000;
+    font-family: Satoshi;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.price-discount {
+    color: rgba(0, 0, 0, 0.30);
+    font-family: Satoshi;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.discount {
+    display: inline-flex;
+    padding: 6px 14px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    border-radius: 62px;
+    background: rgba(255, 51, 51, 0.10);
+    color: #f33;
+    font-family: satoshi;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.describe {
+    color: rgba(0, 0, 0, 0.60);
+    font-family: Satoshi;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px; /* 137.5% */
+    margin-top: 20px;
+}
+
+.divider {
+    width: auto;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.10);
+    margin: 20px 0; /* Optional: Thêm khoảng cách trên và dưới dòng kẻ */
+}
+
+.select-colors {
+    color: rgba(0, 0, 0, 0.60);
+    font-family: Satoshi;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.colors {
+    display: flex;
+    width: auto;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap; /* Cho phép các vòng tròn xuống dòng nếu không còn đủ chỗ trên cùng một dòng */
+    gap: 10px; /* Khoảng cách giữa các vòng tròn */
+    margin-top: 16px;
+}
+
+.circle {
+    width: 37px;
+    height: 37px;
+    flex-shrink: 0;
+    stroke-width: 1px;
+    stroke: rgba(0, 0, 0, 0.20);
+    position: relative; /* Để đặt vị trí của ảnh tick */
+    border-radius: 50%; /* Đảm bảo các vòng tròn có bo tròn */
+    cursor: pointer; /* Con trỏ chuột sẽ thay đổi khi di chuyển qua các vòng tròn */
+    overflow: hidden; /* Đảm bảo ảnh tick không tràn ra ngoài vòng tròn */
+    transition: border 0.3s ease, stroke-width 0.3s ease; /* Hiệu ứng chuyển đổi mượt mà cho border và stroke-width */
+}
+
+
+    .circle img.tick {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 20px; /* Kích thước của ảnh tick */
+        height: 20px;
+        opacity: 1; /* Đảm bảo ảnh tick rõ hơn */
+        transition: opacity 0.3s ease; /* Hiệu ứng chuyển đổi mượt mà cho opacity */
+    }
+
+.size {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.size-box {
+    display: flex;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    border-radius: 62px;
+    background: #F0F0F0;
+    color: rgba(0, 0, 0, 0.60);
+    font-family: Satoshi;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    transition: background 0.3s, color 0.3s; /* Hiệu ứng chuyển màu khi hover */
+}
