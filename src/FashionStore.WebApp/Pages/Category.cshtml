@@ -1,0 +1,116 @@
+﻿@page
+@model CategoryModel
+@{
+    ViewData["Title"] = "Category";
+}
+
+<div class=".container-fluid">
+    <div class="row" >
+        <div class="col-md-3" style="padding-left:7%">
+            <div class="in-line">
+                <a asp-controller="Home" asp-action="Category" asp-route-name="Home" class="select-text">Home</a>
+                <div class="icon">
+                    <img src="/Images/Right.png" alt="Icon" class="icon-image">
+                </div>
+                <a asp-controller="Casual" asp-action="Category" asp-route-name="Casual" class="text-page">Casual</a>
+            </div>
+           
+            <div class="filters-box">
+                <div class="row-layout">
+                    <h1 class="header-text">Filter</h1>                 
+                    <div class="icon-select">
+                        <img src="/Images/Select.png" alt="Icon" class="icon-image">
+                    </div>
+                </div>
+
+                <div class="line"></div>
+
+                @foreach (var category in Model.Category)
+                {
+                    <div class="row-layout">
+                        <div class="select-text">@category</div>
+                        <div class="icon">
+                            <img src="/Images/Right.png" alt="Icon" class="icon-image">
+                        </div>
+                    </div>
+                }
+
+                <div class="line"></div>
+
+                <div class="price">
+                    <div class="row-layout">
+                        <h1 class="header-text">Price</h1>
+                        <div class="icon">
+                            <img src="/Images/Up.png" alt="Icon" class="icon-image">
+                        </div>
+                    </div>
+                    <div class="price-slider">
+                        <div class="slider-track"></div>
+                        <div class="slider-range"></div>
+                        <div class="slider-handle" id="minHandle"></div>
+                        <div class="slider-handle" id="maxHandle"></div>
+                        <div class="price-values">
+                        </div>
+                        <div class="price-value" id="minPrice">$50</div>
+                        <div class="price-value" id="maxPrice">$200</div>
+                    </div>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="row-layout">
+                    <h1 class="header-text">Colors</h1>
+                    <div class="icon">
+                        <img src="/Images/Up.png" alt="Icon" class="icon-image">
+                    </div>
+                </div>
+                <div class="colors">
+                    @foreach (var color in Model.Colors)
+                    {
+                        <div class="circle" style="background-color: @color; border: 1px solid #00000033;" onclick="selectColor(this)">
+                        </div>
+                    }
+                </div>
+
+                <div class="line"></div>
+
+                <div class="row-layout">
+                    <h1 class="header-text">Size</h1>
+                    <div class="icon">
+                        <img src="/Images/Up.png" alt="Icon" class="icon-image">
+                    </div>
+                </div>
+
+                <div class="size">
+                    @foreach (var size in Model.Sizes)
+                    {
+                        <div class="size-box">@size</div>
+                    }
+                </div>
+
+                <div class="line"></div>
+
+                <div class="row-layout">
+                    <h1 class="header-text">Dress Style</h1>
+                    <div class="icon">
+                        <img src="/Images/Up.png" alt="Icon" class="icon-image">
+                    </div>
+                </div>
+
+                @foreach (var category in Model.Categories)
+                {
+                    <div class="row-layout">
+                        <div class="select-text">@category.Name</div>
+                        <div class="icon">
+                            <img src="/Images/Right.png" alt="Icon" class="icon-image">
+                        </div>
+                    </div>
+                }
+                <a asp-controller="Home" asp-action="Filter" class="apply-filter">Apply Filter</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

@@ -1,0 +1,400 @@
+﻿
+.filters-box {
+    margin-top: 24px;
+    display: flex;
+    width: 295px;
+    padding: 20px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    user-select: none; /* Ngăn chặn việc chọn văn bản và con trỏ nhập liệu xuất hiện */
+    transition: all 0.3s ease-in-out;
+}
+
+.filter-icon {
+    display: none;
+    z-index: 1100; /* Đảm bảo giá trị này cao hơn các phần tử khác */
+}
+
+/* adjust filters-box for the specific mobile view */
+@media  (max-width: 394px) {
+    .filters-box {
+        display:none;
+        width: 393px;
+        height: 844px;
+        position: absolute;
+        top: 93px;
+        left: 0;
+        background-color: #fff;
+        z-index: 9999;
+        overflow-y: auto;
+        padding: 20px;
+        flex-shrink: 0;
+        gap: 20px;
+    }
+
+   
+    
+}
+ 
+.text-page {
+    color: #000;
+    font-family: Satoshi;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none; /* Bỏ gạch chân */
+}
+
+    .text-page:hover {
+        color: #000; /* Giữ màu không đổi khi trỏ vào */
+        text-decoration: none; /* Bỏ gạch chân khi trỏ vào */
+    }
+
+.in-line {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+
+
+    .row-layout {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        align-self: stretch;
+    }
+
+    .header-text {
+        color: #000;
+        font-family: Satoshi;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin-bottom: 0px;
+    }
+
+    .line {
+        width: 247px;
+        height: 1px;
+        background: rgba(0, 0, 0, 0.10);
+    }
+
+@media (max-width: 394px) {
+    .line {
+        width: 247px;
+        height: 4px;
+        background-color:#000;
+    }
+}
+
+
+.select-text {
+    color: rgba(0, 0, 0, 0.60);
+    font-family: 'Satoshi', sans-serif; /* Đảm bảo font-family 'Satoshi' đã được tải */
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none; /* Loại bỏ gạch chân */
+    cursor: pointer; /* Hiệu ứng con trỏ khi di chuột vào */
+    transition: color 0.3s ease, background-color 0.3s ease; /* Hiệu ứng chuyển đổi màu sắc */
+    padding: 5px; /* Thêm khoảng cách xung quanh văn bản */
+}
+
+    /* Hiệu ứng khi di chuột qua phần tử */
+    .select-text:hover {
+        color: rgba(0, 0, 0, 0.80); /* Thay đổi màu chữ khi di chuột qua */
+    }
+
+    /* Hiệu ứng khi chạm cảm ứng hoặc nhấn */
+    .select-text:active {
+        color: rgba(0, 0, 0, 0.90); /* Thay đổi màu chữ khi chạm vào */
+    }
+
+
+
+    .price {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        align-self: stretch;
+        padding-bottom: 0px;
+        justify-content: space-between;
+    }
+
+    .price-slider {
+        width: 247px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        position: relative;
+        height: 20px;
+        padding-bottom: 20px; /* Add space for labels */
+    }
+
+        .price-slider .slider-track {
+            width: 100%;
+            height: 6px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #F0F0F0;
+            border-radius: 3px;
+        }
+
+        .price-slider .slider-range {
+            height: 6px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: black;
+            border-radius: 3px;
+        }
+
+        .price-slider .slider-handle {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: black;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+        }
+
+    .price-values {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 5px;
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    .price-value {
+        position: absolute;
+        top: 100%;
+        transform: translateX(-50%);
+        margin-top: 5px;
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+@media only screen and (max-width: 394px) {
+    .price-slider {
+        width: 353px;
+        height: 6px;
+        padding-bottom: 0; /* Loại bỏ khoảng cách dưới */
+        justify-content: center; /* Căn giữa theo chiều ngang */
+    }
+
+        .price-slider .slider-track,
+        .price-slider .slider-range {
+            height: 6px; /* Đặt chiều cao phù hợp với kích thước mong muốn */
+            border-radius: 3px;
+        }
+
+        .price-slider .slider-handle {
+            width: 12px; /* Giảm kích thước của tay cầm cho màn hình nhỏ */
+            height: 12px;
+            top: 50%; /* Đảm bảo tay cầm nằm ở giữa thanh trượt */
+        }
+
+    .price-values {
+        font-size: 12px; /* Giảm kích thước chữ cho giá trị giá */
+    }
+}
+
+
+    .filter-section {
+        width: auto;
+        height: 20px;
+        flex-shrink: 0;
+        position: relative;
+    }
+
+
+    .form-range {
+        width: 100%;
+    }
+
+    .select-colors {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        align-self: stretch;
+        padding-bottom: 0px;
+    }
+
+    .icon {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        align-self: stretch;
+        padding-bottom: 0px;
+    }
+
+.icon-select {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    padding-bottom: 0px;
+    /* Thêm các thuộc tính khác ở đây */
+}
+
+.colors {
+    display: flex;
+    width: auto;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap; /* Cho phép các vòng tròn xuống dòng nếu không còn đủ chỗ trên cùng một dòng */
+    gap: 10px; /* Khoảng cách giữa các vòng tròn */
+}
+
+    .circle {
+        width: 37px;
+        height: 37px;
+        flex-shrink: 0;
+        stroke-width: 1px;
+        stroke: rgba(0, 0, 0, 0.20);
+        position: relative; /* Để đặt vị trí của ảnh tick */
+        border-radius: 50%; /* Đảm bảo các vòng tròn có bo tròn */
+        cursor: pointer; /* Con trỏ chuột sẽ thay đổi khi di chuyển qua các vòng tròn */
+        overflow: hidden; /* Đảm bảo ảnh tick không tràn ra ngoài vòng tròn */
+        transition: border 0.3s ease, stroke-width 0.3s ease; /* Hiệu ứng chuyển đổi mượt mà cho border và stroke-width */
+    }
+
+
+        .circle img.tick {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px; /* Kích thước của ảnh tick */
+            height: 20px;
+            opacity: 1; /* Đảm bảo ảnh tick rõ hơn */
+            transition: opacity 0.3s ease; /* Hiệu ứng chuyển đổi mượt mà cho opacity */
+        }
+
+
+
+    .size {
+        display: flex;
+        width: 247px;
+        align-items: flex-start;
+        align-content: flex-start;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .size-box {
+        display: flex;
+        padding: 10px 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        border-radius: 62px;
+        background: #F0F0F0;
+        color: rgba(0, 0, 0, 0.60);
+        font-family: Satoshi;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        transition: background 0.3s, color 0.3s; /* Hiệu ứng chuyển màu khi hover */
+    }
+
+@media (max-width: 394px) {
+    .size-box {
+        display: flex;
+        padding: 10px 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .size {
+        display: flex;
+        width: 353px;
+        align-items: flex-start;
+        align-content: flex-start;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+}
+
+        .size-box:hover {
+            background: #000; /* Màu nền khi hover */
+            color: #fff; /* Màu chữ khi hover */
+        }
+
+        .size-box.selected {
+            background: #000; /* Màu nền đen cho ô được chọn */
+            color: #fff; /* Màu chữ trắng khi được chọn */
+        }
+
+    .apply-filter {
+        display: flex;
+        height: 48px;
+        padding: 16px ;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        flex-shrink: 0;
+        align-self: stretch;
+        border-radius: 62px;
+        background: #000;
+        color: #FFF;
+        font-family: Satoshi;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        cursor: pointer; /* Hiển thị con trỏ khi hover */
+
+        text-decoration: none; /* Bỏ gạch chân */
+    }
+
+        .apply-filter:hover {
+            background: #e0e0e0; /* Đổi màu nền khi hover (nếu muốn), không đổi màu chữ */
+            color: rgba(0, 0, 0, 0.60); /* Giữ nguyên màu chữ khi hover */
+            text-decoration: none; /* Đảm bảo không có gạch chân khi hover */
+        }
+
+
+    .text-shop {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        align-self: stretch;
+    }
+
+    .showing {
+        color: rgba(0, 0, 0, 0.60);
+        font-family: Satoshi;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .most-popular {
+        color: #000;
+        font-family: Satoshi;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
