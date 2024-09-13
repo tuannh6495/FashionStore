@@ -1,0 +1,188 @@
+﻿/*CSS cho banner*/
+.banner-lap {
+    background-image: url('/images/rectangle 2.jpg');
+    background-size: auto 100%;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-color: #f2f0f1;
+    height: 663px;
+}
+
+.mast-head {
+    background-color: #F2F0F1;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 7%;
+}
+
+.headline {
+    margin-bottom: 16px;
+    font-family: "Integral CF";
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1.2;
+    max-width: 80%;
+}
+
+.masthead-desc {
+    color: rgba(0, 0, 0, 0.60);
+    font-family: Satoshi;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    max-width: 70%;
+}
+
+.shop-btn {
+    width: 210px;
+    height: 52px;
+    margin-bottom: 32px;
+    border-radius: 25px;
+}
+
+.statistic {
+    margin-top: 32px;
+}
+
+    .statistic h3 {
+        color: #000;
+        font-family: Satoshi;
+        font-size: 2rem;
+    }
+
+    .statistic p {
+        color: rgba(0, 0, 0, 0.60);
+        font-family: Satoshi;
+        font-size: 1rem;
+    }
+
+.separator, .separator-2 {
+    width: 1px;
+    height: 74px;
+    background-color: transparent;
+    border-left: 1px solid rgba(0, 0, 0, 0.10);
+}
+
+.mobile-banner-image {
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 390px) {
+    .banner-lap {
+        background-image: none;
+        height: auto;
+        padding: 16px !important;
+    }
+
+    .mast-head {
+        padding: 0 !important;
+    }
+
+    .shop-btn {
+        width: 100% !important;
+    }
+
+    .headline {
+        max-width: 100% !important;
+        font-size: 2rem;
+    }
+
+    .masthead-desc {
+        max-width: 100% !important;
+        font-size: 0.875rem;
+    }
+
+    .statistic {
+        margin-top: 0 !important;
+        display: flex;
+        justify-content: space-between;
+    }
+
+        .statistic h3 {
+            font-size: 1.5rem;
+        }
+
+        .statistic .col-12, .statistic .col-5 {
+            text-align: center;
+        }
+
+        .statistic .col-2 {
+            padding-right: 0;
+            height: 52px;
+        }
+
+    .separator-2 {
+        display: none;
+    }
+}
+
+.brand-item img {
+    max-width: 100%;
+}
+
+.outstanding, .outstanding-feedback {
+    color: #000;
+    text-align: center;
+    font-family: "Integral CF";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+@media (max-width: 390px) {
+    .outstanding, .outstanding-feedback {
+        font-size: 2rem;
+    }
+
+    .ds-card img {
+        height: 200px !important;
+    }
+}
+
+
+
+/*CSS cho Feedback*/
+.feedback-container {
+    position: relative; 
+    overflow: hidden;
+}
+
+.feedback-row {
+    display: flex;
+    overflow-x: auto; 
+    padding: 10px 0; 
+}
+
+.feedback-container::before,
+.feedback-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 50px;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+    z-index: 1;
+}
+
+.feedback-container::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+.feedback-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+@media (max-width: 390px) {
+    .outstanding-feedback {
+        text-align: left;
+    }
+}
+
+
