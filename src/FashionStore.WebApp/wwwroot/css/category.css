@@ -22,6 +22,7 @@
 /* adjust filters-box for the specific mobile view */
 @media  (max-width: 394px) {
     .filters-box {
+        display:none;
         width: 393px;
         height: 844px;
         position: absolute;
@@ -35,15 +36,10 @@
         gap: 20px;
     }
 
-    .row-layout .icon-select img {
-        content: url('/Images/close.png'); /* Replace with the close icon */
-        display: block; /* Ensure the icon is displayed */
-    }
+   
     
 }
  
-        
-
 .text-page {
     color: #000;
     font-family: Satoshi;
