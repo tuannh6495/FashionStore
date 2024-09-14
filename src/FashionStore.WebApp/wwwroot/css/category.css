@@ -1,5 +1,4 @@
-﻿
-.filters-box {
+﻿.filters-box {
     margin-top: 24px;
     display: flex;
     width: 295px;
@@ -19,10 +18,17 @@
     z-index: 1100; /* Đảm bảo giá trị này cao hơn các phần tử khác */
 }
 
-/* adjust filters-box for the specific mobile view */
-@media  (max-width: 394px) {
+@media (max-width: 390px) {
+    .genre-ds {
+        padding-left: 16px !important;
+    }
+
+    .casual-category .col-md-9 {
+        padding: 0 !important;
+    }
+
     .filters-box {
-        display:none;
+        display: none;
         width: 393px;
         height: 844px;
         position: absolute;
@@ -35,25 +41,7 @@
         flex-shrink: 0;
         gap: 20px;
     }
-
-   
-    
 }
- 
-.text-page {
-    color: #000;
-    font-family: Satoshi;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-decoration: none; /* Bỏ gạch chân */
-}
-
-    .text-page:hover {
-        color: #000; /* Giữ màu không đổi khi trỏ vào */
-        text-decoration: none; /* Bỏ gạch chân khi trỏ vào */
-    }
 
 .in-line {
     display: inline-flex;
@@ -64,185 +52,176 @@
 
 
 
-    .row-layout {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        align-self: stretch;
-    }
+.row-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+}
 
-    .header-text {
-        color: #000;
-        font-family: Satoshi;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-        margin-bottom: 0px;
-    }
+.header-text {
+    color: #000;
+    font-family: Satoshi;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 0px;
+}
 
-    .line {
-        width: 247px;
-        height: 1px;
-        background: rgba(0, 0, 0, 0.10);
-    }
+.line {
+    width: 247px;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.10);
+}
 
 @media (max-width: 394px) {
     .line {
         width: 247px;
         height: 4px;
-        background-color:#000;
+        background-color: #000;
     }
 }
 
 
 .select-text {
     color: rgba(0, 0, 0, 0.60);
-    font-family: 'Satoshi', sans-serif; /* Đảm bảo font-family 'Satoshi' đã được tải */
+    font-family: 'Satoshi', sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    text-decoration: none; /* Loại bỏ gạch chân */
-    cursor: pointer; /* Hiệu ứng con trỏ khi di chuột vào */
-    transition: color 0.3s ease, background-color 0.3s ease; /* Hiệu ứng chuyển đổi màu sắc */
-    padding: 5px; /* Thêm khoảng cách xung quanh văn bản */
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-    /* Hiệu ứng khi di chuột qua phần tử */
     .select-text:hover {
-        color: rgba(0, 0, 0, 0.80); /* Thay đổi màu chữ khi di chuột qua */
+        color: rgba(0, 0, 0, 0.80);
     }
 
-    /* Hiệu ứng khi chạm cảm ứng hoặc nhấn */
-    .select-text:active {
-        color: rgba(0, 0, 0, 0.90); /* Thay đổi màu chữ khi chạm vào */
+.price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    padding-bottom: 0px;
+    justify-content: space-between;
+}
+
+.price-slider {
+    width: 247px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    position: relative;
+    height: 20px;
+    padding-bottom: 20px;
+}
+
+    .price-slider .slider-track {
+        width: 100%;
+        height: 6px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #F0F0F0;
+        border-radius: 3px;
     }
 
-
-
-    .price {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        align-self: stretch;
-        padding-bottom: 0px;
-        justify-content: space-between;
+    .price-slider .slider-range {
+        height: 6px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: black;
+        border-radius: 3px;
     }
 
-    .price-slider {
-        width: 247px;
-        margin-top: 10px;
-        margin-bottom: 20px;
-        position: relative;
+    .price-slider .slider-handle {
+        width: 20px;
         height: 20px;
-        padding-bottom: 20px; /* Add space for labels */
-    }
-
-        .price-slider .slider-track {
-            width: 100%;
-            height: 6px;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: #F0F0F0;
-            border-radius: 3px;
-        }
-
-        .price-slider .slider-range {
-            height: 6px;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: black;
-            border-radius: 3px;
-        }
-
-        .price-slider .slider-handle {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: black;
-            position: absolute;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            cursor: pointer;
-        }
-
-    .price-values {
+        border-radius: 50%;
+        background: black;
         position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        display: flex;
-        justify-content: space-between;
-        margin-top: 5px;
-        font-weight: bold;
-        font-size: 14px;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
     }
 
-    .price-value {
-        position: absolute;
-        top: 100%;
-        transform: translateX(-50%);
-        margin-top: 5px;
-        font-weight: bold;
-        font-size: 14px;
-    }
+.price-values {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.price-value {
+    position: absolute;
+    top: 100%;
+    transform: translateX(-50%);
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
 
 @media only screen and (max-width: 394px) {
     .price-slider {
         width: 353px;
         height: 6px;
-        padding-bottom: 0; /* Loại bỏ khoảng cách dưới */
-        justify-content: center; /* Căn giữa theo chiều ngang */
+        padding-bottom: 0;
+        justify-content: center;
     }
 
         .price-slider .slider-track,
         .price-slider .slider-range {
-            height: 6px; /* Đặt chiều cao phù hợp với kích thước mong muốn */
+            height: 6px;
             border-radius: 3px;
         }
 
         .price-slider .slider-handle {
-            width: 12px; /* Giảm kích thước của tay cầm cho màn hình nhỏ */
+            width: 12px;
             height: 12px;
-            top: 50%; /* Đảm bảo tay cầm nằm ở giữa thanh trượt */
+            top: 50%;
         }
 
     .price-values {
-        font-size: 12px; /* Giảm kích thước chữ cho giá trị giá */
+        font-size: 12px;
     }
 }
 
 
-    .filter-section {
-        width: auto;
-        height: 20px;
-        flex-shrink: 0;
-        position: relative;
-    }
+.filter-section {
+    width: auto;
+    height: 20px;
+    flex-shrink: 0;
+    position: relative;
+}
 
 
-    .form-range {
-        width: 100%;
-    }
+.form-range {
+    width: 100%;
+}
 
-    .select-colors {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        align-self: stretch;
-        padding-bottom: 0px;
-    }
+.select-colors {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    padding-bottom: 0px;
+}
 
-    .icon {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        align-self: stretch;
-        padding-bottom: 0px;
-    }
+.icon {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    padding-bottom: 0px;
+}
 
 .icon-select {
     display: flex;
@@ -250,7 +229,6 @@
     align-items: flex-start;
     align-self: stretch;
     padding-bottom: 0px;
-    /* Thêm các thuộc tính khác ở đây */
 }
 
 .colors {
@@ -258,62 +236,62 @@
     width: auto;
     justify-content: flex-start;
     align-items: center;
-    flex-wrap: wrap; /* Cho phép các vòng tròn xuống dòng nếu không còn đủ chỗ trên cùng một dòng */
-    gap: 10px; /* Khoảng cách giữa các vòng tròn */
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-    .circle {
-        width: 37px;
-        height: 37px;
-        flex-shrink: 0;
-        stroke-width: 1px;
-        stroke: rgba(0, 0, 0, 0.20);
-        position: relative; /* Để đặt vị trí của ảnh tick */
-        border-radius: 50%; /* Đảm bảo các vòng tròn có bo tròn */
-        cursor: pointer; /* Con trỏ chuột sẽ thay đổi khi di chuyển qua các vòng tròn */
-        overflow: hidden; /* Đảm bảo ảnh tick không tràn ra ngoài vòng tròn */
-        transition: border 0.3s ease, stroke-width 0.3s ease; /* Hiệu ứng chuyển đổi mượt mà cho border và stroke-width */
+.circle {
+    width: 37px;
+    height: 37px;
+    flex-shrink: 0;
+    stroke-width: 1px;
+    stroke: rgba(0, 0, 0, 0.20);
+    position: relative;
+    border-radius: 50%;
+    cursor: pointer;
+    overflow: hidden;
+    transition: border 0.3s ease, stroke-width 0.3s ease;
+}
+
+
+    .circle img.tick {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 20px;
+        height: 20px;
+        opacity: 1;
+        transition: opacity 0.3s ease;
     }
 
 
-        .circle img.tick {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 20px; /* Kích thước của ảnh tick */
-            height: 20px;
-            opacity: 1; /* Đảm bảo ảnh tick rõ hơn */
-            transition: opacity 0.3s ease; /* Hiệu ứng chuyển đổi mượt mà cho opacity */
-        }
 
+.size {
+    display: flex;
+    width: 247px;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 8px;
+    flex-wrap: wrap;
+}
 
-
-    .size {
-        display: flex;
-        width: 247px;
-        align-items: flex-start;
-        align-content: flex-start;
-        gap: 8px;
-        flex-wrap: wrap;
-    }
-
-    .size-box {
-        display: flex;
-        padding: 10px 20px;
-        justify-content: center;
-        align-items: center;
-        gap: 12px;
-        border-radius: 62px;
-        background: #F0F0F0;
-        color: rgba(0, 0, 0, 0.60);
-        font-family: Satoshi;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        transition: background 0.3s, color 0.3s; /* Hiệu ứng chuyển màu khi hover */
-    }
+.size-box {
+    display: flex;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    border-radius: 62px;
+    background: #F0F0F0;
+    color: rgba(0, 0, 0, 0.60);
+    font-family: Satoshi;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    transition: background 0.3s, color 0.3s;
+}
 
 @media (max-width: 394px) {
     .size-box {
@@ -334,67 +312,172 @@
     }
 }
 
-        .size-box:hover {
-            background: #000; /* Màu nền khi hover */
-            color: #fff; /* Màu chữ khi hover */
-        }
+.size-box:hover {
+    background: #000;
+    color: #fff;
+}
 
-        .size-box.selected {
-            background: #000; /* Màu nền đen cho ô được chọn */
-            color: #fff; /* Màu chữ trắng khi được chọn */
-        }
+.size-box.selected {
+    background: #000;
+    color: #fff;
+}
 
-    .apply-filter {
-        display: flex;
-        height: 48px;
-        padding: 16px ;
-        justify-content: center;
-        align-items: center;
-        gap: 12px;
-        flex-shrink: 0;
-        align-self: stretch;
-        border-radius: 62px;
-        background: #000;
-        color: #FFF;
-        font-family: Satoshi;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
-        cursor: pointer; /* Hiển thị con trỏ khi hover */
+.apply-filter {
+    display: flex;
+    height: 48px;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    align-self: stretch;
+    border-radius: 62px;
+    background: #000;
+    color: #FFF;
+    font-family: Satoshi;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    cursor: pointer;
+    text-decoration: none;
+}
 
-        text-decoration: none; /* Bỏ gạch chân */
-    }
-
-        .apply-filter:hover {
-            background: #e0e0e0; /* Đổi màu nền khi hover (nếu muốn), không đổi màu chữ */
-            color: rgba(0, 0, 0, 0.60); /* Giữ nguyên màu chữ khi hover */
-            text-decoration: none; /* Đảm bảo không có gạch chân khi hover */
-        }
-
-
-    .text-shop {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        align-self: stretch;
-    }
-
-    .showing {
+    .apply-filter:hover {
+        background: #e0e0e0;
         color: rgba(0, 0, 0, 0.60);
-        font-family: Satoshi;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
+        text-decoration: none;
     }
 
-    .most-popular {
+
+.text-shop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+}
+
+.showing {
+    color: rgba(0, 0, 0, 0.60);
+    font-family: Satoshi;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.most-popular {
+    color: #000;
+    font-family: Satoshi;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.name-ds {
+    color: #000;
+    font-family: Satoshi;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.classify, .classify-form {
+    color: rgba(0, 0, 0, 0.60);
+    font-family: Satoshi;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+@media (max-width: 390px) {
+    .show-ds {
+        margin-bottom: 24px!important;
+    }
+    .d-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .grid-item:nth-child(n+7) {
+        display: none;
+    }
+
+    .name-ds {
+        font-size: 24px;
+        margin-right: -65px;
+    }
+
+    .classify {
+        font-size: 14px;
+    }
+
+    .classify-form {
+        display: none !important;
+    }
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    margin-bottom: 0px;
+}
+
+    .pagination li {
+        margin: 0 auto;
+    }
+
+    .pagination a {
+        text-decoration: none;
+        color: rgba(0, 0, 0, 0.5);
+        padding: 8px 12px;
+        border: none;
+        font-size: 14px;
+    }
+
+    .pagination .active a {
+        background-color: rgba(0, 0, 0, 0.06);
+        font-weight: bold;
+        color: rgba(0, 0, 0, 1);
+        border-radius: 8px;
+    }
+
+    .pagination .dots {
+        cursor: default;
+        pointer-events: none;
+    }
+
+    .pagination a:hover {
+        background-color: #f0f0f0;
         color: #000;
-        font-family: Satoshi;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
     }
 
+.circle-btn {
+    background-color: #f0f0f0;
+    border-radius: 62px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+    .circle-btn i {
+        font-size: 24px;
+        color: #333;
+    }
+
+    .circle-btn:hover {
+        background-color: #e0e0e0;
+    }
+
+@media (max-width: 390px) {
+    .circle-btn {
+        display: flex;
+    }
+}
