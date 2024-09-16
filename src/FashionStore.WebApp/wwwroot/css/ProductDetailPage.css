@@ -9,6 +9,12 @@
     margin-top: 24px;
 }
 
+.icon-image {
+    width: 24px;
+    height: 24px;
+    object-fit: contain; /* Giúp giữ nguyên tỷ lệ ảnh */
+}
+
 .select-text {
     color: rgba(0, 0, 0, 0.60);
     font-family: 'Satoshi', sans-serif; /* Đảm bảo font-family 'Satoshi' đã được tải */
@@ -20,6 +26,34 @@
     cursor: pointer; /* Hiệu ứng con trỏ khi di chuột vào */
     transition: color 0.3s ease, background-color 0.3s ease; /* Hiệu ứng chuyển đổi màu sắc */
     padding: 5px; /* Thêm khoảng cách xung quanh văn bản */
+}
+
+@media (max-width: 390px) {
+    .in-line {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 20px;
+    }
+
+    .icon-image {
+        width: 12px;
+        height: 12px;
+        object-fit: contain; /* Giúp giữ nguyên tỷ lệ ảnh */
+    }
+
+    .select-text {
+        color: rgba(0, 0, 0, 0.60);
+        font-family: 'Satoshi', sans-serif; /* Đảm bảo font-family 'Satoshi' đã được tải */
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-decoration: none; /* Loại bỏ gạch chân */
+        cursor: pointer; /* Hiệu ứng con trỏ khi di chuột vào */
+        transition: color 0.3s ease, background-color 0.3s ease; /* Hiệu ứng chuyển đổi màu sắc */
+        padding: 5px; /* Thêm khoảng cách xung quanh văn bản */
+    }
 }
 
     /* Hiệu ứng khi di chuột qua phần tử */
@@ -77,9 +111,50 @@
     background: lightgray 50%;
 }
 
+@media (max-width: 390px) {
+    /* Kích thước ảnh nhỏ */
+    .product-photo {
+        width: 112px;
+        height: 106px;
+        border-radius: 20px;
+        background-size: cover;
+        flex-shrink: 0;
+    }
+
+    /* Kích thước ảnh lớn */
+    .product-main-photo {
+        width: 358px;
+        height: 290px;
+        border-radius: 20px;
+        background-size: cover;
+        flex-shrink: 0;
+        margin-bottom: 12px;
+    }
+
+    .row {
+        padding-top: 1rem !important;
+    }
+
+    /* Căn chỉnh ảnh nhỏ nằm ngang */
+    .col-3 {
+        display: flex;
+        flex-direction: row !important;
+        gap: 12px;
+        order: 2; /* Đưa cột ảnh nhỏ xuống dưới */
+    }
+
+    .col-9 {
+        width: 100%; /* Ảnh lớn chiếm toàn bộ chiều ngang */
+        order: 1; /* Đưa cột ảnh lớn lên trên */
+       
+    }
+}
+
+
 .gap-14 {
     gap: 14px; /* Tạo khoảng cách giữa các phần tử */
 }
+
 
 .main-text-style {
     font-family: 'Roboto', sans-serif;
@@ -95,8 +170,19 @@
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
+@media (max-width: 390px) {
+    .main-text-style {
+        color: #000;
+        font-family: "Integral CF";
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 28px; /* 116.667% */
+    }
+}
+
 .star-rating {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     gap: 16px;
 }
@@ -189,6 +275,17 @@
     margin-top: 20px;
 }
 
+@media (max-width: 390px) {
+    .describe {
+        color: rgba(0, 0, 0, 0.60);
+        font-family: Satoshi;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 358;
+        line-height: 22px; /* 137.5% */
+        margin-top: 20px;
+    }
+}
 .divider {
     width: auto;
     height: 1px;
@@ -240,6 +337,43 @@
         transition: opacity 0.3s ease; /* Hiệu ứng chuyển đổi mượt mà cho opacity */
     }
 
+@media (max-width: 390px) {
+    .colors {
+        display: flex;
+        width: auto;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap; /* Cho phép các vòng tròn xuống dòng nếu không còn đủ chỗ trên cùng một dòng */
+        gap: 12.3px; /* Khoảng cách giữa các vòng tròn */
+        margin-top: 16px;
+    }
+
+    .circle {
+        width: 39.135px;
+        height: 39.135px;
+        flex-shrink: 0;
+        stroke-width: 1px;
+        stroke: rgba(0, 0, 0, 0.20);
+        position: relative; /* Để đặt vị trí của ảnh tick */
+        border-radius: 50%; /* Đảm bảo các vòng tròn có bo tròn */
+        cursor: pointer; /* Con trỏ chuột sẽ thay đổi khi di chuyển qua các vòng tròn */
+        overflow: hidden; /* Đảm bảo ảnh tick không tràn ra ngoài vòng tròn */
+        transition: border 0.3s ease, stroke-width 0.3s ease; /* Hiệu ứng chuyển đổi mượt mà cho border và stroke-width */
+    }
+
+
+        .circle img.tick {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px; /* Kích thước của ảnh tick */
+            height: 20px;
+            opacity: 1; /* Đảm bảo ảnh tick rõ hơn */
+            transition: opacity 0.3s ease; /* Hiệu ứng chuyển đổi mượt mà cho opacity */
+        }
+}
+
 .size {
     display: flex;
     width: 100%;
@@ -278,6 +412,36 @@
         color: white; /* Chữ trắng khi được chọn */
     }
 
+@media (max-width: 390px) {
+    .size {
+        display: flex;
+        width: 100%;
+        align-items: flex-start;
+        align-content: flex-start;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 16px;
+    }
+
+    .size-box {
+        display: flex;
+        padding: 10px 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        border-radius: 62px;
+        background: #F0F0F0;
+        color: rgba(0, 0, 0, 0.60);
+        font-family: Satoshi;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        transition: background 0.3s, color 0.3s; /* Hiệu ứng chuyển màu khi hover */
+        cursor: pointer; /* Thay đổi con trỏ khi hover */
+    }
+}
+
 .check-out {
     display: flex;
     width: 100%;
@@ -297,6 +461,23 @@
     flex-shrink: 0;
     border-radius: 62px;
     background: #F0F0F0;
+    cursor: pointer; /* Thay đổi con trỏ khi hover */
+}
+
+#quantity-display {
+    margin: 0 10px;
+    color: #000;
+    font-family: Satoshi;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 .add-to-cart {
@@ -310,4 +491,83 @@
     flex-shrink: 0;
     border-radius: 62px;
     background: #000;
+    color: #FFF;
+    font-family: Satoshi;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    cursor: pointer; /* Hiển thị con trỏ khi hover */
+}
+    .add-to-cart:hover {
+        background: #e0e0e0; /* Đổi màu nền khi hover (nếu muốn), không đổi màu chữ */
+        color: rgba(0, 0, 0, 0.60); /* Giữ nguyên màu chữ khi hover */
+        text-decoration: none; /* Đảm bảo không có gạch chân khi hover */
+    }
+
+@media (max-width: 390px) {
+    .check-out {
+        display: flex;
+        width: 100%;
+        align-items: flex-start;
+        align-content: flex-start;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+    .quantity-button {
+        display: flex;
+        width: 110px;
+        height: 44px;
+        padding: 12px 16px;
+        justify-content: space-between;
+        align-items: center;
+        flex-shrink: 0;
+        border-radius: 62px;
+        background: #F0F0F0;
+        cursor: pointer; /* Thay đổi con trỏ khi hover */
+    }
+
+    #quantity-display {
+        margin: 0 10px;
+        color: #000;
+        font-family: Satoshi;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    .icon-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+
+    .add-to-cart {
+        display: flex;
+        width: 222px;
+        height: 44px;
+        padding: 16px 54px;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        flex-shrink: 0;
+        border-radius: 62px;
+        background: #000;
+        color: #FFF;
+        font-family: Satoshi;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        cursor: pointer; /* Hiển thị con trỏ khi hover */
+    }
+
+        .add-to-cart:hover {
+            background: #e0e0e0; /* Đổi màu nền khi hover (nếu muốn), không đổi màu chữ */
+            color: rgba(0, 0, 0, 0.60); /* Giữ nguyên màu chữ khi hover */
+            text-decoration: none; /* Đảm bảo không có gạch chân khi hover */
+        }
+
 }

@@ -58,3 +58,32 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+
+//sử lý số tăng giảm
+// Lấy các phần tử cần thao tác
+const minusButton = document.getElementById("minus-button");
+const plusButton = document.getElementById("plus-button");
+const quantityDisplay = document.getElementById("quantity-display");
+
+// Mặc định số lượng là 1
+let quantity = 1;
+
+// Hàm cập nhật số lượng hiển thị
+function updateQuantityDisplay() {
+    quantityDisplay.textContent = quantity;
+}
+
+// Xử lý khi bấm vào dấu trừ
+minusButton.addEventListener("click", function () {
+    if (quantity > 0) {
+        quantity--;
+        updateQuantityDisplay();
+    }
+});
+
+// Xử lý khi bấm vào dấu cộng
+plusButton.addEventListener("click", function () {
+    quantity++;
+    updateQuantityDisplay();
+});

@@ -5,7 +5,7 @@
 	ViewData["Title"] = "Product Detail Page";
 }
 
-<div class=".container" style="padding-left:7%;padding-right:7%">
+<div class="container" style=" user-select: none;">
     <div class="in-line">
         <a class="select-text">Home</a>
         <div class="icon">
@@ -26,21 +26,21 @@
         <div class="col-12 col-md-6" >
             <!-- Bên trong cột chính có các cột con -->
             <div class="row">
+                <!-- Ảnh nhỏ (nằm dưới ảnh lớn khi màn hình nhỏ) -->
                 <div class="col-3 d-flex flex-column gap-14">
                     <div class="product-photo" style="background: url('/Images/OneLifeGraphicT-Shirt_Big.png') lightgray 50% / cover no-repeat;"></div>
-
-                    <div class="product-photo" style="background:  url('/Images/OneLifeGraphicT-Shirt_Big_Back.png') lightgray 50% / cover no-repeat;"></div>
-
-                    <div class="product-photo" style="background:  url('/Images/modeldress.png') lightgray 50% / cover no-repeat;"></div>
+                    <div class="product-photo" style="background: url('/Images/OneLifeGraphicT-Shirt_Big_Back.png') lightgray 50% / cover no-repeat;"></div>
+                    <div class="product-photo" style="background: url('/Images/modeldress.png') lightgray 50% / cover no-repeat;"></div>
                 </div>
-      
+
+                <!-- Ảnh lớn -->
                 <div class="col-9" style="padding-right: 0;">
-                    <div class="product-main-photo" style="background: url('/Images/OneLifeGraphicT-Shirt_Big.png') lightgray 50% / cover no-repeat;">
-                </div>
+                    <div class="product-main-photo" style="background: url('/Images/OneLifeGraphicT-Shirt_Big.png') lightgray 50% / cover no-repeat;"></div>
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6" style="padding: 0;">
+
+        <div class="col-12 col-md-6" >
             <div class="main-text-style">
                 One Life Graphic T-shirt
             </div>
@@ -65,7 +65,7 @@
             </div>
 
             <div class="describe">
-                This graphic t-shirt which is perfect for any occasion. Crafted from a soft and<br> breathable fabric, it offers superior comfort and style.
+                This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.
             </div>
 
             <div class="divider"></div>
@@ -94,8 +94,22 @@
             <div class="divider"></div>
 
             <div class="check-out">
-                <div class="quantity-button"></div>
-                <div class="add-to-cart"></div>
+                <div class="quantity-button">
+                    <button id="minus-button" class="icon-button">
+                        <img src="/Images/Minus.png" alt="Icon" class="icon-image">
+                    </button>
+
+                    <span id="quantity-display">1</span>
+
+                    <button id="plus-button" class="icon-button">
+                        <img src="/Images/Plus.png" alt="Icon" class="icon-image">
+                    </button>
+                </div>
+
+                <div class="add-to-cart">
+                    <span>Add to Cart</span>
+
+                </div>
             </div>
         </div>
     </div>
