@@ -2,49 +2,42 @@
 @model FashionStore.WebApp.Pages.ProductDetailPageModel
 @using ProductVC
 @{
-	ViewData["Title"] = "Product Detail Page";
+    ViewData["Title"] = "Product Detail Page";
 }
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 <div class="container" style=" user-select: none;">
-    <div class="in-line">
-        <a class="select-text">Home</a>
-        <div class="icon">
-            <img src="/Images/Right.png" alt="Icon" class="icon-image">
-        </div>
-        <a class="select-text">Shop</a>
-        <div class="icon">
-            <img src="/Images/Right.png" alt="Icon" class="icon-image">
-        </div>
-        <a class="select-text">Men</a>
-        <div class="icon">
-            <img src="/Images/Right.png" alt="Icon" class="icon-image">
-        </div>
-        <a class="text-page">T-shirts</a>
+    <div class="pdp-custom-nav">
+        <a href="#">Home</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <a href="#">Shop</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <a href="#">Men</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <a href="#" class="active">T-shirts</a>
     </div>
-    <!-- Cột chính -->
-    <div class="row pt-5">
-        <div class="col-12 col-md-6" >
-            <!-- Bên trong cột chính có các cột con -->
+
+    <div class="row pt-4">
+        <div class="col-12 col-md-6">
             <div class="row">
-                <!-- Ảnh nhỏ (nằm dưới ảnh lớn khi màn hình nhỏ) -->
                 <div class="col-3 d-flex flex-column gap-14">
-                    <div class="product-photo" style="background: url('/Images/OneLifeGraphicT-Shirt_Big.png') lightgray 50% / cover no-repeat;"></div>
-                    <div class="product-photo" style="background: url('/Images/OneLifeGraphicT-Shirt_Big_Back.png') lightgray 50% / cover no-repeat;"></div>
-                    <div class="product-photo" style="background: url('/Images/modeldress.png') lightgray 50% / cover no-repeat;"></div>
+                    <div class="product-photo" data-photo="/Images/OneLifeGraphicT-Shirt_Big.png"></div>
+                    <div class="product-photo" data-photo="/Images/OneLifeGraphicT-Shirt_Big_Back.png"></div>
+                    <div class="product-photo" data-photo="/Images/modeldress.png"></div>
                 </div>
 
-                <!-- Ảnh lớn -->
                 <div class="col-9" style="padding-right: 0;">
-                    <div class="product-main-photo" style="background: url('/Images/OneLifeGraphicT-Shirt_Big.png') lightgray 50% / cover no-repeat;"></div>
+                    <div class="product-main-photo" id="main-photo"></div>
                 </div>
             </div>
         </div>
 
-        <div class="col-12 col-md-6" >
+        <div class="col-12 col-md-6">
             <div class="main-text-style">
                 One Life Graphic T-shirt
             </div>
-            <br/>
+            <br />
             <div class="star-rating">
                 <div class="rating">
                     <i class="fa fa-star checked"></i>
@@ -53,14 +46,14 @@
                     <i class="fa fa-star checked"></i>
                     <i class="fa fa-star-half-alt checked"></i>
                 </div>
-            
+
                 <div class="rating-container">
                     <span class="rating-current">4.5</span>/<span class="rating-total">5</span>
                 </div>
             </div>
 
             <div class="price-container">
-                <span class="price-original">$260</span><span class="price-discount">$300</span>
+                <span class="price-discount">$260</span><span class="price-original">$300</span>
                 <span class="discount">-40%</span>
             </div>
 
@@ -114,3 +107,38 @@
         </div>
     </div>
 </div>
+
+
+@* JS cho ảnh bé và ảnh chính *@
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const productPhotos = document.querySelectorAll('.product-photo');
+        const mainPhoto = document.getElementById('main-photo');
+
+        function updateMainPhoto(photoUrl) {
+            mainPhoto.style.background = `url('/Images/OneLifeGraphicT-Shirt_Big.png') lightgray 50% / cover no-repeat`;
+
+            productPhotos.forEach(photo => photo.classList.remove('selected'));
+
+            productPhotos.forEach(photo => {
+                if (photo.getAttribute('data-photo') === photoUrl) {
+                    photo.classList.add('selected');
+                }
+            });
+        }
+
+        productPhotos.forEach(photo => {
+            const photoUrl = photo.getAttribute('data-photo');
+            photo.style.background = `url('${photoUrl}') lightgray 50% / cover no-repeat`;
+        });
+
+        updateMainPhoto(productPhotos[0].getAttribute('data-photo'));
+
+        productPhotos.forEach(photo => {
+            photo.addEventListener('click', function () {
+                const photoUrl = this.getAttribute('data-photo');
+                updateMainPhoto(photoUrl);
+            });
+        });
+    });
+</script>

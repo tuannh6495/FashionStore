@@ -1,89 +1,18 @@
-﻿.container {
-    user-select: none; /* Ngăn chặn việc chọn văn bản và con trỏ nhập liệu xuất hiện */
-}
-.in-line
-{
+﻿.pdp-custom-nav {
     display: inline-flex;
     align-items: center;
     gap: 12px;
     margin-top: 24px;
 }
 
-.icon-image {
-    width: 24px;
-    height: 24px;
-    object-fit: contain; /* Giúp giữ nguyên tỷ lệ ảnh */
-}
-
-.select-text {
-    color: rgba(0, 0, 0, 0.60);
-    font-family: 'Satoshi', sans-serif; /* Đảm bảo font-family 'Satoshi' đã được tải */
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-decoration: none; /* Loại bỏ gạch chân */
-    cursor: pointer; /* Hiệu ứng con trỏ khi di chuột vào */
-    transition: color 0.3s ease, background-color 0.3s ease; /* Hiệu ứng chuyển đổi màu sắc */
-    padding: 5px; /* Thêm khoảng cách xung quanh văn bản */
-}
-
 @media (max-width: 390px) {
-    .in-line {
+    .pdp-custom-nav {
         display: inline-flex;
         align-items: center;
         gap: 6px;
         margin-top: 20px;
     }
-
-    .icon-image {
-        width: 12px;
-        height: 12px;
-        object-fit: contain; /* Giúp giữ nguyên tỷ lệ ảnh */
-    }
-
-    .select-text {
-        color: rgba(0, 0, 0, 0.60);
-        font-family: 'Satoshi', sans-serif; /* Đảm bảo font-family 'Satoshi' đã được tải */
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        text-decoration: none; /* Loại bỏ gạch chân */
-        cursor: pointer; /* Hiệu ứng con trỏ khi di chuột vào */
-        transition: color 0.3s ease, background-color 0.3s ease; /* Hiệu ứng chuyển đổi màu sắc */
-        padding: 5px; /* Thêm khoảng cách xung quanh văn bản */
-    }
 }
-
-    /* Hiệu ứng khi di chuột qua phần tử */
-    .select-text:hover {
-        color: rgba(0, 0, 0, 0.80); /* Thay đổi màu chữ khi di chuột qua */
-    }
-
-    /* Hiệu ứng khi chạm cảm ứng hoặc nhấn */
-    .select-text:active {
-        color: rgba(0, 0, 0, 0.90); /* Thay đổi màu chữ khi chạm vào */
-    }
-
-.text-page {
-    color: #000;
-    font-family: Satoshi;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-decoration: none; /* Bỏ gạch chân */
-}
-
-    .text-page:hover {
-        color: #000; /* Giữ màu không đổi khi trỏ vào */
-        text-decoration: none; /* Bỏ gạch chân khi trỏ vào */
-    }
-
-    .text-page:active {
-        color: rgba(0, 0, 0, 0.90); /* Thay đổi màu chữ khi chạm vào */
-    }
 
 .product-photo {
     width: 152px;
@@ -91,16 +20,16 @@
     border-radius: 20px;
     flex-shrink: 0;
     background: lightgray 50%;
-    cursor: pointer; /* Hiển thị con trỏ chuột khi di chuột vào */
-    transition: border 0.3s ease; /* Hiệu ứng chuyển tiếp khi thay đổi border */
+    cursor: pointer; 
+    transition: border 0.3s ease;
 }
 
     .product-photo:hover {
-        border: 1px solid #000; /* Hiển thị đường viền khi chuột trỏ vào */
+        border: 1px solid #000; 
     }
 
     .product-photo.selected {
-        border: 1px solid #000; /* Đường viền khi phần tử được chọn */
+        border: 1px solid #000; 
     }
 
 .product-main-photo {
@@ -112,7 +41,6 @@
 }
 
 @media (max-width: 390px) {
-    /* Kích thước ảnh nhỏ */
     .product-photo {
         width: 112px;
         height: 106px;
@@ -121,7 +49,6 @@
         flex-shrink: 0;
     }
 
-    /* Kích thước ảnh lớn */
     .product-main-photo {
         width: 358px;
         height: 290px;
@@ -135,26 +62,24 @@
         padding-top: 1rem !important;
     }
 
-    /* Căn chỉnh ảnh nhỏ nằm ngang */
     .col-3 {
         display: flex;
         flex-direction: row !important;
         gap: 12px;
-        order: 2; /* Đưa cột ảnh nhỏ xuống dưới */
+        order: 2; 
     }
 
     .col-9 {
-        width: 100%; /* Ảnh lớn chiếm toàn bộ chiều ngang */
-        order: 1; /* Đưa cột ảnh lớn lên trên */
+        width: 100%; 
+        order: 1;
        
     }
 }
 
 
 .gap-14 {
-    gap: 14px; /* Tạo khoảng cách giữa các phần tử */
+    gap: 14px; 
 }
-
 
 .main-text-style {
     font-family: 'Roboto', sans-serif;
@@ -177,7 +102,7 @@
         font-size: 24px;
         font-style: normal;
         font-weight: 600;
-        line-height: 28px; /* 116.667% */
+        line-height: 28px; 
     }
 }
 
@@ -189,26 +114,26 @@
 
 .rating {
     display: flex;
-    align-items: flex-start; /* Căn chỉnh các sao với lề trên của container */
-    gap: 7.1px; /* Khoảng cách giữa các sao */
+    align-items: flex-start;
+    gap: 7.1px; 
 }
 
     .rating .fa-star,
     .rating .fa-star-half-alt {
-        font-size: 24px; /* Kích thước sao */
-        color: #ccc; /* Màu sao mặc định (xám) */
+        font-size: 24px; 
+        color: #ccc; 
     }
 
     .rating .checked {
-        color: #ffcc00; /* Màu vàng cho các sao được chọn */
+        color: #ffcc00;
     }
 
 .rating-container {
-    font-family: Satoshi, sans-serif; /* Đảm bảo font-family được áp dụng cho toàn bộ phần tử */
+    font-family: Satoshi, sans-serif; 
 }
 
 .rating-current {
-    color: #000; /* Màu đen cho số hiện tại */
+    color: #000;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -216,7 +141,7 @@
 }
 
 .rating-total {
-    color: rgba(0, 0, 0, 0.60); /* Màu xám nhạt cho số tổng */
+    color: rgba(0, 0, 0, 0.60); 
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -224,14 +149,14 @@
 }
 
 .price-container {
-    font-family: Satoshi; /* Đảm bảo font-family được áp dụng cho toàn bộ phần tử */
+    font-family: Satoshi; 
     display: flex;
     align-items: flex-start;
     gap: 12px;
     margin-top: 14px;
 }
 
-.price-original {
+.price-discount {
     color: #000;
     font-family: Satoshi;
     font-size: 32px;
@@ -240,13 +165,14 @@
     line-height: normal;
 }
 
-.price-discount {
+.price-original {
     color: rgba(0, 0, 0, 0.30);
     font-family: Satoshi;
     font-size: 32px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    text-decoration: line-through;
 }
 
 .discount {
@@ -271,7 +197,7 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 22px; /* 137.5% */
+    line-height: 22px; 
     margin-top: 20px;
 }
 
@@ -282,7 +208,7 @@
         font-size: 14px;
         font-style: normal;
         font-weight: 358;
-        line-height: 22px; /* 137.5% */
+        line-height: 22px; 
         margin-top: 20px;
     }
 }
@@ -290,7 +216,7 @@
     width: auto;
     height: 1px;
     background: rgba(0, 0, 0, 0.10);
-    margin: 20px 0; /* Optional: Thêm khoảng cách trên và dưới dòng kẻ */
+    margin: 20px 0; 
 }
 
 .select-colors {
@@ -307,8 +233,8 @@
     width: auto;
     justify-content: flex-start;
     align-items: center;
-    flex-wrap: wrap; /* Cho phép các vòng tròn xuống dòng nếu không còn đủ chỗ trên cùng một dòng */
-    gap: 10px; /* Khoảng cách giữa các vòng tròn */
+    flex-wrap: wrap; 
+    gap: 10px; 
     margin-top: 16px;
 }
 
@@ -318,11 +244,11 @@
     flex-shrink: 0;
     stroke-width: 1px;
     stroke: rgba(0, 0, 0, 0.20);
-    position: relative; /* Để đặt vị trí của ảnh tick */
-    border-radius: 50%; /* Đảm bảo các vòng tròn có bo tròn */
-    cursor: pointer; /* Con trỏ chuột sẽ thay đổi khi di chuyển qua các vòng tròn */
-    overflow: hidden; /* Đảm bảo ảnh tick không tràn ra ngoài vòng tròn */
-    transition: border 0.3s ease, stroke-width 0.3s ease; /* Hiệu ứng chuyển đổi mượt mà cho border và stroke-width */
+    position: relative; 
+    border-radius: 50%;
+    cursor: pointer; 
+    overflow: hidden;
+    transition: border 0.3s ease, stroke-width 0.3s ease;
 }
 
 
@@ -331,10 +257,10 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 20px; /* Kích thước của ảnh tick */
+        width: 20px; 
         height: 20px;
-        opacity: 1; /* Đảm bảo ảnh tick rõ hơn */
-        transition: opacity 0.3s ease; /* Hiệu ứng chuyển đổi mượt mà cho opacity */
+        opacity: 1; 
+        transition: opacity 0.3s ease;
     }
 
 @media (max-width: 390px) {
@@ -343,8 +269,8 @@
         width: auto;
         justify-content: flex-start;
         align-items: center;
-        flex-wrap: wrap; /* Cho phép các vòng tròn xuống dòng nếu không còn đủ chỗ trên cùng một dòng */
-        gap: 12.3px; /* Khoảng cách giữa các vòng tròn */
+        flex-wrap: wrap; 
+        gap: 12.3px; 
         margin-top: 16px;
     }
 
@@ -354,11 +280,11 @@
         flex-shrink: 0;
         stroke-width: 1px;
         stroke: rgba(0, 0, 0, 0.20);
-        position: relative; /* Để đặt vị trí của ảnh tick */
-        border-radius: 50%; /* Đảm bảo các vòng tròn có bo tròn */
-        cursor: pointer; /* Con trỏ chuột sẽ thay đổi khi di chuyển qua các vòng tròn */
-        overflow: hidden; /* Đảm bảo ảnh tick không tràn ra ngoài vòng tròn */
-        transition: border 0.3s ease, stroke-width 0.3s ease; /* Hiệu ứng chuyển đổi mượt mà cho border và stroke-width */
+        position: relative;
+        border-radius: 50%; 
+        cursor: pointer; 
+        overflow: hidden; 
+        transition: border 0.3s ease, stroke-width 0.3s ease;
     }
 
 
@@ -367,10 +293,10 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 20px; /* Kích thước của ảnh tick */
+            width: 20px; 
             height: 20px;
-            opacity: 1; /* Đảm bảo ảnh tick rõ hơn */
-            transition: opacity 0.3s ease; /* Hiệu ứng chuyển đổi mượt mà cho opacity */
+            opacity: 1; 
+            transition: opacity 0.3s ease;
         }
 }
 
@@ -398,18 +324,18 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    transition: background 0.3s, color 0.3s; /* Hiệu ứng chuyển màu khi hover */
-    cursor: pointer; /* Thay đổi con trỏ khi hover */
+    transition: background 0.3s, color 0.3s; 
+    cursor: pointer; 
 }
 
     .size-box:hover {
-        background: black; /* Nền đen khi hover */
-        color: white; /* Chữ trắng khi hover */
+        background: black; 
+        color: white; 
     }
 
     .size-box.selected {
-        background: black; /* Nền đen khi được chọn */
-        color: white; /* Chữ trắng khi được chọn */
+        background: black;
+        color: white; 
     }
 
 @media (max-width: 390px) {
@@ -437,8 +363,8 @@
         font-style: normal;
         font-weight: 400;
         line-height: normal;
-        transition: background 0.3s, color 0.3s; /* Hiệu ứng chuyển màu khi hover */
-        cursor: pointer; /* Thay đổi con trỏ khi hover */
+        transition: background 0.3s, color 0.3s; 
+        cursor: pointer; 
     }
 }
 
@@ -461,7 +387,7 @@
     flex-shrink: 0;
     border-radius: 62px;
     background: #F0F0F0;
-    cursor: pointer; /* Thay đổi con trỏ khi hover */
+    cursor: pointer; 
 }
 
 #quantity-display {
@@ -497,12 +423,12 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    cursor: pointer; /* Hiển thị con trỏ khi hover */
+    cursor: pointer; 
 }
     .add-to-cart:hover {
-        background: #e0e0e0; /* Đổi màu nền khi hover (nếu muốn), không đổi màu chữ */
-        color: rgba(0, 0, 0, 0.60); /* Giữ nguyên màu chữ khi hover */
-        text-decoration: none; /* Đảm bảo không có gạch chân khi hover */
+        background: #e0e0e0;
+        color: rgba(0, 0, 0, 0.60); 
+        text-decoration: none;
     }
 
 @media (max-width: 390px) {
@@ -524,7 +450,7 @@
         flex-shrink: 0;
         border-radius: 62px;
         background: #F0F0F0;
-        cursor: pointer; /* Thay đổi con trỏ khi hover */
+        cursor: pointer; 
     }
 
     #quantity-display {
@@ -561,13 +487,38 @@
         font-style: normal;
         font-weight: 500;
         line-height: normal;
-        cursor: pointer; /* Hiển thị con trỏ khi hover */
+        cursor: pointer; 
     }
 
         .add-to-cart:hover {
-            background: #e0e0e0; /* Đổi màu nền khi hover (nếu muốn), không đổi màu chữ */
-            color: rgba(0, 0, 0, 0.60); /* Giữ nguyên màu chữ khi hover */
-            text-decoration: none; /* Đảm bảo không có gạch chân khi hover */
+            background: #e0e0e0; 
+            color: rgba(0, 0, 0, 0.60); 
+            text-decoration: none; 
         }
 
 }
+
+.pdp-custom-nav {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+
+    .pdp-custom-nav a {
+        text-decoration: none;
+        color: gray;
+    }
+
+        .pdp-custom-nav a:hover {
+            text-decoration: underline;
+        }
+
+    .pdp-custom-nav .active {
+        font-weight: bold;
+        color: black;
+    }
+
+    .pdp-custom-nav i {
+        color: gray;
+    }
