@@ -1,0 +1,32 @@
+﻿.review-card {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    margin-right: 20px;
+    min-width: 300px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.10);
+}
+
+.name-review {
+    font-weight: bold;
+    margin: 10px 0 5px;
+}
+
+.comment {
+    color: rgba(0, 0, 0, 0.60);
+    font-family: Satoshi;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.date-post {
+    color: rgba(0, 0, 0, 0.60);
+    font-family: Satoshi;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
