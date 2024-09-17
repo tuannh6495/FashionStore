@@ -12,7 +12,9 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.css" />
 </head>
 
+
 <body>
+	<div class="overlay"></div>
 	<header>
 		<div class="no-login">
 			<span>Sign up and get 20% off to your first order.</span>
@@ -20,7 +22,7 @@
 			<span class="close-icon">&times;</span>
 		</div>
 
-		<div class="container">
+		<div class="container" style="padding: 0">
 			<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
 				<div class="container-fluid" style="padding: 0px;">
 					<div class="navigation">
@@ -76,7 +78,7 @@
 		</main>
 	</div>
 
-	<div class="container">
+	<div class="container" style="padding: 0">
 		<footer class="bg-light py-5" style="z-index:-100000">
 			<div class="newsletter bg-dark text-white py-4">
 				<div class="container" style="padding: 0px;">
@@ -177,5 +179,7 @@
 	<script src="~/js/site.js" asp-append-version="true"></script>
 
 	@await RenderSectionAsync("Scripts", required: false)
+	
 </body>
+
 </html>

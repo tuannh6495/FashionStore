@@ -112,3 +112,52 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+document.querySelector('.circle-btn').addEventListener('click', function () {
+    document.querySelector('.filters-box').classList.toggle('active');
+});
+function toggleFilter() {
+    var filterBox = document.querySelector('.filters-box');
+    filterBox.classList.toggle('active');
+} 
+
+
+//tắt filter
+document.querySelector('.circle-btn').addEventListener('click', function () {
+    const filterBox = document.querySelector('.filters-box');
+    filterBox.style.display = filterBox.style.display === 'none' || filterBox.style.display === '' ? 'block' : 'none';
+});
+
+document.querySelector('.icon-close').addEventListener('click', function () {
+    const filterBox = document.querySelector('.filters-box');
+    filterBox.style.display = 'none';
+});
+
+
+// làm mờ nền đằng sau
+document.addEventListener("DOMContentLoaded", function () {
+    const filterBox = document.querySelector('.filters-box');
+    const overlay = document.querySelector('.overlay');
+    const openFilterButton = document.querySelector('.circle-btn');
+    const closeFilterButton = document.querySelector('.icon-close');
+
+    // Bật filter và overlay
+    openFilterButton.addEventListener('click', function () {
+        filterBox.style.display = 'block';
+        overlay.classList.add('show'); // Hiển thị lớp overlay
+    });
+
+    // Tắt filter và overlay
+    closeFilterButton.addEventListener('click', function () {
+        filterBox.style.display = 'none';
+        overlay.classList.remove('show'); // Ẩn lớp overlay
+    });
+
+    // Tắt filter khi nhấn vào overlay
+    overlay.addEventListener('click', function () {
+        filterBox.style.display = 'none';
+        overlay.classList.remove('show');
+    });
+});
+
+
