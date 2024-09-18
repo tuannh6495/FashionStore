@@ -6,30 +6,32 @@
 
 <link rel="stylesheet" href="~/css/Index.css" asp-append-version="true" />
 
-<div class="container-fluid mast-head">
-    <div class="row banner-lap align-items-center">
-        <div class="col-lg-7 col-12">
-            <div class="headline">FIND CLOTHES THAT MATCHES YOUR STYLE</div>
-            <div class="masthead-desc">Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.</div>
-            <a asp-controller="Shop" asp-action="Index" class="btn btn-dark btn-lg shop-btn">Shop Now</a>
-            <div class="row statistic">
-                <div class="col-lg-3 col-5">
-                    <h3>200+</h3>
-                    <p>International Brands</p>
-                </div>
-                <div class="separator col-2"></div>
-                <div class="col-lg-3 col-5">
-                    <h3>2,000+</h3>
-                    <p>High-Quality Products</p>
-                </div>
-                <div class="separator-2"></div>
-                <div class="col-lg-3 col-12">
-                    <h3>30,000+</h3>
-                    <p>Happy Customers</p>
+<div class=".container-fluid mast-head">
+    <div class="container">
+        <div class="row banner-lap align-items-center">
+            <div class="col-lg-6 col-12">
+                <div class="headline">FIND CLOTHES THAT MATCHES YOUR STYLE</div>
+                <div class="masthead-desc">Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.</div>
+                <a asp-controller="Shop" asp-action="Index" class="btn btn-dark btn-lg shop-btn">Shop Now</a>
+                <div class="row statistic">
+                    <div class="col-lg-3 col-5">
+                        <h3>200+</h3>
+                        <p>International Brands</p>
+                    </div>
+                    <div class="separator col-2"></div>
+                    <div class="col-lg-3 col-5">
+                        <h3>2,000+</h3>
+                        <p>High-Quality Products</p>
+                    </div>
+                    <div class="separator-2"></div>
+                    <div class="col-lg-3 col-12">
+                        <h3>30,000+</h3>
+                        <p>Happy Customers</p>
+                    </div>
                 </div>
             </div>
+            <div class="col-lg-6 col-12 d-none d-lg-block"></div>
         </div>
-        <div class="col-lg-5 col-12 d-none d-lg-block"></div>
     </div>
 
     <div class="row d-lg-none">
@@ -37,40 +39,43 @@
             <img src="/Images/back-mobile.png" alt="Mobile Banner Image" class="mobile-banner-image">
         </div>
     </div>
+
 </div>
 
-<div class="container-fluid bg-dark text-white mb-5" style="padding-left: 5%; padding-right: 5%;">
-    <div class="row brand-nav text-center align-items-center justify-content-between" style="height: 122px;">
-        <div class="col-lg-2 col-4 brand-item">
-            <h5>
-                <a asp-controller="Brand" asp-action="Details" asp-route-name="Versace"> <img src="\Images\Versace.png" alt="Versace"></a>
-            </h5>
-        </div>
-        <div class="col-lg-2 col-4 brand-item">
-            <h5>
-                <a asp-controller="Brand" asp-action="Details" asp-route-name="Zara"> <img src="\Images\Zara.png" alt="Zara"></a>
-            </h5>
-        </div>
-        <div class="col-lg-2 col-4 brand-item">
-            <h5>
-                <a asp-controller="Brand" asp-action="Details" asp-route-name="Gucci"> <img src="\Images\Gucci.png" alt="Gucci"></a>
-            </h5>
-        </div>
-        <div class="col-lg-2 col-6 brand-item">
-            <h5>
-                <a asp-controller="Brand" asp-action="Details" asp-route-name="Prada"> <img src="\Images\Prada.png" alt="Prada"></a>
-            </h5>
-        </div>
-        <div class="col-lg-2 col-6 brand-item">
-            <h5>
-                <a asp-controller="Brand" asp-action="Details" asp-route-name="CalvinKlein"> <img src="\Images\CalvinKlein.png" alt="CalvinKlein"></a>
-            </h5>
+<div class=".container-fluid bg-dark text-white mb-5">
+    <div class="container">
+        <div class="row brand-nav text-center align-items-center justify-content-between" style="height: 122px;">
+            <div class="col-lg-2 col-4 brand-item">
+                <h5>
+                    <a asp-controller="Brand" asp-action="Details" asp-route-name="Versace"> <img src="\Images\Versace.png" alt="Versace"></a>
+                </h5>
+            </div>
+            <div class="col-lg-2 col-4 brand-item">
+                <h5>
+                    <a asp-controller="Brand" asp-action="Details" asp-route-name="Zara"> <img src="\Images\Zara.png" alt="Zara"></a>
+                </h5>
+            </div>
+            <div class="col-lg-2 col-4 brand-item">
+                <h5>
+                    <a asp-controller="Brand" asp-action="Details" asp-route-name="Gucci"> <img src="\Images\Gucci.png" alt="Gucci"></a>
+                </h5>
+            </div>
+            <div class="col-lg-2 col-6 brand-item">
+                <h5>
+                    <a asp-controller="Brand" asp-action="Details" asp-route-name="Prada"> <img src="\Images\Prada.png" alt="Prada"></a>
+                </h5>
+            </div>
+            <div class="col-lg-2 col-6 brand-item">
+                <h5>
+                    <a asp-controller="Brand" asp-action="Details" asp-route-name="CalvinKlein"> <img src="\Images\CalvinKlein.png" alt="CalvinKlein"></a>
+                </h5>
+            </div>
         </div>
     </div>
 </div>
 
-<div class="container-fluid outstanding-product mb-5" style="padding-left: 7%; padding-right: 7%;">
-    <div class="container-fluid new-arrivals mb-5">
+<div class="container outstanding-product">
+    <div class="new-arrivals">
         <div class="text-center my-5">
             <h1 class="outstanding">NEW ARRIVALS</h1>
         </div>
@@ -91,11 +96,9 @@
         </div>
     </div>
 
-    <div class="container-fluid my-5">
-        <hr class="my-4 w-100" style="border: 1px solid rgba(0, 0, 0, 0.10);">
-    </div>
+    <hr class="my-5 w-100" style="border: 1px solid rgba(0, 0, 0, 0.10);">
 
-    <div class="container-fluid top-selling">
+    <div class="top-selling">
         <div class="text-center my-5">
             <h1 class="outstanding">TOP SELLING</h1>
         </div>
@@ -117,7 +120,7 @@
     </div>
 </div>
 
-<div class="container-fluid dress-style mt-5" style="padding-left: 7%; padding-right: 7%;">
+<div class="container dress-style mt-5">
     <div class="card p-5 shadow-sm" style="background-color: #F2F2F2; border-radius: 40px;">
         <h3 class="outstanding my-5">BROWSE BY DRESS STYLE</h3>
 
@@ -163,12 +166,14 @@
     </div>
 </div>
 
-<div class=".container-fluid mt-5">
-    <div class="d-flex justify-content-between align-items-center" style="padding-left: 7%; padding-right: 7%;">
-        <h3 class="outstanding-feedback">OUR HAPPY CUSTOMERS</h3>
-        <div class="feedback-nav">
-            <i class="fa-solid fa-arrow-left nav-button left" style="cursor: pointer;"></i>
-            <i class="fa-solid fa-arrow-right nav-button right" style="cursor: pointer;"></i>
+<div class=".container mt-5">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+            <h3 class="outstanding-feedback">OUR HAPPY CUSTOMERS</h3>
+            <div class="feedback-nav">
+                <i class="fa-solid fa-arrow-left nav-button left" style="cursor: pointer;"></i>
+                <i class="fa-solid fa-arrow-right nav-button right" style="cursor: pointer;"></i>
+            </div>
         </div>
     </div>
 
