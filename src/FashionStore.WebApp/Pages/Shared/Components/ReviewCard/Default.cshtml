@@ -5,21 +5,27 @@
 
 <div class="card review-card">
     <div class="card-body">
-        <div class="review-card-rate">
-            @for (int i = 1; i <= 5; i++)
+        <div class="d-flex justify-content-between">
+            <div class="review-card-rate">
+                @for (int i = 1; i <= 5; i++)
+                {
+                    if (i <= Math.Floor(Model.ReviewRating))
+                    {
+                        <i class="fa fa-star" style="color: gold;"></i>
+                    }
+                    else if (i == Math.Ceiling(Model.ReviewRating) && Model.ReviewRating % 1 == 0.5)
+                    {
+                        <i class="fa fa-star-half-alt" style="color: gold;"></i>
+                    }
+                    else
+                    {
+                        <i class="fa fa-star-o"></i>
+                    }
+                }
+            </div>
+            @if (Model.IsDatePostShowed)
             {
-                if (i <= Math.Floor(Model.ReviewRating))
-                {
-                    <i class="fa fa-star" style="color: gold;"></i>
-                }
-                else if (i == Math.Ceiling(Model.ReviewRating) && Model.ReviewRating % 1 == 0.5)
-                {
-                    <i class="fa fa-star-half-alt" style="color: gold;"></i>
-                }
-                else
-                {
-                    <i class="fa fa-star-o"></i>
-                }
+                <i class="fas fa-ellipsis-h" style="cursor: pointer;"></i>
             }
         </div>
 
@@ -28,10 +34,10 @@
             <img src="\Images\Frame.jpg">
         </p>
 
-        <p class="card-text comment">@Model.Comment</p>
+        <p class="card-text comment flex-grow-1">@Model.Comment</p>
         @if (Model.IsDatePostShowed)
         {
-            <p class="card-text date-post">Posted on @Model.DatePost</p>
+            <p class="card-text date-post mt-auto">Posted on @Model.DatePost.ToString("MMMM dd, yyyy")</p>
         }
     </div>
 </div>

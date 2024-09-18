@@ -164,11 +164,7 @@ h5.font-weight-bold {
             color: #000; 
         }
 
-.d-flex{
-    gap: 10px;
-}
-
-.d-flex a {
+.icons-social a {
     width: 30px; 
     height: 28px; 
     border: 2px solid #ddd;
@@ -176,7 +172,7 @@ h5.font-weight-bold {
     text-align: center;
 }
 
-.d-flex a.facebook-icon {
+.icons-social a.facebook-icon {
     background-color: #000;
     color: #fff !important;
     border-color: #000; 
