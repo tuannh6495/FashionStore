@@ -8,10 +8,17 @@ namespace FashionStore.WebApp.Pages
 {
     public class ProductDetailPageModel : PageModel
     {
+        public List<string> Colors { get; set; } = new List<string>
+        {
+            "#4F4631", "#314F4A", "#31344F",
+        };
+        public List<string> Sizes { get; set; }
         public List<Review> AllReviews { get; set; }
         public List<Product> RelatedProducts { get; set; }
         public void OnGet()
         {
+            Sizes = new List<string> { "Small", "Medium", "Large", "X-Large", };
+
             AllReviews = new List<Review>
             {
             new Review { ReviewRating = 4.5, NameCustomer = "Samantha D.", Comment = "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.", DatePost = new DateTime (2023, 8, 14) },
