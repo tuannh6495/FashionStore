@@ -10,7 +10,7 @@ namespace FashionStore.WebApp.Pages
     {
         public List<string> Colors { get; set; } = new List<string>
         {
-            "#4F4631", "#314F4A", "#31344F",
+            "#4F4631", "#314F4A", "#31344F", 
         };
         public List<string> Sizes { get; set; }
         public List<Review> AllReviews { get; set; }
