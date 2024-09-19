@@ -1,0 +1,13 @@
+.header-section-1{
+    height: 38px;
+    background-color: #000;
+    color: #FFF;
+    font-family: Satoshi, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
