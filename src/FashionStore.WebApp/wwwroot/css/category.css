@@ -357,6 +357,7 @@
     font-weight: 400;
     line-height: normal;
     transition: background 0.3s, color 0.3s;
+    cursor: pointer;
 }
 
 @media (max-width: 394px) {

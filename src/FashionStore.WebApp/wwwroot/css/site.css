@@ -235,15 +235,6 @@ h5.font-weight-bold {
 }
 
 @media (max-width: 390px) {
-    .navbar {
-        padding-left: 16px!important;
-        padding-right: 16px!important;
-    }
-
-    .bg-light {
-        padding: 16px;
-    }
-
     .newsletter .row {
         flex-direction: column;
         text-align: left;
