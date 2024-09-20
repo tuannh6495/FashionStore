@@ -1,6 +1,6 @@
 ﻿namespace FashionStore.WebApp.Models
 {
-    public class OrderSummaryViewModel
+    public class OrderSummary
     {
         public decimal Subtotal { get; set; }
         public decimal DiscountAmount { get; set; }

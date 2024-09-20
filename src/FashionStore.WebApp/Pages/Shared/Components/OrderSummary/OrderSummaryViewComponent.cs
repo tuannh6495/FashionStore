@@ -7,7 +7,7 @@ namespace FashionStore.WebApp.Components.OrderSummary
     {
         public IViewComponentResult Invoke(decimal subtotal, decimal discountAmount, decimal deliveryFee, decimal total)
         {
-            var model = new OrderSummaryViewModel
+            var model = new Models.OrderSummary
             {
                 Subtotal = subtotal,
                 DiscountAmount = discountAmount,
