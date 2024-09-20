@@ -1,0 +1,19 @@
+services:
+  fashionstore.webapp:
+    image: ${DOCKER_REGISTRY-}fashionstorewebapp
+    build:
+      context: .
+      dockerfile: src/FashionStore.WebApp/Dockerfile
+    depends_on: 
+      - mssql
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    container_name: mssql
+    restart: always
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=tiendat@123
+    ports:
+      - 1433:1433
+    volumes:
+      - /var/opt/mssql:/var/opt/mssql

@@ -1,0 +1,30 @@
+﻿using FashionStore.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Emit;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FashionStore.Infrastructure.Configuration
+{
+	public class UserPromotionConfiguration : IEntityTypeConfiguration<UserPromotion>
+	{
+		public void Configure(EntityTypeBuilder<UserPromotion> builder)
+		{
+			builder.HasKey(up => new { up.UserId, up.PromotionId });
+
+			builder.HasOne(up => up.User)
+				.WithMany(u => u.UserPromotions)
+				.HasForeignKey(up => up.UserId)
+				.OnDelete(DeleteBehavior.Cascade);
+
+			builder.HasOne(up => up.Promotion)
+				.WithMany(p => p.UserPromotions)
+				.HasForeignKey(up => up.PromotionId)
+				.OnDelete(DeleteBehavior.Cascade);
+		}
+	}
+}
