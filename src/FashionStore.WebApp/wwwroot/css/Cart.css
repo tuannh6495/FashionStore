@@ -5,6 +5,27 @@
     margin-top: 24px;
 }
 
+.text-your-cart {
+    color: #000;
+    font-family: "Integral CF";
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-top:8px;
+}
+
+@media(max-width: 391px) {
+    .text-your-cart {
+        color: #000;
+        font-family: "Integral CF";
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+}
+
 @media(max-width: 391px) {
     .cart-select {
         display: inline-flex;
