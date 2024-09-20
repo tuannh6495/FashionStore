@@ -1,176 +1,178 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - FashionStore.WebApp</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/FashionStore.WebApp.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - FashionStore.WebApp</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/css/Cart.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/FashionStore.WebApp.styles.css" asp-append-version="true" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
-    <header>
-        <div class="no-login">
-            <span>Sign up and get 20% off to your first order.</span>
-            <a href="#">Sign Up Now</a>
-            <span class="close-icon">&times;</span>
-        </div>
+	<header>
+		<div class="no-login">
+			<span>Sign up and get 20% off to your first order.</span>
+			<a href="#">Sign Up Now</a>
+			<span class="close-icon">&times;</span>
+		</div>
+		<div class="container">
+			<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+				<div class="container-fluid" style="padding: 0px;">
+					<div class="navigation">
+						<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<a class="navbar-brand fw-bold fs-4" href="/index">SHOP.CO</a>
+					</div>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom" style="padding-left: 7%; padding-right: 7%;">
-            <div class="container-fluid" style="padding: 0px;">
-                <div class="navigation">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <a class="navbar-brand fw-bold fs-4" href="#">SHOP.CO</a>
-                </div>
+					<div class="collapse navbar-collapse" style="flex-grow: 0!important;" id="navbarNav">
+						<ul class="navbar-nav mb-2 mb-lg-0">
+							<li class="nav-item">
+								<a class="nav-link" href="#">Shop <i class="fas fa-chevron-down"></i></a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">On Sale</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">New Arrivals</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">Brands</a>
+							</li>
+						</ul>
+					</div>
 
-                <div class="collapse navbar-collapse" style="flex-grow: 0!important;" id="navbarNav">
-                    <ul class="navbar-nav mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Shop <i class="fas fa-chevron-down"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">On Sale</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">New Arrivals</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Brands</a>
-                        </li>
-                    </ul>
-                </div>
+					<form class="d-flex flex-grow-1 mx-3 full-search-form" style="max-width: 650px;">
+						<div class="input-group">
+							<span class="input-group-text bg-white border-end-0" style="padding-right: 5px;" id="search-icon">
+								<i class="fas fa-search"></i>
+							</span>
+							<input class="form-control border-start-0" type="search" style="padding-left: 10px;" placeholder="Search for products..." aria-label="Search">
+						</div>
+					</form>
 
-                <form class="d-flex flex-grow-1 mx-3 full-search-form" style="max-width: 650px;">
-                    <div class="input-group">
-                        <span class="input-group-text bg-white border-end-0" style="padding-right: 5px;" id="search-icon">
-                            <i class="fas fa-search"></i>
-                        </span>
-                        <input class="form-control border-start-0" type="search" style="padding-left: 10px;" placeholder="Search for products..." aria-label="Search">
-                    </div>
-                </form>
+					<div class="icon-nav d-lg-flex" style="gap: 20px;">
+						<div class="search-icon-only d-lg-none">
+							<a href="#" class="nav-link p-0">
+								<i class="fas fa-search"></i>
+							</a>
+						</div>
+						<a class="nav-link p-0" href="/Cart"><i class="fas fa-shopping-cart"></i></a>
+						<a class="nav-link p-0" href="#"><i class="fas fa-user"></i></a>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</header>
 
-                <div class="icon-nav d-lg-flex" style="gap: 20px;">
-                    <div class="search-icon-only d-lg-none">
-                        <a href="#" class="nav-link p-0">
-                            <i class="fas fa-search"></i>
-                        </a>
-                    </div>
-                    <a class="nav-link p-0" href="#"><i class="fas fa-shopping-cart"></i></a>
-                    <a class="nav-link p-0" href="#"><i class="fas fa-user"></i></a>
-                </div>
-            </div>
-        </nav>
-    </header>
+	<div class="container">
+		<main role="main" class="pb-3">
+			@RenderBody()
+		</main>
+	</div>
 
-    <div class="container-fluid" style="padding: 0;">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+	<footer class="bg-light py-5">
+		<div class="newsletter bg-dark text-white py-4">
+			<div class="container" style="padding: 0px;">
+				<div class="row align-items-center justify-content-between">
+					<div class="col-md-6 text-left align-items-center">
+						<h2 class="font-weight-bold">STAY UPTO DATE ABOUT OUR LATEST OFFERS</h2>
+					</div>
 
-    <footer class="bg-light py-5">
-        <div class="newsletter bg-dark text-white py-4">
-            <div class="container" style="padding: 0px;">
-                <div class="row align-items-center justify-content-between">
-                    <div class="col-md-6 text-left align-items-center">
-                        <h2 class="font-weight-bold">STAY UPTO DATE ABOUT OUR LATEST OFFERS</h2>
-                    </div>
+					<div class="col-md-2"></div>
 
-                    <div class="col-md-2"></div>
+					<div class="col-md-4 mr-md-5" style="padding-right: 64px;">
+						<form class="d-flex flex-column justify-content-center align-items-center">
+							<div class="email-input w-100">
+								<span class="envelope-icon" style="left: 15px; top: 50%; transform: translateY(-50%); color: #aaa;">
+									<i class="fas fa-envelope"></i>
+								</span>
+								<input type="email" class="form-control pl-5" placeholder="Enter your email address">
+							</div>
+							<button type="submit" class="btn btn-light mt-1 w-100">Subscribe to Newsletter</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
 
-                    <div class="col-md-4 mr-md-5" style="padding-right: 64px;" >
-                        <form class="d-flex flex-column justify-content-center align-items-center">
-                            <div class="email-input w-100">
-                                <span class="envelope-icon" style="left: 15px; top: 50%; transform: translateY(-50%); color: #aaa;">
-                                    <i class="fas fa-envelope"></i>
-                                </span>
-                                <input type="email" class="form-control pl-5" placeholder="Enter your email address">
-                            </div>
-                            <button type="submit" class="btn btn-light mt-1 w-100">Subscribe to Newsletter</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+		<div class="container-fluid" style="padding: 0px;">
+			<div class="row mt-4">
+				<div class="col-md-3 col-12 mb-4">
+					<h3 class="font-weight-bold justify-content-start">SHOP.CO</h3>
+					<p class="mt-3">We have clothes that suits your style and which you're proud to wear. From women to men.</p>
+					<div class="d-flex justify-content-start mt-4" style="gap: 10px;">
+						<a href="#" class="text-dark mr-3"><i class="fab fa-twitter"></i></a>
+						<a href="#" class="facebook-icon text-dark mr-3"><i class="fab fa-facebook-f"></i></a>
+						<a href="#" class="text-dark mr-3"><i class="fab fa-instagram"></i></a>
+						<a href="#" class="text-dark"><i class="fab fa-github"></i></a>
+					</div>
+				</div>
 
-        <div class="container-fluid" style="padding: 0px;">
-            <div class="row mt-4">
-                <div class="col-md-3 col-12 mb-4">
-                    <h3 class="font-weight-bold justify-content-start">SHOP.CO</h3>
-                    <p class="mt-3">We have clothes that suits your style and which you're proud to wear. From women to men.</p>
-                    <div class="d-flex justify-content-start mt-4" style="gap: 10px;">
-                        <a href="#" class="text-dark mr-3"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="facebook-icon text-dark mr-3"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-dark mr-3"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-dark"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
+				<div class="col-md-1 col-0"></div>
 
-                <div class="col-md-1 col-0"></div>
+				<div class="col-md-2 col-6 mb-md-4 mb-3">
+					<h5 class="font-weight-bold mb-4">COMPANY</h5>
+					<ul class="list-unstyled">
+						<li><a href="#" class="text-dark">About</a></li>
+						<li><a href="#" class="text-dark">Features</a></li>
+						<li><a href="#" class="text-dark">Works</a></li>
+						<li><a href="#" class="text-dark">Career</a></li>
+					</ul>
+				</div>
 
-                <div class="col-md-2 col-6 mb-md-4 mb-3">
-                    <h5 class="font-weight-bold mb-4">COMPANY</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-dark">About</a></li>
-                        <li><a href="#" class="text-dark">Features</a></li>
-                        <li><a href="#" class="text-dark">Works</a></li>
-                        <li><a href="#" class="text-dark">Career</a></li>
-                    </ul>
-                </div>
+				<div class="col-md-2 col-6 mb-md-4 mb-3">
+					<h5 class="font-weight-bold mb-4">HELP</h5>
+					<ul class="list-unstyled">
+						<li><a href="#" class="text-dark">Customer Support</a></li>
+						<li><a href="#" class="text-dark">Delivery Details</a></li>
+						<li><a href="#" class="text-dark">Term & Conditions</a></li>
+						<li><a href="#" class="text-dark">Privacy Policy</a></li>
+					</ul>
+				</div>
 
-                <div class="col-md-2 col-6 mb-md-4 mb-3">
-                    <h5 class="font-weight-bold mb-4">HELP</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-dark">Customer Support</a></li>
-                        <li><a href="#" class="text-dark">Delivery Details</a></li>
-                        <li><a href="#" class="text-dark">Term & Conditions</a></li>
-                        <li><a href="#" class="text-dark">Privacy Policy</a></li>
-                    </ul>
-                </div>
+				<div class="col-md-2 col-6 mb-md-4">
+					<h5 class="font-weight-bold mb-4">FAQ</h5>
+					<ul class="list-unstyled">
+						<li><a href="#" class="text-dark">Account</a></li>
+						<li><a href="#" class="text-dark">Manage Deliveries</a></li>
+						<li><a href="#" class="text-dark">Orders</a></li>
+						<li><a href="#" class="text-dark">Payments</a></li>
+					</ul>
+				</div>
 
-                <div class="col-md-2 col-6 mb-md-4">
-                    <h5 class="font-weight-bold mb-4">FAQ</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-dark">Account</a></li>
-                        <li><a href="#" class="text-dark">Manage Deliveries</a></li>
-                        <li><a href="#" class="text-dark">Orders</a></li>
-                        <li><a href="#" class="text-dark">Payments</a></li>
-                    </ul>
-                </div>
+				<div class="col-md-2 col-6 mb-md-4">
+					<h5 class="font-weight-bold mb-4">RESOURCES</h5>
+					<ul class="list-unstyled">
+						<li><a href="#" class="text-dark">Free eBooks</a></li>
+						<li><a href="#" class="text-dark">Development Tutorial</a></li>
+						<li><a href="#" class="text-dark">How to - Blog</a></li>
+						<li><a href="#" class="text-dark">Youtube Playlist</a></li>
+					</ul>
+				</div>
+			</div>
 
-                <div class="col-md-2 col-6 mb-md-4">
-                    <h5 class="font-weight-bold mb-4">RESOURCES</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-dark">Free eBooks</a></li>
-                        <li><a href="#" class="text-dark">Development Tutorial</a></li>
-                        <li><a href="#" class="text-dark">How to - Blog</a></li>
-                        <li><a href="#" class="text-dark">Youtube Playlist</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-4" style="border-top: 1px solid #ddd; padding-top: 15px; padding-left: 0; ">
-                <p class="mb-2 mb-md-0" style="padding-left: 0;">Shop.co © 2000-2023, All Rights Reserved</p>
-                <div>
-                    <img src="\Images\Visa.png" alt="Visa" class="mr-2" style="width: 40px;">
-                    <img src="\Images\MasterCard.png" alt="Visa" class="mr-2" style="width: 40px;">
-                    <img src="\Images\Paypal.png" alt="Visa" class="mr-2" style="width: 40px;">
-                    <img src="\Images\ApplePay.png" alt="Visa" class="mr-2" style="width: 40px;">
-                    <img src="\Images\GooglePay.png" alt="Visa" class="mr-2" style="width: 40px;">
-                </div>
-            </div>
-        </div>
-    </footer>
+			<div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-4" style="border-top: 1px solid #ddd; padding-top: 15px; padding-left: 0; ">
+				<p class="mb-2 mb-md-0" style="padding-left: 0;">Shop.co © 2000-2023, All Rights Reserved</p>
+				<div>
+					<img src="\Images\Visa.png" alt="Visa" class="mr-2" style="width: 40px;">
+					<img src="\Images\MasterCard.png" alt="Visa" class="mr-2" style="width: 40px;">
+					<img src="\Images\Paypal.png" alt="Visa" class="mr-2" style="width: 40px;">
+					<img src="\Images\ApplePay.png" alt="Visa" class="mr-2" style="width: 40px;">
+					<img src="\Images\GooglePay.png" alt="Visa" class="mr-2" style="width: 40px;">
+				</div>
+			</div>
+		</div>
+	</footer>
 
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
 
-    @await RenderSectionAsync("Scripts", required: false)
+	@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

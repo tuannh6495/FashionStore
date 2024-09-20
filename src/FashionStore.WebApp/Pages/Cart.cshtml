@@ -1,0 +1,36 @@
+﻿@page
+@model FashionStore.WebApp.Pages.CartModel
+
+@{
+    ViewData["Title"] = "Cart";
+}
+
+<div class="in-line cart-select">
+    <a href="#" class="select-text">Home</a>
+    <div class="icon">
+        <img src="/Images/Right.png" alt="Icon" class="icon-image">
+    </div>
+    <a href="/cart" class="select-text">Cart</a>
+</div>
+
+<div class="text-your-cart">Your cart</div>
+
+<div class="cart-style" style="user-select: none;">
+    <div class="row" style="margin-top:20px;">
+        <div class="col-md-7">
+            <div class="your-cart">
+                @await Component.InvokeAsync("CartItem", new { products = Model.Products })
+            </div>
+        </div>
+        <div class="col-md-5">
+            @await Component.InvokeAsync("OrderSummary", new
+                {
+                    subtotal = Model.Subtotal,
+                    discountAmount = Model.DiscountAmount,
+                    deliveryFee = Model.DeliveryFee,
+                    total = Model.Total
+                })
+
+        </div>
+    </div>
+</div>
