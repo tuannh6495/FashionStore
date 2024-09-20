@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles/Header.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faXmark} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -13,16 +13,23 @@ const Header = () => {
       {isVisible && (
         <div className="row g-0">
           <div className="col-12 header-section-1">
-            <div className="row">
+            <div style={{ marginLeft: "554px" }}>
               <span>Sign up and get 20% off to your first order. </span>
               <span style={{ textDecorationLine: "underline" }}>
                 Sign Up Now
               </span>
-              <FontAwesomeIcon style={{ position: "absolute", cursor: "pointer" }} onClick={handleClick} icon={faXmark} />
             </div>
-
+              <FontAwesomeIcon
+                style={{
+                  position: "absolute",
+                  cursor: "pointer",
+                  right: "100px"
+                }}
+                onClick={handleClick}
+                icon={faXmark}
+              />
+            </div>
           </div>
-        </div>
       )}
       <div className="row g-0">
         <div
