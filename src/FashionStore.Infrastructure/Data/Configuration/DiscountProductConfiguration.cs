@@ -8,23 +8,23 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FashionStore.Infrastructure.Configuration
+namespace FashionStore.Infrastructure.Data.Configuration
 {
-	public class DiscountProductConfiguration : IEntityTypeConfiguration<DiscountProduct>
-	{
-		public void Configure(EntityTypeBuilder<DiscountProduct> builder)
-		{
-			builder.HasKey(dp => dp.Id);
+    public class DiscountProductConfiguration : IEntityTypeConfiguration<DiscountProduct>
+    {
+        public void Configure(EntityTypeBuilder<DiscountProduct> builder)
+        {
+            builder.HasKey(dp => dp.Id);
 
-			builder.HasOne(dp => dp.Discount)
-				.WithMany(d => d.DiscountProducts)
-				.HasForeignKey(dp => dp.DiscountId)
-				.OnDelete(DeleteBehavior.Cascade);
+            builder.HasOne(dp => dp.Discount)
+                .WithMany(d => d.DiscountProducts)
+                .HasForeignKey(dp => dp.DiscountId)
+                .OnDelete(DeleteBehavior.Cascade);
 
-			builder.HasOne(dp => dp.Product)
-				.WithMany(p => p.DiscountProducts)
-				.HasForeignKey(dp => dp.ProductId)
-				.OnDelete(DeleteBehavior.Cascade);
-		}
-	}
+            builder.HasOne(dp => dp.Product)
+                .WithMany(p => p.DiscountProducts)
+                .HasForeignKey(dp => dp.ProductId)
+                .OnDelete(DeleteBehavior.Cascade);
+        }
+    }
 }

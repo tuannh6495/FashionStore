@@ -8,23 +8,23 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FashionStore.Infrastructure.Configuration
+namespace FashionStore.Infrastructure.Data.Configuration
 {
-	public class UserPromotionConfiguration : IEntityTypeConfiguration<UserPromotion>
-	{
-		public void Configure(EntityTypeBuilder<UserPromotion> builder)
-		{
-			builder.HasKey(up => new { up.UserId, up.PromotionId });
+    public class UserPromotionConfiguration : IEntityTypeConfiguration<UserPromotion>
+    {
+        public void Configure(EntityTypeBuilder<UserPromotion> builder)
+        {
+            builder.HasKey(up => new { up.UserId, up.PromotionId });
 
-			builder.HasOne(up => up.User)
-				.WithMany(u => u.UserPromotions)
-				.HasForeignKey(up => up.UserId)
-				.OnDelete(DeleteBehavior.Cascade);
+            builder.HasOne(up => up.User)
+                .WithMany(u => u.UserPromotions)
+                .HasForeignKey(up => up.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
 
-			builder.HasOne(up => up.Promotion)
-				.WithMany(p => p.UserPromotions)
-				.HasForeignKey(up => up.PromotionId)
-				.OnDelete(DeleteBehavior.Cascade);
-		}
-	}
+            builder.HasOne(up => up.Promotion)
+                .WithMany(p => p.UserPromotions)
+                .HasForeignKey(up => up.PromotionId)
+                .OnDelete(DeleteBehavior.Cascade);
+        }
+    }
 }

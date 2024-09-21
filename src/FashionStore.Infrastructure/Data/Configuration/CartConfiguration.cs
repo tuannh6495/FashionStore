@@ -7,18 +7,18 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FashionStore.Infrastructure.Configuration
+namespace FashionStore.Infrastructure.Data.Configuration
 {
-	public class CartConfiguration : IEntityTypeConfiguration<Cart>
-	{
-		public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<Cart> builder)
-		{
-			builder.HasKey(c => c.Id);
+    public class CartConfiguration : IEntityTypeConfiguration<Cart>
+    {
+        public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<Cart> builder)
+        {
+            builder.HasKey(c => c.Id);
 
-			builder.HasOne(c => c.User)
-				.WithOne()
-				.HasForeignKey<Cart>(c => c.UserId)
-				.OnDelete(DeleteBehavior.Cascade);
-		}
-	}
+            builder.HasOne(c => c.User)
+                .WithOne()
+                .HasForeignKey<Cart>(c => c.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+        }
+    }
 }

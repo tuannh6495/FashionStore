@@ -7,18 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FashionStore.Infrastructure.Configuration
+namespace FashionStore.Infrastructure.Data.Configuration
 {
-	public class DiscountConfiguration : IEntityTypeConfiguration<Discount>
-	{
-		public void Configure(EntityTypeBuilder<Discount> builder)
-		{
-			builder.HasKey(d => d.Id);
+    public class DiscountConfiguration : IEntityTypeConfiguration<Discount>
+    {
+        public void Configure(EntityTypeBuilder<Discount> builder)
+        {
+            builder.HasKey(d => d.Id);
 
-			builder.HasOne(d => d.DiscountType)
-				.WithMany(dt => dt.Discounts)
-				.HasForeignKey(d => d.DiscountTypeId)
-				.OnDelete(DeleteBehavior.Cascade);
-		}
-	}
+            builder.HasOne(d => d.DiscountType)
+                .WithMany(dt => dt.Discounts)
+                .HasForeignKey(d => d.DiscountTypeId)
+                .OnDelete(DeleteBehavior.Cascade);
+        }
+    }
 }

@@ -24,7 +24,7 @@ namespace FashionStore.Application.Services
             var user = await _userRepository.GetByIdAsync(id);
             return new UserDto
             {
-                Name = user.Name,
+                //Name = user.Name,
                 Email = user.Email
             };
         }
@@ -34,7 +34,7 @@ namespace FashionStore.Application.Services
             var users = await _userRepository.GetAllAsync();
             return users.Select(u => new UserDto
             {
-                Name = u.Name,
+                //Name = u.Name,
                 Email = u.Email
             });
         }
@@ -43,7 +43,7 @@ namespace FashionStore.Application.Services
         {
             var user = new User
             {
-                Name = userDto.Name,
+                //Name = userDto.Name,
                 Email = userDto.Email
             };
             await _userRepository.AddAsync(user);
