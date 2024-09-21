@@ -14,12 +14,12 @@ namespace FashionStore.Infrastructure.Data.Configuration
     {
         public void Configure(EntityTypeBuilder<UserPromotion> builder)
         {
-            builder.HasKey(up => new { up.UserId, up.PromotionId });
+            builder.HasKey(up => up.Id);
 
             builder.HasOne(up => up.User)
                 .WithMany(u => u.UserPromotions)
                 .HasForeignKey(up => up.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(up => up.Promotion)
                 .WithMany(p => p.UserPromotions)

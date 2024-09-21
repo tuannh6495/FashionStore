@@ -26,7 +26,12 @@ namespace FashionStore.Infrastructure.Data.Configuration
                 .HasForeignKey(r => r.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasIndex(r => new { r.UserId, r.ProductId })
+            builder.Property(r => r.Rating)
+                .IsRequired()
+                .HasColumnType("decimal(2,1)");
+
+
+			builder.HasIndex(r => new { r.UserId, r.ProductId })
                 .IsUnique();  // Unique Index for UserId and ProductId
         }
     }
