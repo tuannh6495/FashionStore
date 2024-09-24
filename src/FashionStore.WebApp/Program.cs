@@ -1,4 +1,4 @@
-using FashionStore.Infrastructure.Data;
+﻿using FashionStore.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +10,16 @@ builder.Services.AddDbContext<FosDbContext>(options =>
 	options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<FosDbContext>();
+
+    // Gọi phương thức seed
+    FosDbContextSeed.Seed(context);
+}
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
