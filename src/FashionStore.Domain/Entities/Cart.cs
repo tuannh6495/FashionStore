@@ -9,8 +9,8 @@ namespace FashionStore.Domain.Entities
 	public class Cart : BaseEntity
 	{
 		public int UserId { get; set; }
-		public User User { get; set; }
+		public User? User { get; set; }
 
-		public ICollection<CartP> CartPs { get; set; }
-	}
+		public ICollection<CartP>? CartPs { get; set; }
+    }
 }

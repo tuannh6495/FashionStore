@@ -41,5 +41,5 @@ namespace FashionStore.Infrastructure.Data
 			base.OnModelCreating(builder);
 			builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 		}
-	}
+    }
 }

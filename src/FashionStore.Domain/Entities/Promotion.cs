@@ -11,8 +11,13 @@ namespace FashionStore.Domain.Entities
 		public string Name { get; set; }
 
 		public int CartId { get; set; }
-		public Cart Cart { get; set; }
+		public Cart? Cart { get; set; }
 
-		public ICollection<UserPromotion> UserPromotions { get; set; }
+		public ICollection<UserPromotion>? UserPromotions { get; set; }
+
+		public Promotion(string name) 
+		{
+			Name = name;
+		}
 	}
 }

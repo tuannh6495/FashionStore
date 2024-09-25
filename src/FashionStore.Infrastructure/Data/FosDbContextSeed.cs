@@ -14,268 +14,246 @@ namespace FashionStore.Infrastructure.Data
         {
             //User
             context.Database.Migrate();
-            if (context.Users.Any())
+            if (!context.Users.Any())
             {
-                return;
-            }
-            context.Users.AddRange(
-                new User { Username = "Admin", Password = "", Email = "admin@example.com", FirstName = "", LastName = "" },
-                new User { Username = "User1", Password = "", Email = "user1@example.com", FirstName = "", LastName = "" }
+                context.Users.AddRange(
+                new User("Admin", "", "admin@example.com", "", ""),
+                new User("Admin", "", "user1@example.com", "", "")
             );
-            context.SaveChanges();
-
+                context.SaveChanges();
+            }
+            
 
             //Brand
-            if (context.Brands.Any())
+            if (!context.Brands.Any())
             {
-                return;
-            }
-            context.Brands.AddRange(
-                new Brand { Name = "Versace" },
-                new Brand { Name = "Zara" },
-                new Brand { Name = "Gucci" },
-                new Brand { Name = "Prada" },
-                new Brand { Name = "Calvin Klein" }
+                context.Brands.AddRange(
+                new Brand("Versace"),
+                new Brand("Zara"),
+                new Brand("Gucci"),
+                new Brand("Prada"),
+                new Brand("Calvin Klein")
             );
-            context.SaveChanges();
-
+                context.SaveChanges();
+            }
+            
 
             //Cart
-            if (context.Carts.Any())
+            if (!context.Carts.Any())
             {
-                return;
-            }
-            context.Carts.AddRange(
+                context.Carts.AddRange(
                 new Cart { UserId = 1 }
             );
-            context.SaveChanges();
-
+                context.SaveChanges();
+            }
+            
 
             //Category
-            if (context.Categories.Any())
+            if (!context.Categories.Any())
             {
-                return;
-            }
-            context.Categories.AddRange(
-                new Category { Name = "T-shirts" },
-                new Category { Name = "Shorts" },
-                new Category { Name = "Shirts" },
-                new Category { Name = "Hoodie" },
-                new Category { Name = "Jeans" }
+                context.Categories.AddRange(
+                new Category("T-shirts"),
+                new Category("Shorts"),
+                new Category("Shirts"),
+                new Category("Hoodie"),
+                new Category("Jeans")
             );
-            context.SaveChanges();
-
+                context.SaveChanges();
+            }
+            
 
             //Gender
-            if (context.Genders.Any())
+            if (!context.Genders.Any())
             {
-                return;
-            }
-            context.Genders.AddRange(
-                new Gender { Name = "Men" },
-                new Gender { Name = "Women" }
+                context.Genders.AddRange(
+                new Gender("Men"),
+                new Gender("Women")
             );
-            context.SaveChanges();
+                context.SaveChanges();
+            }
 
 
             //Product
-            if (context.Products.Any())
+            if (!context.Products.Any())
             {
-                return;
-            }
-            context.Products.AddRange(
-                new Product { Name = "Gradient Graphic T-shirt", Price = 145, Description = "kszdksdo", AvgRating = 3, CategoryId = 1, GenderId = 1, BrandId = 1  }
+                context.Products.AddRange(
+                new Product(new List<string> { "/Images/GradientGraphicT-shirt.png", "/Images/GradientGraphicT-shirt.png", "/Images/GradientGraphicT-shirt.png" }, "Gradient Graphic T-shirt") { Price = 145, Description = "kszdksdo", AvgRating = 3, CategoryId = 1, GenderId = 1, BrandId = 1 }
             );
-            context.SaveChanges();
-
+                context.SaveChanges();
+            }
+            
 
             //CartP
-            if (context.CartPs.Any())
+            if (!context.CartPs.Any())
             {
-                return;
-            }
-            context.CartPs.AddRange(
+                context.CartPs.AddRange(
                 new CartP { CartId = 1, ProductId = 1, Quantity = 2, Price = 300 }
             );
-            context.SaveChanges();
-
+                context.SaveChanges();
+            }
+            
 
             //Color
-            if (context.Colors.Any())
+            if (!context.Colors.Any())
             {
-                return;
-            }
-            context.Colors.AddRange(
-                new Color { Name = "Xanh lá cây" }
+                context.Colors.AddRange(
+                new Color("Xanh lá cây")
             );
-            context.SaveChanges();
-
+                context.SaveChanges();
+            }
+            
 
             //ColorP
-            if (context.ColorPs.Any())
+            if (!context.ColorPs.Any())
             {
-                return;
-            }
-            context.ColorPs.AddRange(
+                context.ColorPs.AddRange(
                 new ColorP { ColorId = 1, ProductId = 1 }
             );
-            context.SaveChanges();
+                context.SaveChanges();
+            }
 
 
             //DiscountType
-            if (context.DiscountTypes.Any())
+            if (!context.DiscountTypes.Any())
             {
-                return;
-            }
-            context.DiscountTypes.AddRange(
-                new DiscountType { Name = "Giảm giá mùa xuân" }
+                context.DiscountTypes.AddRange(
+                new DiscountType("Giảm giá mùa xuân")
             );
-            context.SaveChanges();
+                context.SaveChanges();
+            }
 
 
             //Discount
-            if (context.Discounts.Any())
+            if (!context.Discounts.Any())
             {
-                return;
-            }
-            context.Discounts.AddRange(
-                new Discount { DiscountValue = 20, DiscountTypeId = 1, StartDate = new DateTime (2024, 8, 19), EndDate = new DateTime (2024, 12, 24) }
+                context.Discounts.AddRange(
+                new Discount { DiscountValue = 20, DiscountTypeId = 1, StartDate = new DateTime(2024, 8, 19), EndDate = new DateTime(2024, 12, 24) }
             );
-            context.SaveChanges();
+                context.SaveChanges();
+            }
 
 
             //DiscountBrand
-            if (context.DiscountBrands.Any())
+            if (!context.DiscountBrands.Any())
             {
-                return;
-            }
-            context.DiscountBrands.AddRange(
+                context.DiscountBrands.AddRange(
                 new DiscountBrand { DiscountId = 1, BrandId = 1 }
             );
-            context.SaveChanges();
+                context.SaveChanges();
+            }
 
 
             //DiscountProduct
-            if (context.DiscountProducts.Any())
+            if (!context.DiscountProducts.Any())
             {
-                return;
-            }
-            context.DiscountProducts.AddRange(
-                new DiscountProduct { DiscountId= 1, ProductId = 1 }
+                context.DiscountProducts.AddRange(
+                new DiscountProduct { DiscountId = 1, ProductId = 1 }
             );
-            context.SaveChanges();
+                context.SaveChanges();
+            }
 
 
             //DressStyle
-            if (context.DressStyles.Any())
+            if (!context.DressStyles.Any())
             {
-                return;
-            }
-            context.DressStyles.AddRange(
-                new DressStyle { Name = "Casual"},
-                new DressStyle { Name = "Formal" },
-                new DressStyle { Name = "Party" },
-                new DressStyle { Name = "Gym" }
+                context.DressStyles.AddRange(
+                new DressStyle("Casual"),
+                new DressStyle("Formal"),
+                new DressStyle("Party"),
+                new DressStyle("Gym")
             );
-            context.SaveChanges();
+                context.SaveChanges();
+            }
 
 
             //DressStyleP
-            if(context.DressStylePs.Any())
+            if(!context.DressStylePs.Any())
             {
-                return;
-            }
-            context.DressStylePs.AddRange(
-                new DressStyleP { DressStyleId = 1, ProductId = 1}
+                context.DressStylePs.AddRange(
+                new DressStyleP { DressStyleId = 1, ProductId = 1 }
             );
-            context.SaveChanges();
+                context.SaveChanges();
+            }
 
 
             //Outstanding
-            if (context.Outstandings.Any())
+            if (!context.Outstandings.Any())
             {
-                return;
-            }
-            context.Outstandings.AddRange(
-                new Outstanding { Name = "On Sale" },
-                new Outstanding { Name = "New Arrivals"},
-                new Outstanding { Name = "Top Selling" }
+                context.Outstandings.AddRange(
+                new Outstanding("On Sale"),
+                new Outstanding("New Arrivals"),
+                new Outstanding("Top Selling")
             );
-            context.SaveChanges();
-
+                context.SaveChanges();
+            }
+            
 
             //OutP
-            if (context.OutPs.Any()) 
+            if (!context.OutPs.Any()) 
             {
-                return; 
-            }
-            context.OutPs.AddRange(
-                new OutP { OutstandingId = 2, ProductId = 1 }   
+                context.OutPs.AddRange(
+                new OutP { OutstandingId = 2, ProductId = 1 }
             );
-            context.SaveChanges();
-
+                context.SaveChanges();
+            }
+            
 
             //Promotion
-            if (context.Promotions.Any())
+            if (!context.Promotions.Any())
             {
-                return;
-            }
-            context.Promotions.AddRange(
-                new Promotion { Name = "Giảm 20%", CartId = 1 }
+                context.Promotions.AddRange(
+                new Promotion("Giảm 20%") { CartId = 1 }
             );
-            context.SaveChanges();
+                context.SaveChanges();
+            }
 
 
             //Review
-            if (context.Reviews.Any())
+            if (!context.Reviews.Any())
             {
-                return;
-            }
-            context.Reviews.AddRange(
-                new Review { ProductId = 1, UserId = 1, Comment = "Nice!", Rating = 4 }
+                context.Reviews.AddRange(
+                new Review { ProductId = 1, UserId = 1, Comment = "Nice!", ReviewRating = 4m }
             );
-            context.SaveChanges();
-
+                context.SaveChanges();
+            }
+            
 
             //Size
-            if (context.Sizes.Any()) 
-            { 
-                return;
-            }
-            context.Sizes.AddRange(
-                new Size { Name = "XX-Small"},
-                new Size { Name = "X-Small" },
-                new Size { Name = "Small" },
-                new Size { Name = "Medium" },
-                new Size { Name = "Large" },
-                new Size { Name = "X-Large" },
-                new Size { Name = "XX-Large" },
-                new Size { Name = "3X-Large" },
-                new Size { Name = "4X-Large" }
+            if (!context.Sizes.Any()) 
+            {
+                context.Sizes.AddRange(
+                new Size("XX-Small"),
+                new Size("X-Small"),
+                new Size("Small"),
+                new Size("Medium"),
+                new Size("Large"),
+                new Size("X-Large"),
+                new Size("XX-Large"),
+                new Size("3X-Large"),
+                new Size("4X-Large")
             );
-            context.SaveChanges();
+                context.SaveChanges();
+            }
 
 
             //SizeP
-            if (context.SizePs.Any())
+            if (!context.SizePs.Any())
             {
-                return;
-            }
-            context.SizePs.AddRange(
+                context.SizePs.AddRange(
                 new SizeP { SizeId = 1, ProductId = 1 }
             );
-            context.SaveChanges();
+                context.SaveChanges();
+            }
 
 
             //UserPromotion
-            if (context.UserPromotions.Any())
+            if (!context.UserPromotions.Any())
             {
-                return;
-            }
-            context.UserPromotions.AddRange(
+                context.UserPromotions.AddRange(
                 new UserPromotion { UserId = 1, PromotionId = 1 }
             );
-            context.SaveChanges();
+                context.SaveChanges();
+            }
         }
     }
 }

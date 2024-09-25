@@ -1,7 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FashionStore.Domain.Entities;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using ProductVC;
-using ReviewVC;
 
 namespace FashionStore.WebApp.Pages;
 
@@ -19,18 +17,18 @@ public class IndexModel : PageModel
     {
         NewArrivals = new List<Product>
         {
-            new Product { ImageUrl = "/Images/TWTD.png", Name = "T-shirt with Tape Details", Rating = 4.5, Unit = "$", Price = 120 },
-            new Product { ImageUrl = "/Images/SFJ.png", Name = "Skinny Fit Jeans", Rating = 3.5, Unit = "$", Price = 240 },
-            new Product { ImageUrl = "/Images/CS.png", Name = "Checkered Shirt", Rating = 4.5, Unit = "$", Price = 180 },
-            new Product { ImageUrl = "/Images/SST.png", Name = "Sleeve Striped T-shirt", Rating = 4.5, Unit = "$", Price = 130 }
+            new Product ( new List<string> { "/Images/TWTD.png", "/Images/TWTD.png", "/Images/TWTD.png" }, "T-shirt with Tape Details" ) { AvgRating = 4.5m, Price = 120  },
+            new Product ( new List<string> { "/Images/SFJ.png", "/Images/SFJ.png", "/Images/SFJ.png" }, "Skinny Fit Jeans" ) { AvgRating = 3.5m, Price = 240 },
+            new Product ( new List<string> { "/Images/CS.png", "/Images/CS.png", "/Images/CS.png" }, "Checkered Shirt" ) { AvgRating = 4.5m, Price = 180 },
+            new Product ( new List<string> { "/Images/SST.png", "/Images/SST.png", "/Images/SST.png" }, "Sleeve Striped T-shirt" ) { AvgRating = 4.5m, Price = 130 }
         };
 
         TopSelling = new List<Product>
         {
-            new Product { ImageUrl = "/Images/VerticalStripedShirt.png", Name = "Vertical Striped Shirt", Rating = 5, Unit = "$", Price = 212 },
-            new Product { ImageUrl = "/Images/CourageGraphicT-shirt.png", Name = "Courage Graphic T-shirt", Rating = 4.0, Unit = "$", Price = 145 },
-            new Product { ImageUrl = "/Images/LooseFitBermudaShorts.png", Name = "Loose Fit Bermuda Shorts", Rating = 3.0, Unit = "$", Price = 80 },
-            new Product { ImageUrl = "/Images/FadedSkinnyJeans.png", Name = "Faded Skinny Jeans", Rating = 4.5, Unit = "$", Price = 210 }
+            new Product ( new List<string> { "/Images/VerticalStripedShirt.png", "/Images/VerticalStripedShirt.png", "/Images/VerticalStripedShirt.png" }, "Vertical Striped Shirt" ) { AvgRating = 5m, Price = 212 },
+            new Product ( new List<string> { "/Images/CourageGraphicT-shirt.png", "/Images/CourageGraphicT-shirt.png", "/Images/CourageGraphicT-shirt.png" }, "Courage Graphic T-shirt" ) { AvgRating = 4m, Price = 145 },
+            new Product ( new List<string> { "/Images/LooseFitBermudaShorts.png", "/Images/LooseFitBermudaShorts.png", "/Images/LooseFitBermudaShorts.png" }, "Loose Fit Bermuda Shorts" ) { AvgRating = 3m, Price = 80 },
+            new Product ( new List<string> { "/Images/FadedSkinnyJeans.png", "/Images/FadedSkinnyJeans.png", "/Images/FadedSkinnyJeans.png" }, "Faded Skinny Jeans" ) { AvgRating = 4.5m, Price = 210 }
         };
 
         OurHappyCustomers = new List<Review>

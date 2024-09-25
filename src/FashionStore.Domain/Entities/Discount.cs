@@ -11,12 +11,13 @@ namespace FashionStore.Domain.Entities
 		public double DiscountValue { get; set; }
 
 		public int DiscountTypeId { get; set; }
-		public DiscountType DiscountType { get; set; }
+		public DiscountType? DiscountType { get; set; }
 
 		public DateTime StartDate { get; set; }
 		public DateTime EndDate { get; set; }
 
-		public ICollection<DiscountProduct> DiscountProducts { get; set; } 
-		public ICollection<DiscountBrand> DiscountBrands { get; set; }
+		public ICollection<DiscountProduct>? DiscountProducts { get; set; }
+		public ICollection<DiscountBrand>? DiscountBrands { get; set; }
+
 	}
 }

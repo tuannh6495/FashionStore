@@ -8,9 +8,14 @@ namespace FashionStore.Domain.Entities
 {
 	public class Brand : BaseEntity
 	{
-		public string Name { get; set; }
+		public string Name { get; set; } 
 
-		public ICollection<Product> Products { get; set; }
-		public ICollection<DiscountBrand> DiscountBrands { get; set; }
+		public ICollection<Product>? Products { get; set; }
+		public ICollection<DiscountBrand>? DiscountBrands { get; set; }
+
+		public Brand(string name) 
+		{
+			Name = name;
+		}
 	}
 }

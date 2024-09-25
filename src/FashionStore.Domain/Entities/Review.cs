@@ -1,20 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FashionStore.Domain.Entities
+﻿namespace FashionStore.Domain.Entities
 {
 	public class Review : BaseEntity
 	{
 		public int ProductId { get; set; }
-		public Product Product { get; set; }
+		public Product? Product { get; set; } 
 		
 		public int UserId { get; set; }
-		public User User { get; set; }
+		public User? User { get; set; }
 
-		public string Comment { get; set; }
-		public decimal Rating { get; set; }
-	}
+        public decimal ReviewRating { get; set; }
+        public string ?NameCustomer { get; set; }
+        public string ?Comment { get; set; }
+        public bool IsDatePostShowed { get; set; }
+        public DateTime DatePost { get; set; }
+    }
 }

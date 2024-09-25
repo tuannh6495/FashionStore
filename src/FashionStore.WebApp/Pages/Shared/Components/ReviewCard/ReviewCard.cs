@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FashionStore.Domain.Entities;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ReviewVC
 {

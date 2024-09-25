@@ -10,6 +10,11 @@ namespace FashionStore.Domain.Entities
 	{
 		public string Name { get; set; }
 
-		public ICollection<OutP> OutPs { get; set; }
+		public ICollection<OutP>? OutPs { get; set; }
+
+		public Outstanding(string name)
+		{
+			Name = name;
+		}
 	}
 }

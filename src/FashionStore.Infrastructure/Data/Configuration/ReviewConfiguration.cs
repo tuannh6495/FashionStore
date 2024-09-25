@@ -26,7 +26,7 @@ namespace FashionStore.Infrastructure.Data.Configuration
                 .HasForeignKey(r => r.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.Property(r => r.Rating)
+            builder.Property(r => r.ReviewRating)
                 .IsRequired()
                 .HasColumnType("decimal(2,1)");
 

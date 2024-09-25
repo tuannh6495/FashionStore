@@ -10,6 +10,11 @@ namespace FashionStore.Domain.Entities
 	{
 		public string Name { get; set; }
 
-		public ICollection<DressStyleP> DressStylePs { get; set; }
+		public ICollection<DressStyleP>? DressStylePs { get; set; }
+
+		public DressStyle(string name) 
+		{
+			Name = name;
+		}
 	}
 }

@@ -9,9 +9,9 @@ namespace FashionStore.Domain.Entities
 	public class ColorP : BaseEntity
 	{
 		public int ColorId { get; set; }
-		public Color Color { get; set; }
+		public Color? Color { get; set; }
 
 		public int ProductId { get; set; }
-		public Product Product { get; set; }
-	}
+		public Product? Product { get; set; }
+    }
 }

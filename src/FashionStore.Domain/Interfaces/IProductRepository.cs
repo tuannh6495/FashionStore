@@ -7,10 +7,7 @@ using System.Threading.Tasks;
 
 namespace FashionStore.Domain.Interfaces
 {
-    public interface IUserRepository
+    public interface IProductRepository : IRepositoryBase<Product>
     {
-        Task<User> GetByIdAsync(int id);
-        Task<IEnumerable<User>> GetAllAsync();
-        Task AddAsync(User user);
     }
 }

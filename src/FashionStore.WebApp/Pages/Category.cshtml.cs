@@ -1,6 +1,5 @@
-using Microsoft.AspNetCore.Mvc;
+using FashionStore.Domain.Entities;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using ProductVC;
 
 namespace FashionStore.WebApp.Pages
 {
@@ -34,18 +33,17 @@ namespace FashionStore.WebApp.Pages
 
             Casual = new List<Product>
             {
-                new Product { ImageUrl = "/Images/GradientGraphicT-shirt.png", Name = "Gradient Graphic T-shirt", Rating = 3.5, Unit = "$", Price = 145 },
-                new Product { ImageUrl = "/Images/PoloWithTippingDetails.png", Name = "Polo with Tipping Details", Rating = 4.5, Unit = "$", Price = 180 },
-                new Product { ImageUrl = "/Images/BlackStripedT-shirt.png", Name = "Black Striped T-shirt", Rating = 5, Unit = "$", Price = 120 },
-                new Product { ImageUrl = "/Images/SFJ.png", Name = "Skinny Fit Jeans", Rating = 3.5, Unit = "$", Price = 240 },
-                new Product { ImageUrl = "/Images/CS.png", Name = "Checkered Shirt", Rating = 4.5, Unit = "$", Price = 180 },
-                new Product { ImageUrl = "/Images/SST.png", Name = "Sleeve Striped T-shirt", Rating = 4.5, Unit = "$", Price = 130 },
-                new Product { ImageUrl = "/Images/VerticalStripedShirt.png", Name = "Vertical Striped Shirt", Rating = 5, Unit = "$", Price = 212 },
-                new Product { ImageUrl = "/Images/CourageGraphicT-shirt.png", Name = "Courage Graphic T-shirt", Rating = 4, Unit = "$", Price = 145 },
-                new Product { ImageUrl = "/Images/LooseFitBermudaShorts.png", Name = "Loose Fit Bermuda Shorts", Rating = 3, Unit = "$", Price = 80 }
+                new Product ( new List<string> { "/Images/GradientGraphicT-shirt.png", "/Images/GradientGraphicT-shirt.png", "/Images/GradientGraphicT-shirt.png" }, "Gradient Graphic T-shirt" ) { AvgRating = 3.5m, Price = 145 },
+                new Product ( new List<string> { "/Images/PoloWithTippingDetails.png", "/Images/PoloWithTippingDetails.png", "/Images/PoloWithTippingDetails.png" }, "Polo with Tipping Details" ) { AvgRating = 4.5m, Price = 180 },
+                new Product ( new List<string> { "/Images/BlackStripedT - shirt.png", "/Images/BlackStripedT - shirt.png", "/Images/BlackStripedT - shirt.png" }, "Black Striped T-shirt" ) { AvgRating = 5m, Price = 120 },
+                new Product ( new List<string> { "/Images/SFJ.png", "/Images/SFJ.png", "/Images/SFJ.png" }, "Skinny Fit Jeans" ) { AvgRating = 3.5m, Price = 240 },
+                new Product ( new List<string> { "/Images/CS.png", "/Images/CS.png", "/Images/CS.png" }, "Checkered Shirt" ) { AvgRating = 4.5m, Price = 180 },
+                new Product ( new List<string> { "/Images/SST.png", "/Images/SST.png", "/Images/SST.png" }, "Sleeve Striped T-shirt" ) { AvgRating = 4.5m, Price = 130 },
+                new Product ( new List<string> { "/Images/VerticalStripedShirt.png", "/Images/VerticalStripedShirt.png", "/Images/VerticalStripedShirt.png" }, "Vertical Striped Shirt" ) { AvgRating = 5m, Price = 212 },
+                new Product ( new List<string> { "/Images/CourageGraphicT-shirt.png", "/Images/CourageGraphicT-shirt.png", "/Images/CourageGraphicT-shirt.png" }, "Courage Graphic T-shirt" ) { AvgRating = 4m, Price = 145 },
+                new Product ( new List<string> { "/Images/LooseFitBermudaShorts.png", "/Images/LooseFitBermudaShorts.png", "/Images/LooseFitBermudaShorts.png" }, "Loose Fit Bermuda Shorts" ) { AvgRating = 3m, Price = 80 }
             };
 
         }
-
     }
 }
