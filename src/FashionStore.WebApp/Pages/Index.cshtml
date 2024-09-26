@@ -84,7 +84,9 @@
             @foreach (var product in Model.NewArrivals)
             {
                 <div class="col-md-3 col-3">
+                     <a asp-page="./productdetailpage" asp-route-id="@product.Id">
                     @await Component.InvokeAsync("ProductCard", product)
+                    </a>
                 </div>
             }
         </div>
@@ -107,7 +109,9 @@
             @foreach (var product in Model.TopSelling)
             {
                 <div class="col-md-3 col-3">
+                    <a asp-page="./productdetailpage" asp-route-id="@product.Id">
                     @await Component.InvokeAsync("ProductCard", product)
+                    </a>
                 </div>
             }
         </div>
