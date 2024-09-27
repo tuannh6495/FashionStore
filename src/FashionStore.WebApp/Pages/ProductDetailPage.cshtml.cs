@@ -15,6 +15,7 @@ namespace FashionStore.WebApp.Pages
         public List<Product> RelatedProducts { get; set; }
 		public ProductDetailViewModel ProductDetail { get; set; }
 
+
         public void OnGet()
         {
             AllReviews = new List<Review>
