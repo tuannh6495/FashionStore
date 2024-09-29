@@ -17,12 +17,21 @@ namespace FashionStore.Infrastructure.Data
             if (!context.Users.Any())
             {
                 context.Users.AddRange(
-                new User("Admin", "", "admin@example.com", "", ""),
-                new User("Admin", "", "user1@example.com", "", "")
+                new User("Admin", "Password1", "admin@example.com", "John", "Doe"),
+                new User("User1", "Password2", "user1@example.com", "Jane", "Smith"),
+                new User("User2", "Password3", "user2@example.com", "Michael", "Johnson"),
+                new User("User3", "Password4", "user3@example.com", "Emily", "Davis"),
+                new User("User4", "Password5", "user4@example.com", "Chris", "Wilson"),
+                new User("User5", "Password6", "user5@example.com", "Anna", "Taylor"),
+                new User("User6", "Password7", "user6@example.com", "David", "Anderson"),
+                new User("User7", "Password8", "user7@example.com", "Sophia", "Thomas"),
+                new User("User8", "Password9", "user8@example.com", "Daniel", "Jackson"),
+                new User("User9", "Password10", "user9@example.com", "Olivia", "White")
+
             );
                 context.SaveChanges();
             }
-            
+
 
             //Brand
             if (!context.Brands.Any())
@@ -36,9 +45,9 @@ namespace FashionStore.Infrastructure.Data
             );
                 context.SaveChanges();
             }
-            
 
-            //Cart
+
+            //Cart 
             if (!context.Carts.Any())
             {
                 context.Carts.AddRange(
@@ -46,7 +55,7 @@ namespace FashionStore.Infrastructure.Data
             );
                 context.SaveChanges();
             }
-            
+
 
             //Category
             if (!context.Categories.Any())
@@ -60,7 +69,7 @@ namespace FashionStore.Infrastructure.Data
             );
                 context.SaveChanges();
             }
-            
+
 
             //Gender
             if (!context.Genders.Any())
@@ -77,11 +86,22 @@ namespace FashionStore.Infrastructure.Data
             if (!context.Products.Any())
             {
                 context.Products.AddRange(
-                new Product(new List<string> { "/Images/GradientGraphicT-shirt.png", "/Images/GradientGraphicT-shirt.png", "/Images/GradientGraphicT-shirt.png" }, "Gradient Graphic T-shirt") { Price = 145, Description = "kszdksdo", AvgRating = 3, CategoryId = 1, GenderId = 1, BrandId = 1 }
+                new Product(new List<string> { "/Images/TWTD.png", "/Images/TWTD.png", "/Images/TWTD.png" }, "T-shirt With Tape Details") { Price = 120, Description = "kszdksdo", AvgRating = 4.5m, CategoryId = 1, GenderId = 1, BrandId = 1 },
+                new Product(new List<string> { "SFJ.png", "SFJ.png", "SFJ.png" }, "Skinny Fit Jeans") { Price = 240, Description = "oekecmk", AvgRating = 3.5m, CategoryId = 5, GenderId = 1, BrandId = 1 },
+                new Product(new List<string> { "CS.png", "CS.png", "CS.png" }, "Checkered SHirt") { Price = 180, Description = "ssafeee", AvgRating = 4.5m, CategoryId = 3, GenderId = 1, BrandId = 1 },
+                new Product(new List<string> { "SST.png", "SST.png", "SST.png" }, "Sleeve Striped T-shirt") { Price = 130, Description = "sass", AvgRating = 4.5m, CategoryId = 1, GenderId = 1, BrandId = 1 },
+                new Product(new List<string> { "VerticalStripedShirt.png", "VerticalStripedShirt.png", "VerticalStripedShirt.png" }, "Vertical Striped Shirt") { Price = 212, Description = "wiohase", AvgRating = 5, CategoryId = 3, GenderId = 1, BrandId = 1 },
+                new Product(new List<string> { "CourageGraphicT-shirt.png", "CourageGraphicT-shirt.png", "CourageGraphicT-shirt.png" }, "Courage Graphic T-shirt") { Price = 145, Description = "dvdv", AvgRating = 4, CategoryId = 1, GenderId = 1, BrandId = 1 },
+                new Product(new List<string> { "LooseFitBermudaShorts.png", "LooseFitBermudaShorts.png", "LooseFitBermudaShorts.png" }, "Loose Fit Bermuda Shorts") { Price = 80, Description = "agrge", AvgRating = 3, CategoryId = 2, GenderId = 1, BrandId = 1 },
+                new Product(new List<string> { "FadedSkinnyJeans.png", "FadedSkinnyJeans.png", "FadedSkinnyJeans.png" }, "Faded Skinny Jeans") { Price = 210, Description = "rggr", AvgRating = 4.5m, CategoryId = 5, GenderId = 1, BrandId = 1 },
+                new Product(new List<string> { "PoloWithContrastTrims.png", "PoloWithContrastTrims.png", "PoloWithContrastTrims.png" }, "Polo With Contrast Trims") { Price = 212, Description = "rtgreg", AvgRating = 4, CategoryId = 1, GenderId = 1, BrandId = 1 },
+                new Product(new List<string> { "GradientGraphicT-shirt.png", "GradientGraphicT-shirt.png", "GradientGraphicT-shirt.png" }, "Gradient Graphic T-shirt") { Price = 145, Description = "rgefdvb", AvgRating = 3.5m, CategoryId = 1, GenderId = 1, BrandId = 1 },
+                new Product(new List<string> { "PoloWithTippingDetails.png", "PoloWithTippingDetails.png", "PoloWithTippingDetails.png" }, "Polo With Tipping Details") { Price = 180, Description = "dbssert", AvgRating = 4.5m, CategoryId = 1, GenderId = 1, BrandId = 1 },
+                new Product(new List<string> { "BlackStripedT-shirt.png", "BlackStripedT-shirt.png", "BlackStripedT-shirt.png" }, "Black Striped T-shirt") { Price = 120, Description = "52ser5ge5er", AvgRating = 4.5m, CategoryId = 1, GenderId = 2, BrandId = 1 }
             );
                 context.SaveChanges();
             }
-            
+
 
             //CartP
             if (!context.CartPs.Any())
@@ -91,7 +111,7 @@ namespace FashionStore.Infrastructure.Data
             );
                 context.SaveChanges();
             }
-            
+
 
             //Color
             if (!context.Colors.Any())
@@ -101,7 +121,7 @@ namespace FashionStore.Infrastructure.Data
             );
                 context.SaveChanges();
             }
-            
+
 
             //ColorP
             if (!context.ColorPs.Any())
@@ -167,7 +187,7 @@ namespace FashionStore.Infrastructure.Data
 
 
             //DressStyleP
-            if(!context.DressStylePs.Any())
+            if (!context.DressStylePs.Any())
             {
                 context.DressStylePs.AddRange(
                 new DressStyleP { DressStyleId = 1, ProductId = 1 }
@@ -182,21 +202,33 @@ namespace FashionStore.Infrastructure.Data
                 context.Outstandings.AddRange(
                 new Outstanding("On Sale"),
                 new Outstanding("New Arrivals"),
-                new Outstanding("Top Selling")
+                new Outstanding("Top Selling"),
+                new Outstanding("You Might Also Like")
             );
                 context.SaveChanges();
             }
-            
+
 
             //OutP
-            if (!context.OutPs.Any()) 
+            if (!context.OutPs.Any())
             {
                 context.OutPs.AddRange(
-                new OutP { OutstandingId = 2, ProductId = 1 }
+                new OutP { OutstandingId = 2, ProductId = 1 },
+                new OutP { OutstandingId = 2, ProductId = 2 },
+                new OutP { OutstandingId = 2, ProductId = 3 },
+                new OutP { OutstandingId = 2, ProductId = 4 },
+                new OutP { OutstandingId = 3, ProductId = 5 },
+                new OutP { OutstandingId = 3, ProductId = 6 },
+                new OutP { OutstandingId = 3, ProductId = 7 },
+                new OutP { OutstandingId = 3, ProductId = 8 },
+                new OutP { OutstandingId = 4, ProductId = 9 },
+                new OutP { OutstandingId = 4, ProductId = 10 },
+                new OutP { OutstandingId = 4, ProductId = 11 },
+                new OutP { OutstandingId = 4, ProductId = 12 }
             );
                 context.SaveChanges();
             }
-            
+
 
             //Promotion
             if (!context.Promotions.Any())
@@ -212,14 +244,173 @@ namespace FashionStore.Infrastructure.Data
             if (!context.Reviews.Any())
             {
                 context.Reviews.AddRange(
-                new Review { ProductId = 1, UserId = 1, Comment = "Nice!", ReviewRating = 4m }
+                new Review
+                {
+                    ProductId = 1,
+                    UserId = 2,
+                    ReviewRating = 5m,
+                    Comment = "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.",
+                    DatePost = new DateTime(2023, 9, 1)
+                },
+                new Review
+                {
+                    ProductId = 2,
+                    UserId = 3,
+                    ReviewRating = 3m,
+                    Comment = "The clothes are amazing, comfortable, and stylish. Shop.co really delivers on their promise of high-quality fashion.",
+                    DatePost = new DateTime(2023, 9, 2)
+                },
+                new Review
+                {
+                    ProductId = 3,
+                    UserId = 4,
+                    ReviewRating = 5m,
+                    Comment = "I was hesitant at first, but Shop.co completely changed my shopping experience for the better. The quality is unmatched.",
+                    DatePost = new DateTime(2023, 9, 3)
+                },
+                new Review
+                {
+                    ProductId = 4,
+                    UserId = 5,
+                    ReviewRating = 4m,
+                    Comment = "The variety of styles available is impressive, and everything I’ve bought fits perfectly. Will definitely be buying more.",
+                    DatePost = new DateTime(2023, 9, 4)
+                },
+                new Review
+                {
+                    ProductId = 5,
+                    UserId = 6,
+                    ReviewRating = 4.5m,
+                    Comment = "Shop.co provides excellent customer service and high-quality products. The attention to detail is top-notch.",
+                    DatePost = new DateTime(2023, 9, 5)
+                },
+                new Review
+                {
+                    ProductId = 6,
+                    UserId = 7,
+                    ReviewRating = 5m,
+                    Comment = "I love how versatile the clothing from Shop.co is. It’s perfect for both work and casual wear, making it a great value.",
+                    DatePost = new DateTime(2023, 9, 6)
+                },
+                new Review
+                {
+                    ProductId = 7,
+                    UserId = 8,
+                    ReviewRating = 4.5m,
+                    Comment = "The material is so soft and comfortable, yet durable. These clothes feel like they’ll last me a long time.",
+                    DatePost = new DateTime(2023, 9, 7)
+                },
+                new Review
+                {
+                    ProductId = 8,
+                    UserId = 9,
+                    ReviewRating = 4m,
+                    Comment = "The fashion options from Shop.co are exactly what I’ve been looking for. The designs are trendy and flattering.",
+                    DatePost = new DateTime(2023, 9, 8)
+                },
+                new Review
+                {
+                    ProductId = 9,
+                    UserId = 10,
+                    ReviewRating = 3m,
+                    Comment = "I’ve never had clothes fit so well right out of the box. The sizing is perfect, and the quality is excellent.",
+                    DatePost = new DateTime(2023, 9, 9)
+                },
+                new Review
+                {
+                    ProductId = 10,
+                    UserId = 2,
+                    ReviewRating = 4.5m,
+                    Comment = "Shop.co’s clothes have become my new wardrobe staples. They go with everything, and I get compliments all the time.",
+                    DatePost = new DateTime(2023, 9, 10)
+                },
+                new Review
+                {
+                    ProductId = 11,
+                    UserId = 3,
+                    ReviewRating = 4m,
+                    Comment = "The customer service is great, and the clothes always arrive on time and in perfect condition. I’m a loyal customer now.",
+                    DatePost = new DateTime(2023, 9, 11)
+                },
+                new Review
+                {
+                    ProductId = 12,
+                    UserId = 4,
+                    ReviewRating = 5m,
+                    Comment = "The quality of the fabric is superior to anything I’ve bought before. These clothes hold up really well after washing.",
+                    DatePost = new DateTime(2023, 9, 12)
+                },
+                new Review
+                {
+                    ProductId = 1,
+                    UserId = 5,
+                    ReviewRating = 4.5m,
+                    Comment = "Shop.co’s attention to detail is what sets them apart from other fashion brands. Every item is well-made.",
+                    DatePost = new DateTime(2023, 9, 13)
+                },
+                new Review
+                {
+                    ProductId = 2,
+                    UserId = 6,
+                    ReviewRating = 4m,
+                    Comment = "I appreciate how environmentally friendly the materials are, without compromising on style or quality.",
+                    DatePost = new DateTime(2023, 9, 14)
+                },
+                new Review
+                {
+                    ProductId = 3,
+                    UserId = 7,
+                    ReviewRating = 5m,
+                    Comment = "I always get compliments when I wear something from Shop.co. Their pieces are stylish, modern, and well-crafted.",
+                    DatePost = new DateTime(2023, 9, 15)
+                },
+                new Review
+                {
+                    ProductId = 4,
+                    UserId = 8,
+                    ReviewRating = 3.5m,
+                    Comment = "The clothes are true to size and incredibly comfortable. I’m very happy with everything I’ve purchased so far.",
+                    DatePost = new DateTime(2023, 9, 16)
+                },
+                new Review
+                {
+                    ProductId = 5,
+                    UserId = 9,
+                    ReviewRating = 4m,
+                    Comment = "The delivery was quick, and the packaging was secure. The clothes were even better than I expected.",
+                    DatePost = new DateTime(2023, 9, 17)
+                },
+                new Review
+                {
+                    ProductId = 6,
+                    UserId = 10,
+                    ReviewRating = 4.5m,
+                    Comment = "I love the variety of styles Shop.co offers. There’s something for every occasion, and the quality is top-notch.",
+                    DatePost = new DateTime(2023, 9, 18)
+                },
+                new Review
+                {
+                    ProductId = 7,
+                    UserId = 2,
+                    ReviewRating = 5m,
+                    Comment = "I was skeptical at first, but after my first purchase, I’m completely sold on Shop.co. The clothes are amazing.",
+                    DatePost = new DateTime(2023, 9, 19)
+                },
+                new Review
+                {
+                    ProductId = 8,
+                    UserId = 3,
+                    ReviewRating = 4.5m,
+                    Comment = "The fit and feel of these clothes are perfect. I love how they look, and I feel great wearing them.",
+                    DatePost = new DateTime(2023, 9, 20)
+                }
             );
                 context.SaveChanges();
             }
-            
+
 
             //Size
-            if (!context.Sizes.Any()) 
+            if (!context.Sizes.Any())
             {
                 context.Sizes.AddRange(
                 new Size("XX-Small"),

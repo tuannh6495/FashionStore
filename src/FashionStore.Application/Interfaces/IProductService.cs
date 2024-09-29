@@ -1,4 +1,5 @@
-﻿using FashionStore.Domain.Entities;
+﻿using FashionStore.Application.DTOs;
+using FashionStore.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,11 @@ namespace FashionStore.Application.Interfaces
 {
     public interface IProductService
     {
-        Task<IEnumerable<Product>> GetAllProductsAsync();
-        Task<Product> GetProductByIdAsync(int id);
-        Task<IEnumerable<Product>> FindProductsAsync(Expression<Func<Product, bool>> predicate);
+        Task<IEnumerable<ProductDTO>> GetAllProductsAsync();
+        Task<IEnumerable<ProductDTO>> GetNewArrivalProductsAsync();
+        Task<IEnumerable<ProductDTO>> GetTopSellingProductsAsync();
+        Task<ProductDTO> GetProductByIdAsync(int id);
+        Task<IEnumerable<ProductDTO>> FindProductsAsync(Expression<Func<Product, bool>> predicate);
         Task AddProductAsync(Product product);
         Task UpdateProductAsync(Product product);
         Task DeleteProductAsync(Product product);

@@ -8,9 +8,10 @@ namespace FashionStore.Application.DTOs
 {
     public class ProductDTO
     {
+        public List<string> ImageUrls { get; set; }
         public string Name { get; set; }
+        public string Unit { get; } = "$";
         public double Price { get; set; }
-        public string Description { get; set; }
         public decimal AvgRating { get; set; }
     }
 }

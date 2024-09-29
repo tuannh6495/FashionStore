@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace FashionStore.Domain.Interfaces
 {
-    public interface IProductRepository : IRepositoryBase<Product>
+    public interface IReviewRepository : IRepositoryBase<Review>
     {
-        Task<IEnumerable<Product>> GetProductsForNewArrivalsAsync();
-        Task<IEnumerable<Product>> GetProductsForTopSellingAsync();
+        Task<IEnumerable<Review>> GetReviewsForOurHappyCustomersAsync();
     }
 }

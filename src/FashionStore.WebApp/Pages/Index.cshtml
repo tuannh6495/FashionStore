@@ -181,7 +181,7 @@
         <div class="feedback-row">
             @foreach (var review in Model.OurHappyCustomers)
             {
-                review.IsDatePostShowed = false;
+                ViewData["IsDatePostShowed"] = false;
                 @await Component.InvokeAsync("ReviewCard", review)
             }
         </div>
