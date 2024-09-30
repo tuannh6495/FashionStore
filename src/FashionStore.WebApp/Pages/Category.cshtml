@@ -25,10 +25,10 @@
 
 				<div class="line"></div>
 
-				@foreach (var category in Model.Category)
+				@foreach (var category in Model.Categories)
 				{
 					<div class="row-layout">
-						<div class="select-text">@category</div>
+						<div class="select-text">@category.Name</div>
 						<div class="icon">
 							<img src="/Images/Right.png" alt="Icon" class="icon-image">
 						</div>
@@ -67,7 +67,7 @@
 				<div class="colors">
 					@foreach (var color in Model.Colors)
 					{
-						<div class="circle" style="background-color: @color; border: 1px solid #00000033;" onclick="selectColor(this)">
+						<div class="circle" style="background-color: @color.HexCode; border: 1px solid #00000033;" onclick="selectColor(this)">
 						</div>
 					}
 				</div>
@@ -84,7 +84,7 @@
 				<div class="size">
 					@foreach (var size in Model.Sizes)
 					{
-						<div class="size-box">@size</div>
+						<div class="size-box">@size.Name</div>
 					}
 				</div>
 
@@ -97,10 +97,10 @@
 					</div>
 				</div>
 
-				@foreach (var category in Model.Categories)
+				@foreach (var dressStyle in Model.DressStyles)
 				{
 					<div class="row-layout">
-						<div class="select-text">@category.Name</div>
+						<div class="select-text">@dressStyle.Name</div>
 						<div class="icon">
 							<img src="/Images/Right.png" alt="Icon" class="icon-image">
 						</div>

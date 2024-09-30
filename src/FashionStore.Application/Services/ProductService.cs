@@ -77,5 +77,11 @@ namespace FashionStore.Application.Services
             var products = await _productRepository.GetProductsForTopSellingAsync();
             return _mapper.Map<IEnumerable<ProductDTO>>(products);
         }
+
+        public async Task<IEnumerable<ProductDTO>> GetCasualProductsAsync()
+        {
+            var products = await _productRepository.GetProductsForCasualAsync();
+            return _mapper.Map<IEnumerable<ProductDTO>>(products);
+        }
     }
 }

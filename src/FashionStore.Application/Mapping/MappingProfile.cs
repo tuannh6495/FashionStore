@@ -13,8 +13,7 @@ namespace FashionStore.Application.Mapping
     {
         public MappingProfile() {
             CreateMap<Product, ProductDTO>();
-            CreateMap<Review, ReviewDTO>()
-                .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => $"{src.User.LastName} {src.User.FirstName}"));
+            CreateMap<Review, ReviewDTO>();
         }
     }
 }

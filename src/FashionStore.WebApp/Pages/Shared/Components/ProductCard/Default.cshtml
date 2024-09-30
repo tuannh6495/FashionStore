@@ -10,8 +10,7 @@
         <h1 class="card-title">@Model.Name</h1>
         <div class="card-text">
             <div class="card-rate">
-                @for (
-                    int i = 1; i <= 5; i++)
+                @for (int i = 1; i <= 5; i++)
                 {
                     if (i <= Math.Floor(Model.AvgRating))
                     {

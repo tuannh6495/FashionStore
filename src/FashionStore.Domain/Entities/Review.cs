@@ -11,5 +11,16 @@
         public decimal ReviewRating { get; set; }
         public string ?Comment { get; set; }
         public DateTime DatePost { get; set; }
+        public string FullNameCustomer
+        {
+            get
+            {
+                if (User != null)
+                {
+                    return $"{User.LastName} {User.FirstName}";
+                }
+                return string.Empty;  
+            }
+        }
     }
 }

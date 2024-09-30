@@ -9,7 +9,7 @@ namespace FashionStore.Application.DTOs
     public class ReviewDTO
     {
         public decimal ReviewRating { get; set; }
-        public string FullName { get; set; }
+        public string FullNameCustomer { get; set; }
         public string? Comment { get; set; }
         public DateTime DatePost { get; set; }
     }

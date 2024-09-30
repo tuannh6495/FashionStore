@@ -20,6 +20,7 @@ namespace FashionStore.Infrastructure.Repositories
         {
             return await _context.Reviews
                              .Include(r => r.User)
+                             .Where(r => r.ReviewRating >= 4)
                              .OrderByDescending(r => r.ReviewRating) 
                              .ToListAsync();
         }

@@ -11,5 +11,6 @@ namespace FashionStore.Domain.Interfaces
     {
         Task<IEnumerable<Product>> GetProductsForNewArrivalsAsync();
         Task<IEnumerable<Product>> GetProductsForTopSellingAsync();
+        Task<IEnumerable<Product>> GetProductsForCasualAsync();
     }
 }

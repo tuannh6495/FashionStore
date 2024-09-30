@@ -28,8 +28,18 @@ builder.Services.AddDbContext<FosDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<ISizeRepository, SizeRepository>();
+builder.Services.AddScoped<IColorRepository, ColorRepository>();
+builder.Services.AddScoped<IDressStyleRepository, DressStyleRepository>();
 
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IReviewService, ReviewService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<ISizeService, SizeService>();
+builder.Services.AddScoped<IColorService, ColorService>();
+builder.Services.AddScoped<IDressStyleService, DressStyleService>();
 
 //builder.Services.AddAutoMapper(typeof(Program));
 

@@ -87,17 +87,17 @@ namespace FashionStore.Infrastructure.Data
             {
                 context.Products.AddRange(
                 new Product(new List<string> { "/Images/TWTD.png", "/Images/TWTD.png", "/Images/TWTD.png" }, "T-shirt With Tape Details") { Price = 120, Description = "kszdksdo", AvgRating = 4.5m, CategoryId = 1, GenderId = 1, BrandId = 1 },
-                new Product(new List<string> { "SFJ.png", "SFJ.png", "SFJ.png" }, "Skinny Fit Jeans") { Price = 240, Description = "oekecmk", AvgRating = 3.5m, CategoryId = 5, GenderId = 1, BrandId = 1 },
-                new Product(new List<string> { "CS.png", "CS.png", "CS.png" }, "Checkered SHirt") { Price = 180, Description = "ssafeee", AvgRating = 4.5m, CategoryId = 3, GenderId = 1, BrandId = 1 },
-                new Product(new List<string> { "SST.png", "SST.png", "SST.png" }, "Sleeve Striped T-shirt") { Price = 130, Description = "sass", AvgRating = 4.5m, CategoryId = 1, GenderId = 1, BrandId = 1 },
-                new Product(new List<string> { "VerticalStripedShirt.png", "VerticalStripedShirt.png", "VerticalStripedShirt.png" }, "Vertical Striped Shirt") { Price = 212, Description = "wiohase", AvgRating = 5, CategoryId = 3, GenderId = 1, BrandId = 1 },
-                new Product(new List<string> { "CourageGraphicT-shirt.png", "CourageGraphicT-shirt.png", "CourageGraphicT-shirt.png" }, "Courage Graphic T-shirt") { Price = 145, Description = "dvdv", AvgRating = 4, CategoryId = 1, GenderId = 1, BrandId = 1 },
-                new Product(new List<string> { "LooseFitBermudaShorts.png", "LooseFitBermudaShorts.png", "LooseFitBermudaShorts.png" }, "Loose Fit Bermuda Shorts") { Price = 80, Description = "agrge", AvgRating = 3, CategoryId = 2, GenderId = 1, BrandId = 1 },
-                new Product(new List<string> { "FadedSkinnyJeans.png", "FadedSkinnyJeans.png", "FadedSkinnyJeans.png" }, "Faded Skinny Jeans") { Price = 210, Description = "rggr", AvgRating = 4.5m, CategoryId = 5, GenderId = 1, BrandId = 1 },
-                new Product(new List<string> { "PoloWithContrastTrims.png", "PoloWithContrastTrims.png", "PoloWithContrastTrims.png" }, "Polo With Contrast Trims") { Price = 212, Description = "rtgreg", AvgRating = 4, CategoryId = 1, GenderId = 1, BrandId = 1 },
-                new Product(new List<string> { "GradientGraphicT-shirt.png", "GradientGraphicT-shirt.png", "GradientGraphicT-shirt.png" }, "Gradient Graphic T-shirt") { Price = 145, Description = "rgefdvb", AvgRating = 3.5m, CategoryId = 1, GenderId = 1, BrandId = 1 },
-                new Product(new List<string> { "PoloWithTippingDetails.png", "PoloWithTippingDetails.png", "PoloWithTippingDetails.png" }, "Polo With Tipping Details") { Price = 180, Description = "dbssert", AvgRating = 4.5m, CategoryId = 1, GenderId = 1, BrandId = 1 },
-                new Product(new List<string> { "BlackStripedT-shirt.png", "BlackStripedT-shirt.png", "BlackStripedT-shirt.png" }, "Black Striped T-shirt") { Price = 120, Description = "52ser5ge5er", AvgRating = 4.5m, CategoryId = 1, GenderId = 2, BrandId = 1 }
+                new Product(new List<string> { "/Images/SFJ.png", "/Images/SFJ.png", "/Images/SFJ.png" }, "Skinny Fit Jeans") { Price = 240, Description = "oekecmk", AvgRating = 3.5m, CategoryId = 5, GenderId = 1, BrandId = 1 },
+                new Product(new List<string> { "/Images/CS.png", "/Images/CS.png", "/Images/CS.png" }, "Checkered Shirt") { Price = 180, Description = "ssafeee", AvgRating = 4.5m, CategoryId = 3, GenderId = 1, BrandId = 1 },
+                new Product(new List<string> { "/Images/SST.png", "/Images/SST.png", "/Images/SST.png" }, "Sleeve Striped T-shirt") { Price = 130, Description = "sass", AvgRating = 4.5m, CategoryId = 1, GenderId = 1, BrandId = 1 },
+                new Product(new List<string> { "/Images/VerticalStripedShirt.png", "/Images/VerticalStripedShirt.png", "/Images/VerticalStripedShirt.png" }, "Vertical Striped Shirt") { Price = 212, Description = "wiohase", AvgRating = 5, CategoryId = 3, GenderId = 1, BrandId = 1 },
+                new Product(new List<string> { "/Images/CourageGraphicT-shirt.png", "/Images/CourageGraphicT-shirt.png", "/Images/CourageGraphicT-shirt.png" }, "Courage Graphic T-shirt") { Price = 145, Description = "dvdv", AvgRating = 4, CategoryId = 1, GenderId = 1, BrandId = 1 },
+                new Product(new List<string> { "/Images/LooseFitBermudaShorts.png", "/Images/LooseFitBermudaShorts.png", "/Images/LooseFitBermudaShorts.png" }, "Loose Fit Bermuda Shorts") { Price = 80, Description = "agrge", AvgRating = 3, CategoryId = 2, GenderId = 1, BrandId = 1 },
+                new Product(new List<string> { "/Images/FadedSkinnyJeans.png", "/Images/FadedSkinnyJeans.png", "/Images/FadedSkinnyJeans.png" }, "Faded Skinny Jeans") { Price = 210, Description = "rggr", AvgRating = 4.5m, CategoryId = 5, GenderId = 1, BrandId = 1 },
+                new Product(new List<string> { "/Images/PoloWithContrastTrims.png", "/Images/PoloWithContrastTrims.png", "/Images/PoloWithContrastTrims.png" }, "Polo With Contrast Trims") { Price = 212, Description = "rtgreg", AvgRating = 4, CategoryId = 1, GenderId = 1, BrandId = 1 },
+                new Product(new List<string> { "/Images/GradientGraphicT-shirt.png", "/Images/GradientGraphicT-shirt.png", "/Images/GradientGraphicT-shirt.png" }, "Gradient Graphic T-shirt") { Price = 145, Description = "rgefdvb", AvgRating = 3.5m, CategoryId = 1, GenderId = 1, BrandId = 1 },
+                new Product(new List<string> { "/Images/PoloWithTippingDetails.png", "/Images/PoloWithTippingDetails.png", "/Images/PoloWithTippingDetails.png" }, "Polo With Tipping Details") { Price = 180, Description = "dbssert", AvgRating = 4.5m, CategoryId = 1, GenderId = 1, BrandId = 1 },
+                new Product(new List<string> { "/Images/BlackStripedT-shirt.png", "/Images/BlackStripedT-shirt.png", "/Images/BlackStripedT-shirt.png" }, "Black Striped T-shirt") { Price = 120, Description = "52ser5ge5er", AvgRating = 4.5m, CategoryId = 1, GenderId = 2, BrandId = 1 }
             );
                 context.SaveChanges();
             }
@@ -117,7 +117,16 @@ namespace FashionStore.Infrastructure.Data
             if (!context.Colors.Any())
             {
                 context.Colors.AddRange(
-                new Color("Xanh lá cây")
+                new Color("Bright Green") { HexCode = "#00C12B" },
+                new Color("Bright Red") { HexCode = "#F50606" },
+                new Color("Bright Yellow") { HexCode = "#F5DD06" },
+                new Color("Orange") { HexCode = "#F57906" },
+                new Color("Sky Blue") { HexCode = "#06CAF5" },
+                new Color("Deep Blue") { HexCode = "#063AF5" },
+                new Color("Violet") { HexCode = "#7D06F5" },
+                new Color("Hot Pink") { HexCode = "#F506A4" },
+                new Color("White") { HexCode = "#FFFFFF" },
+                new Color("Black") { HexCode = "#000000" }
             );
                 context.SaveChanges();
             }
@@ -190,7 +199,15 @@ namespace FashionStore.Infrastructure.Data
             if (!context.DressStylePs.Any())
             {
                 context.DressStylePs.AddRange(
-                new DressStyleP { DressStyleId = 1, ProductId = 1 }
+                new DressStyleP { DressStyleId = 1, ProductId = 10 },
+                new DressStyleP { DressStyleId = 1, ProductId = 11 },
+                new DressStyleP { DressStyleId = 1, ProductId = 12 },
+                new DressStyleP { DressStyleId = 1, ProductId = 2 },
+                new DressStyleP { DressStyleId = 1, ProductId = 3 },
+                new DressStyleP { DressStyleId = 1, ProductId = 4 },
+                new DressStyleP { DressStyleId = 1, ProductId = 5 },
+                new DressStyleP { DressStyleId = 1, ProductId = 6 },
+                new DressStyleP { DressStyleId = 1, ProductId = 7 }
             );
                 context.SaveChanges();
             }
