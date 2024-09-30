@@ -13,7 +13,7 @@
                     {
                         <i class="fa fa-star" style="color: gold;"></i>
                     }
-                    else if (i == Math.Ceiling(Model.ReviewRating) && Model.ReviewRating % 1 == 0.5)
+                    else if (i == Math.Ceiling(Model.ReviewRating))
                     {
                         <i class="fa fa-star-half-alt" style="color: gold;"></i>
                     }
@@ -23,19 +23,19 @@
                     }
                 }
             </div>
-            @if (Model.IsDatePostShowed)
+            @if (ViewData["IsDatePostShowed"] != null && (bool)ViewData["IsDatePostShowed"])
             {
                 <i class="fas fa-ellipsis-h" style="cursor: pointer;"></i>
             }
         </div>
 
         <p class="name-review d-flex">
-            @Model.NameCustomer
+            @Model.FullNameCustomer
             <img src="\Images\Frame.jpg">
         </p>
 
         <p class="card-text comment flex-grow-1">@Model.Comment</p>
-        @if (Model.IsDatePostShowed)
+        @if (ViewData["IsDatePostShowed"] != null && (bool)ViewData["IsDatePostShowed"])
         {
             <p class="card-text date-post mt-auto">Posted on @Model.DatePost.ToString("MMMM dd, yyyy")</p>
         }

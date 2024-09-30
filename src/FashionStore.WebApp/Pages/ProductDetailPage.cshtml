@@ -152,7 +152,7 @@
                 <div class="d-grid mt-3" style="grid-template-rows: repeat(3, 1fr); grid-template-columns: repeat(2, 1fr); gap: 15px;">
                     @foreach (var review in Model.AllReviews)
                     {
-                        review.IsDatePostShowed = true;
+                        ViewData["IsDatePostShowed"] = true;
                         <div class="grid-item">
                             @await Component.InvokeAsync("ReviewCard", review)
                         </div>
