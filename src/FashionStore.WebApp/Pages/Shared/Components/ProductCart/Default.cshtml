@@ -1,0 +1,35 @@
+﻿@model List<FashionStore.WebApp.Models.ProductCart>
+
+@foreach (var product in Model)
+{
+	<div class="item-cart">
+		<div class="image-cart">
+			<img src="~/Images/@product.ImagePath" alt="Cart Image" class="product-photo-cart" />
+		</div>
+		<div class="information">
+			<div class="product-price">
+				<div class="test" style="display: flex;justify-content: space-between;align-items: flex-start;align-self: stretch;">
+					<div class="text-all-infomation">
+						<div class="text-information">
+							@product.Name
+						</div>
+						<div class="text-size-color-cart">
+							<div class="size-text">Size: <span class="large-text">@product.Size</span></div>
+							<div class="size-text">Color: <span class="large-text">@product.Color</span></div>
+						</div>
+					</div>
+					<img src="~/Images/RecycleBin.png" alt="Cart Recycle" class="icon-recyclebin" />
+				</div>
+				<div class="test" style="display: flex;justify-content: space-between;align-items: flex-start;align-self: stretch;">
+					<div class="price-item-cart">$@product.Price</div>
+					<div class="quantity-cart">
+						<img src="~/Images/Minus.png" alt="Cart Minus" class="icon-select-cart" id="minus-btn" />
+						<span id="quantity" class="quantity-number">@product.Quantity</span>
+						<img src="~/Images/Plus.png" alt="Cart Plus" class="icon-select-cart" id="plus-btn" />
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+}
