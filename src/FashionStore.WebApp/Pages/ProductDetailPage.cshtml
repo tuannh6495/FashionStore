@@ -2,223 +2,140 @@
 @model FashionStore.WebApp.Pages.ProductDetailPageModel
 @using ProductVC
 @{
-    ViewData["Title"] = "Product Detail Page";
+	ViewData["Title"] = "Product Detail Page";
 }
 
 <link rel="stylesheet" href="~/css/ProductDetailPage.css" asp-append-version="true" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <div class="container" style=" user-select: none;">
-    <div class="pdp-custom-nav">
-        <a href="#">Home</a>
-        <i class="fa-solid fa-chevron-right"></i>
-        <a href="#">Shop</a>
-        <i class="fa-solid fa-chevron-right"></i>
-        <a href="#">Men</a>
-        <i class="fa-solid fa-chevron-right"></i>
-        <a href="#" class="active">T-shirts</a>
-    </div>
+	<div class="pdp-custom-nav">
+		<a href="#">Home</a>
+		<i class="fa-solid fa-chevron-right"></i>
+		<a href="#">Shop</a>
+		<i class="fa-solid fa-chevron-right"></i>
+		<a href="#">Men</a>
+		<i class="fa-solid fa-chevron-right"></i>
+		<a href="#" class="active">T-shirts</a>
+	</div>
 
-    <div class="row pt-4">
-        <div class="col-12 col-md-6">
-            <div class="row">
-                <div class="col-3 d-flex flex-column gap-14">
-                    <div class="product-photo" data-photo="/Images/OneLifeGraphicT-Shirt_Big.png"></div>
-                    <div class="product-photo" data-photo="/Images/OneLifeGraphicT-Shirt_Big_Back.png"></div>
-                    <div class="product-photo" data-photo="/Images/modeldress.png"></div>
-                </div>
+	<div class="row pt-4">
+		@await Component.InvokeAsync("ProductDetail", Model.ProductDetail)
+	</div>
 
-                <div class="col-9" style="padding-right: 0;">
-                    <div class="product-main-photo" id="main-photo"></div>
-                </div>
-            </div>
-        </div>
 
-        <div class="col-12 col-md-6">
-            <div class="main-text-style">
-                One Life Graphic T-shirt
-            </div>
+	<ul class="nav nav-underline mt-5">
+		<li class="nav-item-pdp">
+			<a class="nav-link" id="product-details-tab" href="#">Product Details</a>
+		</li>
+		<li class="nav-item-pdp">
+			<a class="nav-link active" id="reviews-tab" href="#">Rating & Reviews</a>
+		</li>
+		<li class="nav-item-pdp">
+			<a class="nav-link" id="faqs-tab" href="#">FAQs</a>
+		</li>
+	</ul>
 
-            <div class="star-rating">
-                <div class="rating">
-                    <i class="fa fa-star checked"></i>
-                    <i class="fa fa-star checked"></i>
-                    <i class="fa fa-star checked"></i>
-                    <i class="fa fa-star checked"></i>
-                    <i class="fa fa-star-half-alt checked"></i>
-                </div>
+	<div class="tab-content mt-3">
+		<div class="tab-pane fade" id="product-details">
+			<p>Nội dung về chi tiết sản phẩm ở đây.</p>
+		</div>
 
-                <div class="rating-container">
-                    <span class="rating-current">4.5</span>/<span class="rating-total">5</span>
-                </div>
-            </div>
+		<div class="tab-pane fade show active" id="reviews">
+			<div class="d-flex justify-content-between">
+				<div class="d-flex align-items-center" style="gap: 5px;">
+					<h1 class="all-reviews" style="font-size: 24px;">All Reviews</h1>
+					<span>(451)</span>
+				</div>
+				<div class="d-flex justify-content-between" style="gap: 10px;">
+					<button class="circle-btn">
+						<i class="fa-solid fa-sliders"></i>
+					</button>
+					<div class="dropdown">
+						<button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+							Latest
+						</button>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<li><a class="dropdown-item" href="#">Latest</a></li>
+							<li><a class="dropdown-item" href="#">Popular</a></li>
+							<li><a class="dropdown-item" href="#">Trending</a></li>
+						</ul>
+					</div>
+					<button class="write-review">Write a Review</button>
+				</div>
+			</div>
 
-            <div class="price-container">
-                <span class="price-discount">$260</span><span class="price-original">$300</span>
-                <span class="discount">-40%</span>
-            </div>
+			<div class="container p-0">
+				<div class="d-grid mt-3" style="grid-template-rows: repeat(3, 1fr); grid-template-columns: repeat(2, 1fr); gap: 15px;">
+					@foreach (var review in Model.AllReviews)
+					{
+						review.IsDatePostShowed = true;
+						<div class="grid-item">
+							@await Component.InvokeAsync("ReviewCard", review)
+						</div>
+					}
+				</div>
+				<div class="row">
+					<div class="col-6 offset-3 col-md-2 offset-md-5 mt-4">
+						<a asp-controller="Shop" asp-action="Index" class="btn btn-outline-dark btn-lg w-100" style="border-radius: 62px; font-size: 16px; font-weight: 500; max-width: 500px;">Load More Reviews</a>
+					</div>
+				</div>
+			</div>
 
-            <div class="describe">
-                This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.
-            </div>
+			<div class="related-products">
+				<div class="text-center my-5">
+					<h1 class="outstanding">YOU MIGHT ALSO LIKE</h1>
+				</div>
 
-            <div class="divider"></div>
+				<div class="row product-row">
+					@foreach (var product in Model.RelatedProducts)
+					{
+						<div class="col-md-3 col-3">
+							@await Component.InvokeAsync("ProductCard", product)
+						</div>
+					}
+				</div>
+			</div>
+		</div>
 
-            <span class="select-colors">Select Colors</span>
-
-            <div class="colors">
-                @foreach (var color in Model.Colors)
-                {
-                    <div class="circle" style="background-color: @color; border: 1px solid #00000033;" onclick="selectColor(this)">
-                    </div>
-                }
-            </div>
-
-            <div class="divider"></div>
-
-            <span class="select-colors">Choose Size</span>
-
-            <div class="size">
-                @foreach (var size in Model.Sizes)
-                {
-                    <div class="size-box">@size</div>
-                }
-            </div>
-
-            <div class="divider"></div>
-
-            <div class="check-out">
-                <div class="quantity-button">
-                    <button id="minus-button" class="icon-button">
-                        <img src="/Images/Minus.png" alt="Icon" class="icon-image">
-                    </button>
-
-                    <span id="quantity-display">1</span>
-
-                    <button id="plus-button" class="icon-button">
-                        <img src="/Images/Plus.png" alt="Icon" class="icon-image">
-                    </button>
-                </div>
-
-                <div class="add-to-cart">
-                    <span>Add to Cart</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <ul class="nav nav-underline mt-5">
-        <li class="nav-item-pdp">
-            <a class="nav-link" id="product-details-tab" href="#">Product Details</a>
-        </li>
-        <li class="nav-item-pdp">
-            <a class="nav-link active" id="reviews-tab" href="#">Rating & Reviews</a>
-        </li>
-        <li class="nav-item-pdp">
-            <a class="nav-link" id="faqs-tab" href="#">FAQs</a>
-        </li>
-    </ul>
-
-    <div class="tab-content mt-3">
-        <div class="tab-pane fade" id="product-details">
-            <p>Nội dung về chi tiết sản phẩm ở đây.</p>
-                </div>
-
-        <div class="tab-pane fade show active" id="reviews">
-            <div class="d-flex justify-content-between">
-                <div class="d-flex align-items-center" style="gap: 5px;">
-                    <h1 class="all-reviews" style="font-size: 24px;">All Reviews</h1>
-                    <span>(451)</span>
-            </div>
-                <div class="d-flex justify-content-between" style="gap: 10px;">
-                    <button class="circle-btn">
-                        <i class="fa-solid fa-sliders"></i>
-                    </button>
-                    <div class="dropdown">
-                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                            Latest
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li><a class="dropdown-item" href="#">Latest</a></li>
-                            <li><a class="dropdown-item" href="#">Popular</a></li>
-                            <li><a class="dropdown-item" href="#">Trending</a></li>
-                        </ul>
-                    </div>
-                    <button class="write-review">Write a Review</button>
-                </div>
-            </div>
-
-            <div class="container p-0">
-                <div class="d-grid mt-3" style="grid-template-rows: repeat(3, 1fr); grid-template-columns: repeat(2, 1fr); gap: 15px;">
-                    @foreach (var review in Model.AllReviews)
-                    {
-                        review.IsDatePostShowed = true;
-                        <div class="grid-item">
-                            @await Component.InvokeAsync("ReviewCard", review)
-                        </div>
-                    }
-                </div>
-                <div class="row">
-                    <div class="col-6 offset-3 col-md-2 offset-md-5 mt-4">
-                        <a asp-controller="Shop" asp-action="Index" class="btn btn-outline-dark btn-lg w-100" style="border-radius: 62px; font-size: 16px; font-weight: 500; max-width: 500px;">Load More Reviews</a>
-                    </div>
-        </div>
-    </div>
-
-            <div class="related-products">
-                <div class="text-center my-5">
-                    <h1 class="outstanding">YOU MIGHT ALSO LIKE</h1>
-                </div>
-
-                <div class="row product-row">
-                    @foreach (var product in Model.RelatedProducts)
-                    {
-                        <div class="col-md-3 col-3">
-                            @await Component.InvokeAsync("ProductCard", product)
-</div>
-                    }
-                </div>
-            </div>
-        </div>
-
-        <div class="tab-pane fade" id="faqs">
-            <p>Nội dung câu hỏi thường gặp ở đây.</p>
-        </div>
-    </div>
+		<div class="tab-pane fade" id="faqs">
+			<p>Nội dung câu hỏi thường gặp ở đây.</p>
+		</div>
+	</div>
 </div>
 
 @* JS cho ảnh bé và ảnh chính *@
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-    const productPhotos = document.querySelectorAll('.product-photo');
-    const mainPhoto = document.getElementById('main-photo');
+	document.addEventListener('DOMContentLoaded', function () {
+		const productPhotos = document.querySelectorAll('.product-photo');
+		const mainPhoto = document.getElementById('main-photo');
 
-    function updateMainPhoto(photoUrl) {
-        mainPhoto.style.background = `url('/Images/OneLifeGraphicT-Shirt_Big.png') lightgray 50% / cover no-repeat`;
+		function updateMainPhoto(photoUrl) {
+			mainPhoto.style.background = `url('/Images/OneLifeGraphicT-Shirt_Big.png') lightgray 50% / cover no-repeat`;
 
-        productPhotos.forEach(photo => photo.classList.remove('selected'));
+			productPhotos.forEach(photo => photo.classList.remove('selected'));
 
-        productPhotos.forEach(photo => {
-            if (photo.getAttribute('data-photo') === photoUrl) {
-                photo.classList.add('selected');
-            }
-        });
-    }
+			productPhotos.forEach(photo => {
+				if (photo.getAttribute('data-photo') === photoUrl) {
+					photo.classList.add('selected');
+				}
+			});
+		}
 
-    productPhotos.forEach(photo => {
-        const photoUrl = photo.getAttribute('data-photo');
-        photo.style.background = `url('${photoUrl}') lightgray 50% / cover no-repeat`;
-    });
+		productPhotos.forEach(photo => {
+			const photoUrl = photo.getAttribute('data-photo');
+			photo.style.background = `url('${photoUrl}') lightgray 50% / cover no-repeat`;
+		});
 
-    updateMainPhoto(productPhotos[0].getAttribute('data-photo'));
+		updateMainPhoto(productPhotos[0].getAttribute('data-photo'));
 
-    productPhotos.forEach(photo => {
-        photo.addEventListener('click', function () {
-            const photoUrl = this.getAttribute('data-photo');
-            updateMainPhoto(photoUrl);
-        });
-    });
-});
+		productPhotos.forEach(photo => {
+			photo.addEventListener('click', function () {
+				const photoUrl = this.getAttribute('data-photo');
+				updateMainPhoto(photoUrl);
+			});
+		});
+	});
 </script>
 
 <script src="~/js/ProductDetail.js" asp-append-version="true"></script>

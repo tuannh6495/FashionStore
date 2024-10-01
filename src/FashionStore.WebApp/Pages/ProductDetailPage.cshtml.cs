@@ -1,3 +1,5 @@
+using FashionStore.WebApp.ViewComponents;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ProductVC;
@@ -8,17 +10,14 @@ namespace FashionStore.WebApp.Pages
 {
     public class ProductDetailPageModel : PageModel
     {
-        public List<string> Colors { get; set; } = new List<string>
-        {
-            "#4F4631", "#314F4A", "#31344F", 
-        };
-        public List<string> Sizes { get; set; }
+        
         public List<Review> AllReviews { get; set; }
         public List<Product> RelatedProducts { get; set; }
+		public ProductDetailViewModel ProductDetail { get; set; }
+
+
         public void OnGet()
         {
-            Sizes = new List<string> { "Small", "Medium", "Large", "X-Large", };
-
             AllReviews = new List<Review>
             {
             new Review { ReviewRating = 4.5, NameCustomer = "Samantha D.", Comment = "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt.", DatePost = new DateTime (2023, 8, 14) },
@@ -31,11 +30,24 @@ namespace FashionStore.WebApp.Pages
 
             RelatedProducts = new List<Product>
             {
-            new Product { ImageUrl = "/Images/PoloWithContrastTrims.png", Name = "Polo With Contrast Trims", Rating = 4, Unit = "$", Price = 212 },
-            new Product { ImageUrl = "/Images/GradientGraphicT-shirt.png", Name = "Gradient Graphic T-shirt", Rating = 3.5, Unit = "$", Price = 145 },
-            new Product { ImageUrl = "/Images/PoloWithTippingDetails.png", Name = "Polo With Tipping Details", Rating = 4.5, Unit = "$", Price = 180 },
-            new Product { ImageUrl = "/Images/BlackStripedT-shirt.png", Name = "Black Striped T-shirt", Rating = 5, Unit = "$", Price = 120 }
+            new Product {Id = 1, ImageUrl = "/Images/PoloWithContrastTrims.png", Name = "Polo With Contrast Trims", Rating = 4, Unit = "$", Price = 212 },
+            new Product {Id = 2, ImageUrl = "/Images/GradientGraphicT-shirt.png", Name = "Gradient Graphic T-shirt", Rating = 3.5, Unit = "$", Price = 145 },
+            new Product {Id = 3, ImageUrl = "/Images/PoloWithTippingDetails.png", Name = "Polo With Tipping Details", Rating = 4.5, Unit = "$", Price = 180 },
+            new Product {Id = 4, ImageUrl = "/Images/BlackStripedT-shirt.png", Name = "Black Striped T-shirt", Rating = 5, Unit = "$", Price = 120 }
             };
+
+            ProductDetail = new ProductDetailViewModel
+            {
+                ProductId = 1,
+                ProductName = "One Life Graphic T-shirt",
+                Rating = 4.5,
+                PriceDiscount = 260,
+                PriceOriginal = 300,
+                Description = "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+                Colors = new List<string> { "#4F4631", "#314F4A", "#31344F" },
+                Sizes = new List<string> { "Small", "Medium", "Large", "X-Large" },
+                Photos = new List<string> { "/Images/OneLifeGraphicT-Shirt_Big.png", "/Images/OneLifeGraphicT-Shirt_Big_Back.png", "/Images/modeldress.png" }
+            };          
         }
     }
 }
