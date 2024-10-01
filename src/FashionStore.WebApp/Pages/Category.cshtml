@@ -4,6 +4,7 @@
 	ViewData["Title"] = "Category";
 }
 
+<link rel="stylesheet" href="~/css/category.css" asp-append-version="true" />
 <div class="container" style=" user-select: none;">
 	<div class="in-line genre-ds">
 		<a asp-controller="Home" asp-action="Category" asp-route-name="Home" class="select-text">Home</a>
@@ -25,10 +26,10 @@
 
 				<div class="line"></div>
 
-				@foreach (var category in Model.Category)
+				@foreach (var category in Model.Categories)
 				{
 					<div class="row-layout">
-						<div class="select-text">@category</div>
+						<div class="select-text">@category.Name</div>
 						<div class="icon">
 							<img src="/Images/Right.png" alt="Icon" class="icon-image">
 						</div>
@@ -67,7 +68,7 @@
 				<div class="colors">
 					@foreach (var color in Model.Colors)
 					{
-						<div class="circle" style="background-color: @color; border: 1px solid #00000033;" onclick="selectColor(this)">
+						<div class="circle" style="background-color: @color.HexCode; border: 1px solid #00000033;" onclick="selectColor(this)">
 						</div>
 					}
 				</div>
@@ -84,7 +85,7 @@
 				<div class="size">
 					@foreach (var size in Model.Sizes)
 					{
-						<div class="size-box">@size</div>
+						<div class="size-box">@size.Name</div>
 					}
 				</div>
 
@@ -97,10 +98,10 @@
 					</div>
 				</div>
 
-				@foreach (var category in Model.Categories)
+				@foreach (var dressStyle in Model.DressStyles)
 				{
 					<div class="row-layout">
-						<div class="select-text">@category.Name</div>
+						<div class="select-text">@dressStyle.Name</div>
 						<div class="icon">
 							<img src="/Images/Right.png" alt="Icon" class="icon-image">
 						</div>
@@ -110,10 +111,10 @@
 			</div>
 		</div>
 
-		<div class="col-md-9" style="padding: 0">
+
+		<div class="col-md-9">
 			<div class="d-flex show-ds mb-3 justify-content-between" style="margin-top: 24px;">
 				<span class="name-ds">Casual</span>
-
 				<div class="d-flex align-items-center" style="gap: 10px;">
 					<span class="classify">Showing 1-10 of 100 Products</span>
 					<div class="classify-form d-flex align-items-center" style="gap: 8px;">

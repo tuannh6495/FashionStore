@@ -7,8 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\FashionStore.Domain\FashionStore.Domain.csproj" />
-    <ProjectReference Include="..\FashionStore.WebApp\FashionStore.WebApp.csproj" />
   </ItemGroup>
 
 </Project>

@@ -106,7 +106,7 @@
     position: relative; /* Để kiểm soát vị trí của ảnh */
 }
 
-.product-photo {
+.product-photo-cart{
     border-radius: 20px;
     flex-shrink: 0;
     background: lightgray 50%;
@@ -189,7 +189,7 @@
 
 .text-name {
     color: #000;
-    font-family: Satoshi;
+    font-family: Satoshi
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
