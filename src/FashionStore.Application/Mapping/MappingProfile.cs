@@ -13,7 +13,12 @@ namespace FashionStore.Application.Mapping
     {
         public MappingProfile() {
             CreateMap<Product, ProductDTO>();
+
             CreateMap<Review, ReviewDTO>();
+
+            CreateMap<Product, ProductDetailDTO>()
+                .ForMember(dest => dest.ColorHexCodes, opt => opt.MapFrom(src => src.ColorPs.Select(cp => cp.Color.HexCode).ToList()))
+                .ForMember(dest => dest.SizeNames, opt => opt.MapFrom(src => src.SizePs.Select(sp => sp.Size.Name).ToList()));
         }
     }
 }

@@ -51,5 +51,25 @@ namespace FashionStore.Infrastructure.Repositories
                                          .ToListAsync();
             return products;
         }
+
+        public async Task<Product> GetProductsWithDetailAsync(int productId)
+        {
+            var product = await _context.Products
+                .Include(p => p.ColorPs)
+                    .ThenInclude(cp => cp.Color)
+                .Include(p => p.SizePs)
+                    .ThenInclude(sp => sp.Size)
+                .FirstOrDefaultAsync(p => p.Id == productId);
+            return product;
+        }
+
+        public async Task<IEnumerable<Product>> GetProductsForRelatedAsync(int categoryId, int excludeProductId)
+        {
+            return await _context.Products
+                .Where(p => p.CategoryId == categoryId && p.Id != excludeProductId)
+                .Take(4) 
+                .ToListAsync();
+        }
+
     }
 }

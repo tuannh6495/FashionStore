@@ -22,4 +22,8 @@
     <ProjectReference Include="..\FashionStore.Application\FashionStore.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\Migrations\" />
+  </ItemGroup>
+
 </Project>

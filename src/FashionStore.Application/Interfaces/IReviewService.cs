@@ -10,5 +10,6 @@ namespace FashionStore.Application.Interfaces
     public interface IReviewService
     {
         Task<IEnumerable<ReviewDTO>> GetOurHappyCustomerReviewAsync();
+        Task<IEnumerable<ReviewDTO>> GetProductReviewsAsync(int productId);
     }
 }

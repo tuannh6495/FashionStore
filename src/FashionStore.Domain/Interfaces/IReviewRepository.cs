@@ -10,5 +10,6 @@ namespace FashionStore.Domain.Interfaces
     public interface IReviewRepository : IRepositoryBase<Review>
     {
         Task<IEnumerable<Review>> GetReviewsForOurHappyCustomersAsync();
+        Task<IEnumerable<Review>> GetReviewsForProductAsync(int productId);
     }
 }

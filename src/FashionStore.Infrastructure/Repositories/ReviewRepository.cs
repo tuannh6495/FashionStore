@@ -24,5 +24,13 @@ namespace FashionStore.Infrastructure.Repositories
                              .OrderByDescending(r => r.ReviewRating) 
                              .ToListAsync();
         }
+
+        public async Task<IEnumerable<Review>> GetReviewsForProductAsync(int productId)
+        {
+            return await _context.Reviews
+                    .Include(r => r.User)
+                    .Where(r => r.ProductId == productId)
+                    .ToListAsync();
+        }
     }
 }
