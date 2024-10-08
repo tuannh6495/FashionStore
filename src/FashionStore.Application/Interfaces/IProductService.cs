@@ -14,7 +14,7 @@ namespace FashionStore.Application.Interfaces
         Task<IEnumerable<ProductDTO>> GetAllProductsAsync();
         Task<IEnumerable<ProductDTO>> GetNewArrivalProductsAsync();
         Task<IEnumerable<ProductDTO>> GetTopSellingProductsAsync();
-        Task<IEnumerable<ProductDTO>> GetCasualProductsAsync();
+        Task<IEnumerable<ProductDTO>> GetDressStyleProductsAsync(int dressStyleId);
         Task<ProductDetailDTO> GetProductDetailAsync(int productId);
         Task<IEnumerable<ProductDTO>> GetRelatedProductsAsync(int productId);
         Task<ProductDTO> GetProductByIdAsync(int id);

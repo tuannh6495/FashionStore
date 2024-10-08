@@ -1,6 +1,7 @@
 ﻿using FashionStore.Domain.Entities;
 using FashionStore.Domain.Interfaces;
 using FashionStore.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,14 @@ namespace FashionStore.Infrastructure.Repositories
     {
         public DressStyleRepository(FosDbContext context) : base(context)
         {
+        }
+
+        public async Task<string> GetDressStyleNameByIdAsync(int dressStyleId)
+        {
+            var dressStyle = await _context.DressStyles
+                                       .FirstOrDefaultAsync(ds => ds.Id == dressStyleId);
+
+            return dressStyle?.Name;
         }
     }
 }

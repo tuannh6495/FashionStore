@@ -9,5 +9,6 @@ namespace FashionStore.Domain.Interfaces
 {
     public interface IDressStyleRepository : IRepositoryBase<DressStyle>
     {
+        Task<string> GetDressStyleNameByIdAsync(int dressStyleId);
     }
 }

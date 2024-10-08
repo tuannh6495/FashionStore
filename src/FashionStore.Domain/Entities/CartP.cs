@@ -15,6 +15,6 @@ namespace FashionStore.Domain.Entities
 		public Product? Product { get; set; }
 
 		public int Quantity { get; set; }
-		public double Price { get; set; }
+        public double TotalPrice => (Product != null ? Product.Price * Quantity : 0);
     }
 }

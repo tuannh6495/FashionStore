@@ -18,7 +18,8 @@ namespace FashionStore.WebApp.Pages
         public IEnumerable<Category> Categories { get; set; }
         public IEnumerable<Color> Colors { get; set; }
         public IEnumerable<DressStyle> DressStyles { get; set; }
-        public IEnumerable<ProductDTO> Casual { get; set; }
+        public string DressStyleName { get; set; }
+        public IEnumerable<ProductDTO> CategoryProducts { get; set; }
 
         public CategoryModel(ICategoryService categoryService, ISizeService sizeService, IColorService colorService, IDressStyleService dressStyleService, IProductService productService) 
         {
@@ -39,7 +40,15 @@ namespace FashionStore.WebApp.Pages
 
             DressStyles = await _dressStyleService.GetAllDressStyleAsync();
 
-            Casual = await _productService.GetCasualProductsAsync();
+            if (int.TryParse(Request.Query["id"], out int id))
+            {
+                DressStyleName = await _dressStyleService.GetDressStyleNameAsync(id);
+                CategoryProducts = await _productService.GetDressStyleProductsAsync(id);
+            }
+            else
+            {
+                RedirectToPage("/Error");
+            }
         }
     }
 }

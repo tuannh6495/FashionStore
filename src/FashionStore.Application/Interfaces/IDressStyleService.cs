@@ -10,5 +10,6 @@ namespace FashionStore.Application.Interfaces
     public interface IDressStyleService 
     {
         Task<IEnumerable<DressStyle>> GetAllDressStyleAsync();
+        Task<string> GetDressStyleNameAsync(int dressStyleId);
     }
 }

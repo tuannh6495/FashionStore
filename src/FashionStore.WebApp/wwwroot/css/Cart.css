@@ -160,8 +160,6 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    justify-content: space-between;
-    align-items: center;
     flex: 1 0 0;
 }
 
@@ -274,8 +272,7 @@
     align-items: flex-end;
 }
 
-.quantity-cart {
-    display: flex;
+.edit-quantity-item {
     padding: 12px 20px;
     justify-content: center;
     align-items: center;
@@ -291,14 +288,7 @@
     height: 20px;
 }
 
-.quantity-number {
-    color: #000;
-    font-family: Satoshi, sans-serif;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-}
+
 
 @media(max-width: 391px)
 {
@@ -314,20 +304,9 @@
         height: 31px;
     }
 
-
-
     .icon-select-cart {
         width: 16px;
         height: 25px;
-    }
-
-    .quantity-number {
-        color: #000;
-        font-family: Satoshi, sans-serif;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
     }
 }
 

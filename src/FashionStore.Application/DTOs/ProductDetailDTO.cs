@@ -16,6 +16,7 @@ namespace FashionStore.Application.DTOs
         public string? Description { get; set; }
         public decimal AvgRating { get; set; }
         public List<string> ColorHexCodes { get; set; }
+        public List<string> ColorNames { get; set; }
         public List<string> SizeNames { get; set; }
     }
 }

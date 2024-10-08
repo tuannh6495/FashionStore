@@ -40,10 +40,10 @@ namespace FashionStore.Infrastructure.Repositories
             return products;
         }
 
-        public async Task<IEnumerable<Product>> GetProductsForCasualAsync()
+        public async Task<IEnumerable<Product>> GetProductsByDressStyleAsync(int dressStyleId)
         {
             var productIds = await _context.DressStylePs
-                                           .Where(DressStyleP => DressStyleP.DressStyleId == 1)
+                                           .Where(DressStyleP => DressStyleP.DressStyleId == dressStyleId)
                                            .Select(DressStyleP => DressStyleP.ProductId)
                                            .ToListAsync();
             var products = await _context.Products
@@ -51,6 +51,7 @@ namespace FashionStore.Infrastructure.Repositories
                                          .ToListAsync();
             return products;
         }
+
 
         public async Task<Product> GetProductsWithDetailAsync(int productId)
         {
@@ -60,6 +61,7 @@ namespace FashionStore.Infrastructure.Repositories
                 .Include(p => p.SizePs)
                     .ThenInclude(sp => sp.Size)
                 .FirstOrDefaultAsync(p => p.Id == productId);
+            product.SizePs = product.SizePs.OrderBy(sp => sp.SizeId).ToList();
             return product;
         }
 

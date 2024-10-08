@@ -71,51 +71,58 @@
 
             <div class="divider"></div>
 
-            <span class="select-colors">Select Colors</span>
+            <form method="post" asp-page-handler="AddToCart">
+                <input type="hidden" name="productId" value="@Model.ProductDetail.Id" />
 
-            <div class="colors">
-                @foreach (var color in Model.ProductDetail.ColorHexCodes)
-                {
-                    <div class="circle" style="background-color: @color; border: 1px solid #00000033;" onclick="selectColor(this)">
+                <input type="hidden" id="selectedColorName" name="colorName" />
+
+                <input type="hidden" id="selectedSizeName" name="sizeName" />
+
+                <input type="hidden" id="quantity-input" name="quantity" value="1" />
+
+                <span class="select-colors">Select Colors</span>
+                <div class="colors">
+                    @foreach (var color in Model.ProductDetail.ColorNames.Zip(Model.ProductDetail.ColorHexCodes, (colorName, colorHex) => new { colorName, colorHex }))
+                    {
+                        <div class="circle"
+                             style="background-color: @color.colorHex; border: 1px solid #00000033;"
+                             onclick="selectColor(this, '@color.colorName')">
+                        </div>
+                    }
+                </div>
+
+                <div class="divider"></div>
+
+                <span class="select-colors">Choose Size</span>
+                <div class="size">
+                    @foreach (var size in Model.ProductDetail.SizeNames)
+                    {
+                        <div class="size-box">@size</div>
+                    }
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="check-out">
+                    <div class="quantity-button">
+                        <button type="button" id="minus-button" class="icon-button">
+                            <img src="/Images/Minus.png" alt="Icon" class="icon-image">
+                        </button>
+
+                        <span id="quantity-display">1</span>
+
+                        <button type="button" id="plus-button" class="icon-button">
+                            <img src="/Images/Plus.png" alt="Icon" class="icon-image">
+                        </button>
                     </div>
-                }
-            </div>
 
-            <div class="divider"></div>
-
-            <span class="select-colors">Choose Size</span>
-
-            <div class="size">
-                @foreach (var size in Model.ProductDetail.SizeNames)
-                {
-                    <div class="size-box">@size</div>
-                }
-            </div>
-
-            <div class="divider"></div>
-
-            <div class="check-out">
-                <div class="quantity-button">
-                    <button id="minus-button" class="icon-button">
-                        <img src="/Images/Minus.png" alt="Icon" class="icon-image">
-                    </button>
-
-                    <span id="quantity-display">1</span>
-
-                    <button id="plus-button" class="icon-button">
-                        <img src="/Images/Plus.png" alt="Icon" class="icon-image">
+                    <button type="submit" class="add-to-cart">
+                            Add to Cart
                     </button>
                 </div>
-
-                <div class="add-to-cart">
-                    <span>Add to Cart</span>
-                </div>
-            </div>
+            </form>
         </div>
-
-
     </div>
-
 
     <ul class="nav nav-underline mt-5">
         <li class="nav-item-pdp">
@@ -163,7 +170,7 @@
                     @foreach (var review in Model.AllReviews.Take(6))
                     {
                         bool isDatePostShowed = true;
-                        <div class="grid-item">
+                        <div class="grid-item" style="height: 100%!important">
                             @await Component.InvokeAsync("ReviewCard", new { isDatePostShowed = isDatePostShowed, review = review })
                         </div>
                     }

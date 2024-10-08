@@ -13,6 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddSession();
 
 var mapperConfig = new MapperConfiguration(mc =>
 {
@@ -50,8 +51,14 @@ using (var scope = app.Services.CreateScope())
     var services = scope.ServiceProvider;
     var context = services.GetRequiredService<FosDbContext>();
 
-    // Gọi phương thức seed
-    FosDbContextSeed.Seed(context);
+    try
+    {
+        FosDbContextSeed.Seed(context);
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"An error occurred during seeding: {ex.Message}");
+    }
 }
 
 
@@ -64,9 +71,12 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection(); 
+
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseSession();
 
 app.UseAuthorization();
 

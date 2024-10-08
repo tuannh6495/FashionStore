@@ -5,6 +5,7 @@ using FashionStore.Domain.Entities;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using FashionStore.Application.Interfaces;
 using FashionStore.Application.DTOs;
+using FashionStore.WebApp.Common;
 
 namespace FashionStore.WebApp.Pages
 {
@@ -19,10 +20,7 @@ namespace FashionStore.WebApp.Pages
         public ProductDetailDTO ProductDetail { get; set; }
         public IEnumerable<ReviewDTO> AllReviews { get; set; }
         public IEnumerable<ProductDTO> RelatedProducts { get; set; }
-
         
-        //public List<Product> RelatedProducts { get; set; }
-
         public ProductDetailPageModel(IProductService productService, IReviewService reviewService)
         {
             _productService = productService;
@@ -43,5 +41,39 @@ namespace FashionStore.WebApp.Pages
                 RedirectToPage("/Error");
             }
         }
+
+        public IActionResult OnPostAddToCart(int productId, string colorName, string sizeName, int quantity)
+        {
+            var product = _productService.GetProductByIdAsync(productId);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            var cart = HttpContext.Session.GetObjectFromJson<List<CartPDTO>>("Cart") ?? new List<CartPDTO>();
+
+            var cartItem = cart.FirstOrDefault(c => c.ProductId == productId && c.SizeName == sizeName && c.ColorName == colorName);
+            if (cartItem != null)
+            {
+                cartItem.Quantity += quantity;
+            }
+            else
+            {
+                cart.Add(new CartPDTO
+                {
+                    ProductId = productId,
+                    ProductName = product.Result.Name, 
+                    Quantity = quantity,
+                    SizeName = sizeName,
+                    ColorName = colorName,
+                    Price = product.Result.Price
+                });
+            }
+
+            HttpContext.Session.SetObjectAsJson("Cart", cart);
+
+            return RedirectToPage("Cart");
+        }
+
     }
 }

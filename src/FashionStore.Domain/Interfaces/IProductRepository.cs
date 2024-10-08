@@ -11,7 +11,7 @@ namespace FashionStore.Domain.Interfaces
     {
         Task<IEnumerable<Product>> GetProductsForNewArrivalsAsync();
         Task<IEnumerable<Product>> GetProductsForTopSellingAsync();
-        Task<IEnumerable<Product>> GetProductsForCasualAsync();
+        Task<IEnumerable<Product>> GetProductsByDressStyleAsync(int dressStyleId);
         Task<Product> GetProductsWithDetailAsync(int productId);
         Task<IEnumerable<Product>> GetProductsForRelatedAsync(int categoryId, int excludeProductId);
     }

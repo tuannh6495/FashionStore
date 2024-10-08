@@ -22,5 +22,10 @@ namespace FashionStore.Application.Services
         {
             return await _dressStyleRepository.GetAllAsync();
         }
+
+        public async Task<string> GetDressStyleNameAsync(int dressStyleId)
+        {
+            return await _dressStyleRepository.GetDressStyleNameByIdAsync(dressStyleId);
+        }
     }
 }
