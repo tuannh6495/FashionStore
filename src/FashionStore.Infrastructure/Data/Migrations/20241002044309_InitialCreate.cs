@@ -43,7 +43,8 @@ namespace FashionStore.Infrastructure.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    HexCode = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -160,9 +161,10 @@ namespace FashionStore.Infrastructure.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    ImageUrls = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<double>(type: "float", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AvgRating = table.Column<decimal>(type: "decimal(2,1)", nullable: false, defaultValue: 0.0m),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
                     GenderId = table.Column<int>(type: "int", nullable: false),
@@ -240,13 +242,14 @@ namespace FashionStore.Infrastructure.Data.Migrations
                 name: "ColorPs",
                 columns: table => new
                 {
-                    ColorId = table.Column<int>(type: "int", nullable: false),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
                     Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ColorId = table.Column<int>(type: "int", nullable: false),
+                    ProductId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ColorPs", x => new { x.ColorId, x.ProductId });
+                    table.PrimaryKey("PK_ColorPs", x => x.Id);
                     table.ForeignKey(
                         name: "FK_ColorPs_Colors_ColorId",
                         column: x => x.ColorId,
@@ -347,8 +350,9 @@ namespace FashionStore.Infrastructure.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProductId = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),
-                    Comment = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Rating = table.Column<decimal>(type: "decimal(2,1)", nullable: false)
+                    ReviewRating = table.Column<decimal>(type: "decimal(2,1)", nullable: false),
+                    Comment = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DatePost = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -482,6 +486,11 @@ namespace FashionStore.Infrastructure.Data.Migrations
                 table: "Carts",
                 column: "UserId",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ColorPs_ColorId",
+                table: "ColorPs",
+                column: "ColorId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ColorPs_ProductId",

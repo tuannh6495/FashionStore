@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FashionStore.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(FosDbContext))]
-    [Migration("20240930095847_UpdateColor")]
-    partial class UpdateColor
+    [Migration("20241004035558_UpdateCartP")]
+    partial class UpdateCartP
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -72,9 +72,6 @@ namespace FashionStore.Infrastructure.Data.Migrations
                     b.Property<int>("CartId")
                         .HasColumnType("int");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
-
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
@@ -130,16 +127,21 @@ namespace FashionStore.Infrastructure.Data.Migrations
 
             modelBuilder.Entity("FashionStore.Domain.Entities.ColorP", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
                     b.Property<int>("ColorId")
                         .HasColumnType("int");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
+                    b.HasKey("Id");
 
-                    b.HasKey("ColorId", "ProductId");
+                    b.HasIndex("ColorId");
 
                     b.HasIndex("ProductId");
 
@@ -416,10 +418,6 @@ namespace FashionStore.Infrastructure.Data.Migrations
 
                     b.Property<DateTime>("DatePost")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("FullNameCustomer")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");

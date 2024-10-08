@@ -15,7 +15,7 @@ namespace FashionStore.Infrastructure.Data.Configuration
     {
         public void Configure(EntityTypeBuilder<ColorP> builder)
         {
-            builder.HasKey(cp => new { cp.ColorId, cp.ProductId });
+            builder.HasKey(cp => cp.Id);
 
             builder.HasOne(cp => cp.Color)
                 .WithMany(c => c.ColorPs)

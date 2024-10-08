@@ -1,0 +1,55 @@
+﻿@using FashionStore.WebApp.ViewComponents
+
+@*<div class="item-cart">
+    <div class="image-cart">
+        <img src="~/Images/@product.ImagePath" alt="Cart Image" class="product-photo-cart" />
+    </div>
+    <div class="information">
+        <div class="product-price">
+            <div class="test" style="display: flex;justify-content: space-between;align-items: flex-start;align-self: stretch;">
+                <div class="text-all-infomation">
+                    <div class="text-information">
+                        @@Model.Product.Name 
+                    </div>
+                    <div class="text-size-color-cart">
+                        <div class="size-text">Size: <span class="large-text">@product.Size </span></div>
+                        <div class="size-text">Color: <span class="large-text">@product.Color </span></div>
+                    </div>
+                </div>
+                <img src="~/Images/RecycleBin.png" alt="Cart Recycle" class="icon-recyclebin" />
+            </div>
+            <div class="test" style="display: flex;justify-content: space-between;align-items: flex-start;align-self: stretch;">
+                <div class="price-item-cart"> $@Model.Product.Price </div>
+                <div class="quantity-cart">
+                    <img src="~/Images/Minus.png" alt="Cart Minus" class="icon-select-cart" id="minus-btn" />
+                    <span id="quantity" class="quantity-number">@Model.Quantity</span>
+                    <img src="~/Images/Plus.png" alt="Cart Plus" class="icon-select-cart" id="plus-btn" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>*@
+
+<div class="row">
+    <div class="col-md-3">
+        <img src="" />
+    </div>
+    <div class="col-md-9">
+        <div class="item-information d-flex justify-content-between">
+            <div class="inf-item d-flex flex-column align-items-md-start">
+                <span>@Model.ProductName</span>
+                <span>Size: @Model.SizeName</span>
+                <span>Color: @Model.ColorName</span>
+            </div>
+            <img src="/Images/RecycleBin.png" class="icon-recyclebin" />
+        </div>
+        <div class="edit-item d-flex justify-content-between">
+            <div class="price-item">@Model.Unit @Model.Price</div>
+            <div class="edit-quantity-item d-flex">
+                <img src="~/Images/Minus.png" alt="Cart Minus" class="icon-select-cart" id="minus-btn" />
+                <span>@Model.Quantity</span>
+                <img src="~/Images/Plus.png" alt="Cart Plus" class="icon-select-cart" id="plus-btn" />
+            </div>
+        </div>
+    </div>
+</div>

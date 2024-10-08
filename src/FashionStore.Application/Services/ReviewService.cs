@@ -26,5 +26,11 @@ namespace FashionStore.Application.Services
             var reviews = await _reviewRepository.GetReviewsForOurHappyCustomersAsync();
             return _mapper.Map<IEnumerable<ReviewDTO>>(reviews);
         }
+
+        public async Task<IEnumerable<ReviewDTO>> GetProductReviewsAsync(int productId)
+        {
+            var reviews = await _reviewRepository.GetReviewsForProductAsync(productId);
+            return _mapper.Map<IEnumerable<ReviewDTO>>(reviews);
+        }
     }
 }

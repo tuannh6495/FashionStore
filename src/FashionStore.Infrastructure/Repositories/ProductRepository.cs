@@ -40,10 +40,10 @@ namespace FashionStore.Infrastructure.Repositories
             return products;
         }
 
-        public async Task<IEnumerable<Product>> GetProductsForCasualAsync()
+        public async Task<IEnumerable<Product>> GetProductsByDressStyleAsync(int dressStyleId)
         {
             var productIds = await _context.DressStylePs
-                                           .Where(DressStyleP => DressStyleP.DressStyleId == 1)
+                                           .Where(DressStyleP => DressStyleP.DressStyleId == dressStyleId)
                                            .Select(DressStyleP => DressStyleP.ProductId)
                                            .ToListAsync();
             var products = await _context.Products
@@ -51,5 +51,27 @@ namespace FashionStore.Infrastructure.Repositories
                                          .ToListAsync();
             return products;
         }
+
+
+        public async Task<Product> GetProductsWithDetailAsync(int productId)
+        {
+            var product = await _context.Products
+                .Include(p => p.ColorPs)
+                    .ThenInclude(cp => cp.Color)
+                .Include(p => p.SizePs)
+                    .ThenInclude(sp => sp.Size)
+                .FirstOrDefaultAsync(p => p.Id == productId);
+            product.SizePs = product.SizePs.OrderBy(sp => sp.SizeId).ToList();
+            return product;
+        }
+
+        public async Task<IEnumerable<Product>> GetProductsForRelatedAsync(int categoryId, int excludeProductId)
+        {
+            return await _context.Products
+                .Where(p => p.CategoryId == categoryId && p.Id != excludeProductId)
+                .Take(4) 
+                .ToListAsync();
+        }
+
     }
 }

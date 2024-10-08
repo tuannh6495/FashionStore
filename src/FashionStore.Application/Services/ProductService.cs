@@ -78,9 +78,24 @@ namespace FashionStore.Application.Services
             return _mapper.Map<IEnumerable<ProductDTO>>(products);
         }
 
-        public async Task<IEnumerable<ProductDTO>> GetCasualProductsAsync()
+        public async Task<IEnumerable<ProductDTO>> GetDressStyleProductsAsync(int dressStyleId)
         {
-            var products = await _productRepository.GetProductsForCasualAsync();
+            var products = await _productRepository.GetProductsByDressStyleAsync(dressStyleId);
+            return _mapper.Map<IEnumerable<ProductDTO>>(products);
+        }
+
+        public async Task<ProductDetailDTO> GetProductDetailAsync(int productId)
+        {
+            var product = await _productRepository.GetProductsWithDetailAsync(productId);
+            return _mapper.Map<ProductDetailDTO>(product);
+        }
+
+        public async Task<IEnumerable<ProductDTO>> GetRelatedProductsAsync(int productId)
+        {
+            var product = await _productRepository.GetProductsWithDetailAsync(productId);
+
+            var products = await _productRepository.GetProductsForRelatedAsync(product.CategoryId, productId);
+
             return _mapper.Map<IEnumerable<ProductDTO>>(products);
         }
     }

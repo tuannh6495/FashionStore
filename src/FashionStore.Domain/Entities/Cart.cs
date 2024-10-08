@@ -14,3 +14,4 @@ namespace FashionStore.Domain.Entities
 		public ICollection<CartP>? CartPs { get; set; }
     }
 }
+

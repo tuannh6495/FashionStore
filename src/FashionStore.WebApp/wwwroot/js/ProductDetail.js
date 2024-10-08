@@ -28,7 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-function selectColor(element) {
+// Xử lý chọn màu
+function selectColor(element, colorName) {
     // Bỏ tích từ các màu trước đó
     var circles = document.querySelectorAll('.circle');
     circles.forEach(function (circle) {
@@ -43,47 +44,54 @@ function selectColor(element) {
     tickImage.src = '/Images/Tick.png'; // Đường dẫn đến ảnh tick
     tickImage.classList.add('tick');
     element.appendChild(tickImage);
+
+    // Cập nhật tên màu đã chọn vào trường ẩn
+    document.getElementById("selectedColorName").value = colorName;
 }
 
+// Xử lý chọn size
 document.addEventListener("DOMContentLoaded", function () {
     const sizeBoxes = document.querySelectorAll('.size-box');
 
     sizeBoxes.forEach(box => {
         box.addEventListener('click', function () {
-            // Loại bỏ class 'selected' khỏi tất cả các ô
+            // Loại bỏ class 'selected' khỏi tất cả các ô size
             sizeBoxes.forEach(b => b.classList.remove('selected'));
 
             // Thêm class 'selected' vào ô được nhấp
             this.classList.add('selected');
+
+            // Cập nhật tên size đã chọn vào trường ẩn
+            document.getElementById("selectedSizeName").value = this.innerText.trim();
         });
     });
-});
 
+    // Xử lý tăng giảm số lượng
+    const minusButton = document.getElementById("minus-button");
+    const plusButton = document.getElementById("plus-button");
+    const quantityDisplay = document.getElementById("quantity-display");
+    const quantityInput = document.getElementById("quantity-input");
 
-//sử lý số tăng giảm
-// Lấy các phần tử cần thao tác
-const minusButton = document.getElementById("minus-button");
-const plusButton = document.getElementById("plus-button");
-const quantityDisplay = document.getElementById("quantity-display");
+    // Mặc định số lượng là 1
+    let quantity = 1;
 
-// Mặc định số lượng là 1
-let quantity = 1;
-
-// Hàm cập nhật số lượng hiển thị
-function updateQuantityDisplay() {
-    quantityDisplay.textContent = quantity;
-}
-
-// Xử lý khi bấm vào dấu trừ
-minusButton.addEventListener("click", function () {
-    if (quantity > 0) {
-        quantity--;
-        updateQuantityDisplay();
+    // Hàm cập nhật số lượng hiển thị và cập nhật vào input ẩn
+    function updateQuantityDisplay() {
+        quantityDisplay.textContent = quantity;
+        quantityInput.value = quantity; // Cập nhật giá trị số lượng vào input ẩn
     }
-});
 
-// Xử lý khi bấm vào dấu cộng
-plusButton.addEventListener("click", function () {
-    quantity++;
-    updateQuantityDisplay();
+    // Xử lý khi bấm vào dấu trừ
+    minusButton.addEventListener("click", function () {
+        if (quantity > 1) { // Đảm bảo số lượng không nhỏ hơn 1
+            quantity--;
+            updateQuantityDisplay();
+        }
+    });
+
+    // Xử lý khi bấm vào dấu cộng
+    plusButton.addEventListener("click", function () {
+        quantity++;
+        updateQuantityDisplay();
+    });
 });

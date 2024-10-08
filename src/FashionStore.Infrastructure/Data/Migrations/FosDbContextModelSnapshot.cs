@@ -69,9 +69,6 @@ namespace FashionStore.Infrastructure.Data.Migrations
                     b.Property<int>("CartId")
                         .HasColumnType("int");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
-
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
@@ -127,16 +124,21 @@ namespace FashionStore.Infrastructure.Data.Migrations
 
             modelBuilder.Entity("FashionStore.Domain.Entities.ColorP", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
                     b.Property<int>("ColorId")
                         .HasColumnType("int");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
+                    b.HasKey("Id");
 
-                    b.HasKey("ColorId", "ProductId");
+                    b.HasIndex("ColorId");
 
                     b.HasIndex("ProductId");
 

@@ -81,12 +81,11 @@
         </div>
 
         <div class="row product-row">
+
             @foreach (var product in Model.NewArrivals)
             {
                 <div class="col-md-3 col-3">
-                     <a asp-page="./productdetailpage" asp-route-id="@product.Id">
                     @await Component.InvokeAsync("ProductCard", product)
-                    </a>
                 </div>
             }
         </div>
@@ -109,9 +108,7 @@
             @foreach (var product in Model.TopSelling)
             {
                 <div class="col-md-3 col-3">
-                    <a asp-page="./productdetailpage" asp-route-id="@product.Id">
                     @await Component.InvokeAsync("ProductCard", product)
-                    </a>
                 </div>
             }
         </div>
@@ -129,42 +126,50 @@
         <h3 class="outstanding my-5">BROWSE BY DRESS STYLE</h3>
 
         <div class="row mt-4">
-            <div class="col-md-4 col-12 mb-3 d-flex">
-                <div class="card ds-card w-100" style="border-radius: 20px; overflow: hidden;">
-                    <img src="\Images\CasualDS.png" class="card-img" style="object-fit: cover; height: 100%; width: 100%;">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title fs-1">Casual</h5>
+            <div class="col-md-4 col-12 mb-3">
+                <a asp-page="/Category" asp-route-id="1">
+                    <div class="card ds-card w-100 h-100" style="border-radius: 20px; overflow: hidden;">
+                        <img src="\Images\CasualDS.png" class="card-img" style="object-fit: cover; height: 100%; width: 100%;">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title fs-1">Casual</h5>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
 
-            <div class="col-md-8 col-12 mb-3 d-flex">
-                <div class="card ds-card w-100" style=" border-radius: 20px; overflow: hidden;">
-                    <img src="\Images\FormalDS.png" class="card-img" style="object-fit: cover; height: 100%; width: 100%;">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title fs-1">Formal</h5>
+            <div class="col-md-8 col-12 mb-3">
+                <a asp-page="/Category" asp-route-id="2">
+                    <div class="card ds-card w-100" style=" border-radius: 20px; overflow: hidden;">
+                        <img src="\Images\FormalDS.png" class="card-img" style="object-fit: cover; height: 100%; width: 100%;">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title fs-1">Formal</h5>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-8 col-12 mb-3 d-flex">
-                <div class="card ds-card w-100" style=" border-radius: 20px; overflow: hidden;">
-                    <img src="\Images\PartyDS.png" class="card-img" style="object-fit: cover; height: 100%; width: 100%;">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title fs-1">Party</h5>
+            <div class="col-md-8 col-12 mb-3">
+                <a asp-page="/Category" asp-route-id="3">
+                    <div class="card ds-card w-100" style=" border-radius: 20px; overflow: hidden;">
+                        <img src="\Images\PartyDS.png" class="card-img" style="object-fit: cover; height: 100%; width: 100%;">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title fs-1">Party</h5>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
 
-            <div class="col-md-4 col-12 mb-3 d-flex">
-                <div class="card ds-card w-100" style=" border-radius: 20px; overflow: hidden;">
-                    <img src="\Images\GymDS.png" class="card-img" style="object-fit: cover; height: 100%; width: 100%;">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title fs-1">Gym</h5>
+            <div class="col-md-4 col-12 mb-3">
+                <a asp-page="/Category" asp-route-id="4">
+                    <div class="card ds-card w-100 h-100" style=" border-radius: 20px; overflow: hidden;">
+                        <img src="\Images\GymDS.png" class="card-img" style="object-fit: cover; height: 100%; width: 100%;">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title fs-1">Gym</h5>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </div>
