@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using FashionStore.WebApp.Models;
 using System.Collections.Generic;
 using FashionStore.Domain.Entities;
 using FashionStore.Application.DTOs;

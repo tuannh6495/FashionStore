@@ -2,7 +2,9 @@ using FashionStore.Application.DTOs;
 using FashionStore.Application.Interfaces;
 using FashionStore.Domain.Entities;
 using FashionStore.Domain.Interfaces;
+using FashionStore.WebApp.Common;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Linq;
 
 namespace FashionStore.WebApp.Pages
 {
@@ -19,7 +21,10 @@ namespace FashionStore.WebApp.Pages
         public IEnumerable<Color> Colors { get; set; }
         public IEnumerable<DressStyle> DressStyles { get; set; }
         public string DressStyleName { get; set; }
-        public IEnumerable<ProductDTO> CategoryProducts { get; set; }
+        public PaginatedList<ProductDTO> CategoryProducts { get; set; }
+
+        public int PageIndex { get; set; } = 1;
+        int PageSize = 9;
 
         public CategoryModel(ICategoryService categoryService, ISizeService sizeService, IColorService colorService, IDressStyleService dressStyleService, IProductService productService) 
         {
@@ -30,7 +35,7 @@ namespace FashionStore.WebApp.Pages
             _productService = productService;
         }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(int? pageIndex)
         {
             Sizes = await _sizeService.GetAllSizesAsync();
 
@@ -40,10 +45,15 @@ namespace FashionStore.WebApp.Pages
 
             DressStyles = await _dressStyleService.GetAllDressStyleAsync();
 
+            PageIndex = pageIndex ?? 1;
+
             if (int.TryParse(Request.Query["id"], out int id))
             {
                 DressStyleName = await _dressStyleService.GetDressStyleNameAsync(id);
-                CategoryProducts = await _productService.GetDressStyleProductsAsync(id);
+
+                var products = await _productService.GetDressStyleProductsAsync(id);
+
+                CategoryProducts = PaginatedList<ProductDTO>.Create(products, PageIndex, PageSize);
             }
             else
             {

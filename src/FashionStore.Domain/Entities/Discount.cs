@@ -16,8 +16,7 @@ namespace FashionStore.Domain.Entities
 		public DateTime StartDate { get; set; }
 		public DateTime EndDate { get; set; }
 
-		public ICollection<DiscountProduct>? DiscountProducts { get; set; }
 		public ICollection<DiscountBrand>? DiscountBrands { get; set; }
-
+		public ICollection<Product> Products { get; set; }
 	}
 }

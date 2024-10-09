@@ -31,7 +31,6 @@ namespace FashionStore.Infrastructure.Data
 		public DbSet<Review> Reviews { get; set; }
 		public DbSet<DiscountType> DiscountTypes { get; set; }
 		public DbSet<Discount> Discounts { get; set; }
-		public DbSet<DiscountProduct> DiscountProducts { get; set; }
 		public DbSet<DiscountBrand> DiscountBrands { get; set; }
 		public DbSet<Promotion> Promotions { get; set; }
 		public DbSet<UserPromotion> UserPromotions { get; set; }

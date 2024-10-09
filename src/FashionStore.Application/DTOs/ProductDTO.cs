@@ -13,6 +13,14 @@ namespace FashionStore.Application.DTOs
         public string Name { get; set; }
         public string Unit { get; } = "$";
         public double Price { get; set; }
+        public int ?DiscountId { get; set; }
+        public double DiscountValue { get; set; }
+        public double DiscountedPrice {
+			get
+			{
+				return Price - (Price * (DiscountValue) / 100);
+			}
+		}
         public decimal AvgRating { get; set; }
     }
 }

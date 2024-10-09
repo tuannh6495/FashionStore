@@ -35,6 +35,11 @@ namespace FashionStore.Infrastructure.Data.Configuration
                 .WithMany(b => b.Products)
                 .HasForeignKey(p => p.BrandId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne(p => p.Discount)
+                .WithMany(d => d.Products)
+                .HasForeignKey(p => p.DiscountId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

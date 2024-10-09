@@ -146,25 +146,49 @@
 			</div>
 
 			<div class="d-flex justify-content-between">
-				<button type="button" style="border: 1px solid rgba(0, 0, 0, 0.10); border-radius: 8px; background-color: #fff;">
-					<i class="fa-solid fa-arrow-left me-2"></i>
-					Previous
-				</button>
+				@if (Model.CategoryProducts.HasPreviousPage)
+				{
+					<a class="btn" style="border: 1px solid rgba(0, 0, 0, 0.10); border-radius: 8px; background-color: #fff;" asp-route-pageIndex="@(Model.CategoryProducts.PageIndex - 1)">
+						<i class="fa-solid fa-arrow-left me-2"></i> Previous
+					</a>
+				}
+				else
+				{
+					<button class="btn disabled" style="border: 1px solid rgba(0, 0, 0, 0.10); border-radius: 8px; background-color: #fff;" disabled>
+						<i class="fa-solid fa-arrow-left me-2"></i> Previous
+					</button>
+				}
 
 				<ul class="pagination">
-					<li class="active"><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li class="dots"><a href="#">...</a></li>
-					<li><a href="#">8</a></li>
-					<li><a href="#">9</a></li>
-					<li><a href="#">10</a></li>
+					@for (int i = 1; i <= Model.CategoryProducts.TotalPages; i++)
+					{
+						@if (i == Model.CategoryProducts.PageIndex)
+						{
+							<li class="page-item active">
+								<span class="page-link">@i</span>
+							</li>
+						}
+						else
+						{
+							<li class="page-item">
+								<a class="page-link" asp-route-pageIndex="@i">@i</a>
+							</li>
+						}
+					}
 				</ul>
 
-				<button type="button" style="border: 1px solid rgba(0, 0, 0, 0.10); border-radius: 8px; background-color: #fff;">
-					Next
-					<i class="fa-solid fa-arrow-right ms-2"></i>
-				</button>
+				@if (Model.CategoryProducts.HasNextPage)
+				{
+					<a class="btn" style="border: 1px solid rgba(0, 0, 0, 0.10); border-radius: 8px; background-color: #fff;" asp-route-pageIndex="@(Model.CategoryProducts.PageIndex + 1)">
+						Next <i class="fa-solid fa-arrow-right ms-2"></i>
+					</a>
+				}
+				else
+				{
+					<button class="btn disabled" style="border: 1px solid rgba(0, 0, 0, 0.10); border-radius: 8px; background-color: #fff;" disabled>
+						Next <i class="fa-solid fa-arrow-right ms-2"></i>
+					</button>
+				}
 			</div>
 		</div>
 	</div>

@@ -8,61 +8,72 @@
 <link rel="stylesheet" href="~/css/Cart.css" asp-append-version="true" />
 
 <div class="container">
-    <div class="in-line cart-select">
-        <a href="#" class="select-text">Home</a>
-        <div class="icon">
-            <img src="/Images/Right.png" alt="Icon" class="icon-image">
+    @if (Model.CartItems == null || !Model.CartItems.Any())
+    {
+        <div class="alert alert-dark text-center" role="alert">
+            <strong>Your cart is currently empty!</strong>
         </div>
-        <a href="/cart" class="select-text">Cart</a>
-    </div>
+    }
+    else
+    {
+        <div class="in-line cart-select">
+            <a href="#" class="select-text">Home</a>
+            <div class="icon">
+                <img src="/Images/Right.png" alt="Icon" class="icon-image">
+            </div>
+            <a href="/cart" class="select-text">Cart</a>
+        </div>
 
-    <div class="text-your-cart">Your cart</div>
+        <div class="text-your-cart">Your cart</div>
 
-    <div class="cart-style" style="user-select: none;">
-        <div class="row" style="margin-top:20px;">
-            @foreach (var item in Model.CartItems)
-            {
-                <div class="col-md-7 your-cart">
-                    @await Component.InvokeAsync("CartItem", item)
+        <div class="cart-style" style="user-select: none;">
+            <div class="row" style="margin-top:20px;">
+                @foreach (var item in Model.CartItems)
+                {
+                    <div class="col-md-7">
+                        <div class="cart-items">
+                            @await Component.InvokeAsync("CartItem", item)
+                        </div>
+                    </div>
+                }
+
+                <div class="col-md-5">
+                    <div class="your-cart">
+                        <div class="order-text-cart">Order Summary</div>
+                        <div class="total-price">
+                            <div class="line-price">
+                                <div class="text-total-price">Subtotal </div>
+                                <div class="price-cart-total">$@Model.Subtotal</div>
+                            </div>
+                            <div class="line-price">
+                                <div class="text-total-price">Discount (-20%) </div>
+                                <div class="price-cart-total" style="color: #F33;">- $@Model.DiscountAmount</div>
+                            </div>
+                            <div class="line-price">
+                                <div class="text-total-price">Delivery Fee </div>
+                                <div class="price-cart-total">$@Model.DeliveryFee</div>
+                            </div>
+                            <div class="cart-line"></div>
+                            <div class="line-price">
+                                <div class="text-total-price" style="color: #000;">Total </div>
+                                <div class="price-cart-total">$@Model.Total</div>
+                            </div>
+                        </div>
+                        <div class="line-price" style="gap:12px">
+                            <div class="add-promo-code">
+                                <img src="~/Images/Pen.png" alt="Add promo code" class="icon-select-cart" />
+                                <input type="text" placeholder="Enter promo code" class="promo-code-input" />
+                            </div>
+                            <button class="apply-cart">Apply</button>
+                        </div>
+
+                        <div class="apply-cart" style="height: 60px;">
+                            Go to Checkout
+                            <img src="~/Images/Arrow-Down.png" alt="Add promo code" class="icon-select-cart" />
+                        </div>
+                    </div>
                 </div>
-            }
-
-            @* <div class="col-md-5">
-            <div class="your-cart">
-            <div class="order-text-cart">Order Summary</div>
-            <div class="total-price">
-            <div class="line-price">
-            <div class="text-total-price">Subtotal </div>
-            <div class="price-cart-total">$@Model.Subtotal.ToString("0")</div>
             </div>
-            <div class="line-price">
-            <div class="text-total-price">Discount (-20%) </div>
-            <div class="price-cart-total" style="color: #F33;">- $@Model.DiscountAmount.ToString("0")</div>
-            </div>
-            <div class="line-price">
-            <div class="text-total-price">Delivery Fee </div>
-            <div class="price-cart-total">$@Model.DeliveryFee.ToString("0")</div>
-            </div>
-            <div class="cart-line"></div>
-            <div class="line-price">
-            <div class="text-total-price" style="color: #000;">Total </div>
-            <div class="price-cart-total">$@Model.Total.ToString("0")</div>
-            </div>
-            </div>
-            <div class="line-price" style="gap:12px">
-            <div class="add-promo-code">
-            <img src="~/Images/Pen.png" alt="Add promo code" class="icon-select-cart" />
-            <input type="text" placeholder="Enter promo code" class="promo-code-input" />
-            </div>
-            <button class="apply-cart">Apply</button>
-            </div>
-
-            <div class="apply-cart" style="height: 60px;">
-            Go to Checkout
-            <img src="~/Images/Arrow-Down.png" alt="Add promo code" class="icon-select-cart" />
-            </div>
-            </div>
-            </div> *@
         </div>
-    </div>
+    }
 </div>

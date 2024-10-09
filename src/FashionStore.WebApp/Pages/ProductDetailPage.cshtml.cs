@@ -66,7 +66,8 @@ namespace FashionStore.WebApp.Pages
                     Quantity = quantity,
                     SizeName = sizeName,
                     ColorName = colorName,
-                    Price = product.Result.Price
+                    Price = product.Result.Price,
+                    TotalPrice = product.Result.Price * quantity,
                 });
             }
 

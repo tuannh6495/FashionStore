@@ -1,46 +1,54 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using FashionStore.WebApp.Models;
 using System.Collections.Generic;
 using System.Linq;
 using FashionStore.Domain.Entities;
 using FashionStore.WebApp.Common;
 using FashionStore.Application.DTOs;
+using Microsoft.AspNetCore.Mvc;
+using FashionStore.Application.Interfaces;
 
 namespace FashionStore.WebApp.Pages
 {
 	public class CartModel : PageModel
 	{
-        //public List<ProductCart> Products { get; set; }
-        //public decimal Subtotal { get; set; }
-        //public decimal Discount { get; set; } = 0.20m; // 20% discount
-        //public decimal DeliveryFee { get; set; } = 15;
-        //public decimal Total { get; set; }
-        //      public decimal DiscountAmount { get; set; } // Add property for discount amount
+        private readonly IProductService _productService;
+
+        public double Discount { get; set; } = 0.2; 
+        public double DeliveryFee { get; set; } = 15;
+        public double Total { get; set; }
+        public double DiscountAmount { get; set; }
 
         public List<CartPDTO> CartItems { get; set; } = new List<CartPDTO>();
-        public double TotalAmount { get; set; }
+        public double Subtotal { get; set; }
+
+        public CartModel(IProductService productService)
+        {
+            _productService = productService;
+        }
 
         public void OnGet()
 		{
             CartItems = HttpContext.Session.GetObjectFromJson<List<CartPDTO>>("Cart") ?? new List<CartPDTO>();
 
-            TotalAmount = CartItems.Sum(item => item.TotalPrice);
-            // Example products in the cart
-            //Products = new List<ProductCart>
-            //{
-            //	new ProductCart { Name = "Gradient Graphic T-shirt", Size = "Large", Color = "White", Price = 145, Quantity = 1, ImagePath = "GradientGraphicT-shirt.png" },
-            //	new ProductCart { Name = "Checkered Shirt", Size = "Medium", Color = "Red", Price = 180, Quantity = 1, ImagePath = "CHECKERED-SHIRT.png" },
-            //	new ProductCart { Name = "SKINNY FIT JEANS", Size = "Large", Color = "Blue", Price = 240, Quantity = 1, ImagePath = "SKINNY-FIT-JEANS.png" }
-            //};
-             
-            //// Calculate subtotal
-            //Subtotal = Products.Sum(p => p.Price * p.Quantity);
-
-            //         //Discount
-            //         DiscountAmount = Subtotal * Discount;
-            //         // Calculate total after discount and delivery fee
-            //         decimal discountAmount = Subtotal * Discount;
-            //Total = Subtotal - discountAmount + DeliveryFee;
+            Subtotal = CartItems.Sum(item => item.TotalPrice);
+            DiscountAmount = Subtotal * Discount;
+            Total = Subtotal - DiscountAmount + DeliveryFee;
         }
-	}
+
+        public IActionResult OnPostRemoveItemFromCart(int productId)
+        {
+            var product = _productService.GetProductByIdAsync(productId);
+            var cartItems = HttpContext.Session.GetObjectFromJson<List<CartPDTO>>("Cart") ?? new List<CartPDTO>();
+            var productToRemove = cartItems.FirstOrDefault(p => p.ProductId == productId);
+            if (productToRemove != null)
+            {
+                cartItems.Remove(productToRemove);
+            }
+
+            HttpContext.Session.SetObjectAsJson("Cart", cartItems);
+
+            return RedirectToPage("Cart");
+        }
+
+    }
 }

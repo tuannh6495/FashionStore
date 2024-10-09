@@ -68,6 +68,13 @@
     padding-bottom: 0px;
 }
 
+.cart-items {
+    padding: 20px 24px;
+    gap: 24px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+}
+
 .your-cart {
     display: flex;
     width: 100%;
@@ -78,6 +85,7 @@
     border-radius: 20px;
     border: 1px solid rgba(0, 0, 0, 0.10);
 }
+
 @media(max-width: 391px) {
     .your-cart {
         padding: 14px;
@@ -102,8 +110,8 @@
     width: 125px;
     height: 124px;
     flex-shrink: 0;
-    overflow: hidden; /* Đảm bảo ảnh không bị tràn ra ngoài */
-    position: relative; /* Để kiểm soát vị trí của ảnh */
+    overflow: hidden; 
+    position: relative;
 }
 
 .product-photo-cart{
@@ -112,11 +120,11 @@
     background: lightgray 50%;
     cursor: pointer;
     transition: border 0.3s ease;
-    width: 100%; /* Ảnh sẽ chiếm toàn bộ chiều rộng của thẻ div */
-    height: 100%; /* Ảnh sẽ chiếm toàn bộ chiều cao của thẻ div */
-    object-fit: cover; /* Đảm bảo ảnh không bị biến dạng, bao phủ toàn bộ thẻ div */
-    object-fit: cover; /* Ảnh không bị biến dạng */
-    position: absolute; /* Đặt ảnh ở vị trí tương đối với .image-cart */
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    object-fit: cover; 
+    position: absolute; 
 }
 
 @media(max-width: 391px){
@@ -124,8 +132,8 @@
         width: 99px;
         height: 100px;
         flex-shrink: 0;
-        overflow: hidden; /* Đảm bảo ảnh không bị tràn ra ngoài */
-        position: relative; /* Để kiểm soát vị trí của ảnh */
+        overflow: hidden;
+        position: relative; 
     }
 }
 
@@ -145,14 +153,13 @@
     width:100%;
 }
 
-@media(max-width: 391px){
+@media(max-width: 391px) {
     .product-price {
         height: 99px;
     }
 }
 
-
-.text-information {
+.item-name {
     display: flex;
     color: #000;
     font-family: Satoshi;
@@ -160,47 +167,14 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    flex: 1 0 0;
 }
 
 @media(max-width: 391px)
 {
-    .text-information {
+    .item-name {
         font-size: 16px
     }
 
-}
-
-.text-all-infomation {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2px;
-}
-
-.text-size-color-cart {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-}
-
-.text-name {
-    color: #000;
-    font-family: Satoshi
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.text-attribute {
-    color: rgba(0, 0, 0, 0.60);
-    font-family: Satoshi;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
 }
 
 .price-item-cart {
@@ -217,20 +191,16 @@
         font-size: 20px;
     }
 }
-
 .size-text {
     color: #000;
-    font-family: Satoshi, sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    display: inline;
 }
 
 .large-text {
     color: rgba(0, 0, 0, 0.60);
-    font-family: Satoshi, sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -239,15 +209,11 @@
 
 @media(max-width: 391px) {
     .size-text {
-       
         font-size: 12px;
-        
     }
 
     .large-text {
-        
         font-size: 12px;
-       
     }
 }
 
@@ -263,14 +229,6 @@
         flex-shrink: 0;
     }
 }
-.select {
-    display: flex;
-    width: 225px;
-    height: 124px;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
-}
 
 .edit-quantity-item {
     padding: 12px 20px;
@@ -281,18 +239,14 @@
     background: #F0F0F0;
 }
 
-
-
 .icon-select-cart {
     width: 20px;
     height: 20px;
 }
 
-
-
 @media(max-width: 391px)
 {
-    .quantity-cart {
+    .edit-quantity-item {
         display: flex;
         padding: 12px 20px;
         justify-content: center;
@@ -310,6 +264,8 @@
     }
 }
 
+
+/*Css cho Order Summary*/
 .order-text-cart {
     color: #000;
     font-family: Satoshi;
@@ -353,7 +309,7 @@
     color: #000;
     text-align: right;
     font-family: Satoshi;
-    font-size: 20px;
+    font-size: 24px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -392,7 +348,6 @@
     line-height: normal;
 }
 
-
 .promo-code-input {
     flex-grow: 1;
     border: none;
@@ -426,13 +381,13 @@
     line-height: normal;
     border: none;
     cursor: pointer;
-    transition: background 0.3s, color 0.3s; /* Thêm hiệu ứng chuyển đổi mượt mà */
+    transition: background 0.3s, color 0.3s; 
     width: 100%;
 }
 
     .apply-cart:hover {
-        background: #F0F0F0; /* Nền trắng khi di chuột qua */
-        color: #000; /* Chữ đen khi di chuột qua */
+        background: #F0F0F0; 
+        color: #000;
     }
 
 @media(max-width: 391px){

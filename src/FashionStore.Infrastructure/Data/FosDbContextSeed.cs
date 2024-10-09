@@ -124,8 +124,127 @@ namespace FashionStore.Infrastructure.Data
 
 
 
-            // Product
-            var products = new List<Product>
+			// DiscountType
+			var discountTypes = new List<DiscountType>
+			{
+				new DiscountType("Spring Sale"),
+				new DiscountType("Black Friday Discount"),
+				new DiscountType("Summer Sale"),
+				new DiscountType("Christmas Sale"),
+				new DiscountType("Weekend Flash Sale"),
+				new DiscountType("Birthday Discount"),
+				new DiscountType("Office Fashion Discount"),
+				new DiscountType("Grand Opening Discount"),
+				new DiscountType("End of Season Clearance"),
+				new DiscountType("Mid-Year Sale"),
+				new DiscountType("Back to School Sale"),
+				new DiscountType("New Collection Launch Discount"),
+				new DiscountType("Cyber Monday Discount"),
+				new DiscountType("Holiday Season Sale"),
+			};
+
+			var newDiscountTypes = discountTypes.Where(dt => !context.DiscountTypes.Any(dbDiscountType => dbDiscountType.Name == dt.Name)).ToList();
+			if (newDiscountTypes.Any())
+			{
+				context.DiscountTypes.AddRange(newDiscountTypes);
+				context.SaveChanges();
+			}
+
+
+
+			// Discount
+			var discounts = new List<Discount>
+			{
+				new Discount { DiscountValue = 20, DiscountTypeId = 1, StartDate = new DateTime(2024, 8, 19), EndDate = new DateTime(2024, 12, 24) },
+				new Discount { DiscountValue = 25, DiscountTypeId = 1, StartDate = new DateTime(2024, 1, 4), EndDate = new DateTime(2024, 7, 2) },
+				new Discount { DiscountValue = 40, DiscountTypeId = 1, StartDate = new DateTime(2024, 11, 19), EndDate = new DateTime(2025, 3, 3) },
+				new Discount { DiscountValue = 45, DiscountTypeId = 1, StartDate = new DateTime(2024, 4, 12), EndDate = new DateTime(2024, 4, 29) },
+				new Discount { DiscountValue = 50, DiscountTypeId = 1, StartDate = new DateTime(2024, 5, 23), EndDate = new DateTime(2024, 10, 26) },
+				new Discount { DiscountValue = 14, DiscountTypeId = 1, StartDate = new DateTime(2024, 12, 4), EndDate = new DateTime(2025, 1, 21) },
+				new Discount { DiscountValue = 65, DiscountTypeId = 2, StartDate = new DateTime(2024, 4, 16), EndDate = new DateTime(2024, 7, 1) },
+				new Discount { DiscountValue = 30, DiscountTypeId = 2, StartDate = new DateTime(2024, 12, 21), EndDate = new DateTime(2025, 3, 31) },
+				new Discount { DiscountValue = 20, DiscountTypeId = 2, StartDate = new DateTime(2024, 1, 13), EndDate = new DateTime(2024, 5, 16) },
+				new Discount { DiscountValue = 25, DiscountTypeId = 2, StartDate = new DateTime(2024, 5, 14), EndDate = new DateTime(2024, 10, 8) },
+				new Discount { DiscountValue = 34, DiscountTypeId = 2, StartDate = new DateTime(2024, 9, 18), EndDate = new DateTime(2024, 11, 5) },
+				new Discount { DiscountValue = 28, DiscountTypeId = 2, StartDate = new DateTime(2024, 4, 9), EndDate = new DateTime(2024, 6, 20) },
+				new Discount { DiscountValue = 45, DiscountTypeId = 2, StartDate = new DateTime(2024, 4, 6), EndDate = new DateTime(2024, 6, 1) },
+				new Discount { DiscountValue = 10, DiscountTypeId = 3, StartDate = new DateTime(2024, 12, 12), EndDate = new DateTime(2025, 3, 21) },
+				new Discount { DiscountValue = 20, DiscountTypeId = 3, StartDate = new DateTime(2024, 3, 19), EndDate = new DateTime(2024, 7, 15) },
+				new Discount { DiscountValue = 16, DiscountTypeId = 3, StartDate = new DateTime(2024, 3, 14), EndDate = new DateTime(2024, 6, 27) },
+				new Discount { DiscountValue = 47, DiscountTypeId = 3, StartDate = new DateTime(2024, 1, 19), EndDate = new DateTime(2024, 3, 23) },
+				new Discount { DiscountValue = 10, DiscountTypeId = 4, StartDate = new DateTime(2024, 11, 20), EndDate = new DateTime(2025, 1, 4) },
+				new Discount { DiscountValue = 65, DiscountTypeId = 4, StartDate = new DateTime(2024, 1, 28), EndDate = new DateTime(2024, 2, 16) },
+				new Discount { DiscountValue = 25, DiscountTypeId = 4, StartDate = new DateTime(2024, 9, 2), EndDate = new DateTime(2024, 10, 11) },
+				new Discount { DiscountValue = 45, DiscountTypeId = 4, StartDate = new DateTime(2024, 4, 20), EndDate = new DateTime(2024, 6, 19) },
+				new Discount { DiscountValue = 7, DiscountTypeId = 4, StartDate = new DateTime(2024, 6, 5), EndDate = new DateTime(2024, 6, 26) },
+				new Discount { DiscountValue = 17, DiscountTypeId = 4, StartDate = new DateTime(2024, 6, 28), EndDate = new DateTime(2024, 10, 30) },
+				new Discount { DiscountValue = 28, DiscountTypeId = 4, StartDate = new DateTime(2024, 11, 7), EndDate = new DateTime(2024, 12, 21) },
+				new Discount { DiscountValue = 35, DiscountTypeId = 5, StartDate = new DateTime(2024, 2, 22), EndDate = new DateTime(2024, 3, 15) },
+				new Discount { DiscountValue = 45, DiscountTypeId = 5, StartDate = new DateTime(2024, 10, 20), EndDate = new DateTime(2024, 12, 13) },
+				new Discount { DiscountValue = 65, DiscountTypeId = 5, StartDate = new DateTime(2024, 8, 8), EndDate = new DateTime(2024, 11, 2) },
+				new Discount { DiscountValue = 25, DiscountTypeId = 5, StartDate = new DateTime(2024, 12, 25), EndDate = new DateTime(2025, 3, 3) },
+				new Discount { DiscountValue = 28, DiscountTypeId = 5, StartDate = new DateTime(2024, 8, 12), EndDate = new DateTime(2024, 10, 2) },
+				new Discount { DiscountValue = 36, DiscountTypeId = 5, StartDate = new DateTime(2024, 1, 5), EndDate = new DateTime(2024, 2, 2) },
+				new Discount { DiscountValue = 40, DiscountTypeId = 6, StartDate = new DateTime(2024, 12, 18), EndDate = new DateTime(2025, 5, 25) },
+				new Discount { DiscountValue = 45, DiscountTypeId = 6, StartDate = new DateTime(2024, 9, 6), EndDate = new DateTime(2025, 1, 25) },
+				new Discount { DiscountValue = 20, DiscountTypeId = 6, StartDate = new DateTime(2024, 6, 24), EndDate = new DateTime(2024, 11, 12) },
+				new Discount { DiscountValue = 26, DiscountTypeId = 6, StartDate = new DateTime(2024, 5, 4), EndDate = new DateTime(2024, 6, 4) },
+				new Discount { DiscountValue = 34, DiscountTypeId = 6, StartDate = new DateTime(2024, 2, 15), EndDate = new DateTime(2024, 5, 4) },
+				new Discount { DiscountValue = 25, DiscountTypeId = 7, StartDate = new DateTime(2024, 6, 7), EndDate = new DateTime(2024, 8, 28) },
+				new Discount { DiscountValue = 30, DiscountTypeId = 7, StartDate = new DateTime(2024, 10, 13), EndDate = new DateTime(2024, 12, 19) },
+				new Discount { DiscountValue = 45, DiscountTypeId = 7, StartDate = new DateTime(2024, 6, 12), EndDate = new DateTime(2024, 11, 2) },
+				new Discount { DiscountValue = 21, DiscountTypeId = 7, StartDate = new DateTime(2024, 10, 13), EndDate = new DateTime(2025, 3, 22) },
+				new Discount { DiscountValue = 55, DiscountTypeId = 8, StartDate = new DateTime(2024, 11, 2), EndDate = new DateTime(2024, 12, 2) },
+				new Discount { DiscountValue = 65, DiscountTypeId = 8, StartDate = new DateTime(2024, 7, 18), EndDate = new DateTime(2024, 9, 10) },
+				new Discount { DiscountValue = 60, DiscountTypeId = 8, StartDate = new DateTime(2024, 12, 1), EndDate = new DateTime(2025, 2, 28) },
+				new Discount { DiscountValue = 30, DiscountTypeId = 8, StartDate = new DateTime(2024, 6, 15), EndDate = new DateTime(2024, 6, 25) },
+				new Discount { DiscountValue = 37, DiscountTypeId = 8, StartDate = new DateTime(2024, 1, 27), EndDate = new DateTime(2024, 2, 15) },
+				new Discount { DiscountValue = 36, DiscountTypeId = 8, StartDate = new DateTime(2024, 6, 3), EndDate = new DateTime(2024, 6, 18) },
+				new Discount { DiscountValue = 20, DiscountTypeId = 9, StartDate = new DateTime(2024, 1, 17), EndDate = new DateTime(2024, 4, 14) },
+				new Discount { DiscountValue = 50, DiscountTypeId = 9, StartDate = new DateTime(2024, 11, 5), EndDate = new DateTime(2024, 12, 29) },
+				new Discount { DiscountValue = 18, DiscountTypeId = 9, StartDate = new DateTime(2024, 10, 9), EndDate = new DateTime(2025, 1, 21) },
+				new Discount { DiscountValue = 13, DiscountTypeId = 9, StartDate = new DateTime(2024, 10, 17), EndDate = new DateTime(2024, 12, 1) },
+				new Discount { DiscountValue = 10, DiscountTypeId = 10, StartDate = new DateTime(2024, 11, 6), EndDate = new DateTime(2024, 12, 23) },
+				new Discount { DiscountValue = 60, DiscountTypeId = 10, StartDate = new DateTime(2024, 10, 1), EndDate = new DateTime(2024, 11, 6) },
+				new Discount { DiscountValue = 25, DiscountTypeId = 10, StartDate = new DateTime(2024, 10, 3), EndDate = new DateTime(2025, 1, 13) },
+				new Discount { DiscountValue = 15, DiscountTypeId = 10, StartDate = new DateTime(2024, 10, 1), EndDate = new DateTime(2024, 12, 11) },
+				new Discount { DiscountValue = 34, DiscountTypeId = 10, StartDate = new DateTime(2024, 8, 14), EndDate = new DateTime(2025, 1, 13) },
+				new Discount { DiscountValue = 48, DiscountTypeId = 10, StartDate = new DateTime(2024, 5, 10), EndDate = new DateTime(2024, 8, 4) },
+				new Discount { DiscountValue = 25, DiscountTypeId = 11, StartDate = new DateTime(2024, 6, 3), EndDate = new DateTime(2024, 6, 24) },
+				new Discount { DiscountValue = 40, DiscountTypeId = 11, StartDate = new DateTime(2024, 7, 12), EndDate = new DateTime(2024, 8, 30) },
+				new Discount { DiscountValue = 15, DiscountTypeId = 11, StartDate = new DateTime(2024, 6, 15), EndDate = new DateTime(2024, 11, 18) },
+				new Discount { DiscountValue = 19, DiscountTypeId = 11, StartDate = new DateTime(2024, 1, 26), EndDate = new DateTime(2024, 4, 2) },
+				new Discount { DiscountValue = 14, DiscountTypeId = 11, StartDate = new DateTime(2024, 4, 18), EndDate = new DateTime(2024, 9, 14) },
+				new Discount { DiscountValue = 15, DiscountTypeId = 12, StartDate = new DateTime(2024, 1, 20), EndDate = new DateTime(2024, 6, 17) },
+				new Discount { DiscountValue = 20, DiscountTypeId = 12, StartDate = new DateTime(2024, 1, 19), EndDate = new DateTime(2024, 6, 29) },
+				new Discount { DiscountValue = 19, DiscountTypeId = 12, StartDate = new DateTime(2024, 5, 9), EndDate = new DateTime(2024, 9, 20) },
+				new Discount { DiscountValue = 6, DiscountTypeId = 12, StartDate = new DateTime(2024, 6, 5), EndDate = new DateTime(2024, 11, 27) },
+				new Discount { DiscountValue = 60, DiscountTypeId = 13, StartDate = new DateTime(2024, 5, 8), EndDate = new DateTime(2024, 7, 11) },
+				new Discount { DiscountValue = 20, DiscountTypeId = 13, StartDate = new DateTime(2024, 8, 25), EndDate = new DateTime(2024, 9, 14) },
+				new Discount { DiscountValue = 45, DiscountTypeId = 13, StartDate = new DateTime(2024, 6, 10), EndDate = new DateTime(2024, 7, 8) },
+				new Discount { DiscountValue = 15, DiscountTypeId = 13, StartDate = new DateTime(2024, 8, 5), EndDate = new DateTime(2024, 10, 1) },
+				new Discount { DiscountValue = 12, DiscountTypeId = 13, StartDate = new DateTime(2024, 10, 13), EndDate = new DateTime(2025, 2, 9) },
+				new Discount { DiscountValue = 8, DiscountTypeId = 13, StartDate = new DateTime(2024, 11, 27), EndDate = new DateTime(2024, 12, 7) },
+				new Discount { DiscountValue = 15, DiscountTypeId = 14, StartDate = new DateTime(2024, 2, 8), EndDate = new DateTime(2024, 4, 22) },
+				new Discount { DiscountValue = 50, DiscountTypeId = 14, StartDate = new DateTime(2024, 10, 2), EndDate = new DateTime(2025, 1, 2) },
+				new Discount { DiscountValue = 20, DiscountTypeId = 14, StartDate = new DateTime(2024, 12, 24), EndDate = new DateTime(2025, 1, 26) },
+				new Discount { DiscountValue = 25, DiscountTypeId = 14, StartDate = new DateTime(2024, 7, 19), EndDate = new DateTime(2025, 1, 1) },
+				new Discount { DiscountValue = 24, DiscountTypeId = 14, StartDate = new DateTime(2024, 3, 25), EndDate = new DateTime(2024, 8, 21) },
+				new Discount { DiscountValue = 48, DiscountTypeId = 14, StartDate = new DateTime(2024, 9, 28), EndDate = new DateTime(2024, 11, 18) },
+				new Discount { DiscountValue = 18, DiscountTypeId = 14, StartDate = new DateTime(2024, 2, 8), EndDate = new DateTime(2024, 4, 17) }
+			};
+
+			var newDiscounts = discounts.Where(d => !context.Discounts.Any(dbDiscount => dbDiscount.DiscountValue == d.DiscountValue && dbDiscount.DiscountTypeId == d.DiscountTypeId)).ToList();
+			if (newDiscounts.Any())
+			{
+				context.Discounts.AddRange(newDiscounts);
+				context.SaveChanges();
+			}
+
+
+
+			// Product
+			var products = new List<Product>
             {
                 new Product(new List<string> { "/Images/TWTD.png", "/Images/TWTD.png", "/Images/TWTD.png" }, "T-shirt With Tape Details")
                 {
@@ -134,7 +253,8 @@ namespace FashionStore.Infrastructure.Data
                     AvgRating = 4.5m,
                     CategoryId = 1,
                     GenderId = 1,
-                    BrandId = 1
+                    BrandId = 1,
+                    DiscountId = 2
                 },
 
                 new Product(new List<string> { "/Images/SFJ.png", "/Images/SFJ.png", "/Images/SFJ.png" }, "Skinny Fit Jeans")
@@ -144,8 +264,9 @@ namespace FashionStore.Infrastructure.Data
                     AvgRating = 3.5m,
                     CategoryId = 5,
                     GenderId = 1,
-                    BrandId = 1
-                },
+                    BrandId = 1,
+					DiscountId = 7
+				},
 
                 new Product(new List<string> { "/Images/CS.png", "/Images/CS.png", "/Images/CS.png" }, "Checkered Shirt")
                 {
@@ -154,8 +275,9 @@ namespace FashionStore.Infrastructure.Data
                     AvgRating = 4.5m,
                     CategoryId = 3,
                     GenderId = 1,
-                    BrandId = 1
-                },
+                    BrandId = 1,
+					DiscountId = 1
+				},
 
                 new Product(new List<string> { "/Images/SST.png", "/Images/SST.png", "/Images/SST.png" }, "Sleeve Striped T-shirt")
                 {
@@ -164,8 +286,9 @@ namespace FashionStore.Infrastructure.Data
                     AvgRating = 4.5m,
                     CategoryId = 1,
                     GenderId = 1,
-                    BrandId = 1
-                },
+                    BrandId = 1,
+					DiscountId = 16
+				},
 
                 new Product(new List<string> { "/Images/VerticalStripedShirt.png", "/Images/VerticalStripedShirt.png", "/Images/VerticalStripedShirt.png" }, "Vertical Striped Shirt")
                 {
@@ -174,8 +297,9 @@ namespace FashionStore.Infrastructure.Data
                     AvgRating = 5,
                     CategoryId = 3,
                     GenderId = 1,
-                    BrandId = 1
-                },
+                    BrandId = 1,
+					DiscountId = 20
+				},
 
                 new Product(new List<string> { "/Images/CourageGraphicT-shirt.png", "/Images/CourageGraphicT-shirt.png", "/Images/CourageGraphicT-shirt.png" }, "Courage Graphic T-shirt")
                 {
@@ -184,8 +308,9 @@ namespace FashionStore.Infrastructure.Data
                     AvgRating = 4,
                     CategoryId = 1,
                     GenderId = 1,
-                    BrandId = 1
-                },
+                    BrandId = 1,
+					DiscountId = 9
+				},
 
                 new Product(new List<string> { "/Images/LooseFitBermudaShorts.png", "/Images/LooseFitBermudaShorts.png", "/Images/LooseFitBermudaShorts.png" }, "Loose Fit Bermuda Shorts")
                 {
@@ -194,8 +319,9 @@ namespace FashionStore.Infrastructure.Data
                     AvgRating = 3,
                     CategoryId = 2,
                     GenderId = 1,
-                    BrandId = 1
-                },
+                    BrandId = 1,
+					DiscountId = 22
+				},
 
                 new Product(new List<string> { "/Images/FadedSkinnyJeans.png", "/Images/FadedSkinnyJeans.png", "/Images/FadedSkinnyJeans.png" }, "Faded Skinny Jeans")
                 {
@@ -204,8 +330,9 @@ namespace FashionStore.Infrastructure.Data
                     AvgRating = 4.5m,
                     CategoryId = 5,
                     GenderId = 1,
-                    BrandId = 1
-                },
+                    BrandId = 1,
+					DiscountId = 14
+				},
 
                 new Product(new List<string> { "/Images/PoloWithContrastTrims.png", "/Images/PoloWithContrastTrims.png", "/Images/PoloWithContrastTrims.png" }, "Polo With Contrast Trims")
                 {
@@ -214,8 +341,9 @@ namespace FashionStore.Infrastructure.Data
                     AvgRating = 4,
                     CategoryId = 1,
                     GenderId = 1,
-                    BrandId = 1
-                },
+                    BrandId = 1,
+					DiscountId = 18
+				},
 
                 new Product(new List<string> { "/Images/GradientGraphicT-shirt.png", "/Images/GradientGraphicT-shirt.png", "/Images/GradientGraphicT-shirt.png" }, "Gradient Graphic T-shirt")
                 {
@@ -224,8 +352,9 @@ namespace FashionStore.Infrastructure.Data
                     AvgRating = 3.5m,
                     CategoryId = 1,
                     GenderId = 1,
-                    BrandId = 1
-                },
+                    BrandId = 1,
+					DiscountId = 8
+				},
 
                 new Product(new List<string> { "/Images/PoloWithTippingDetails.png", "/Images/PoloWithTippingDetails.png", "/Images/PoloWithTippingDetails.png" }, "Polo With Tipping Details")
                 {
@@ -234,8 +363,9 @@ namespace FashionStore.Infrastructure.Data
                     AvgRating = 4.5m,
                     CategoryId = 1,
                     GenderId = 1,
-                    BrandId = 1
-                },
+                    BrandId = 1,
+					DiscountId = 11
+				},
 
                 new Product(new List<string> { "/Images/BlackStripedT-shirt.png", "/Images/BlackStripedT-shirt.png", "/Images/BlackStripedT-shirt.png" }, "Black Striped T-shirt")
                 {
@@ -244,8 +374,9 @@ namespace FashionStore.Infrastructure.Data
                     AvgRating = 4.5m,
                     CategoryId = 1,
                     GenderId = 2,
-                    BrandId = 1
-                }
+                    BrandId = 1,
+					DiscountId = 5
+				}
             };
 
             var newProducts = products.Where(p => !context.Products.Any(dbProduct => dbProduct.Name == p.Name)).ToList();
@@ -361,36 +492,6 @@ namespace FashionStore.Infrastructure.Data
 
 
 
-            // DiscountType
-            var discountTypes = new List<DiscountType>
-            {
-                new DiscountType("Giảm giá mùa xuân")
-            };
-
-            var newDiscountTypes = discountTypes.Where(dt => !context.DiscountTypes.Any(dbDiscountType => dbDiscountType.Name == dt.Name)).ToList();
-            if (newDiscountTypes.Any())
-            {
-                context.DiscountTypes.AddRange(newDiscountTypes);
-                context.SaveChanges();
-            }
-
-
-
-            // Discount
-            var discounts = new List<Discount>
-            {
-                new Discount { DiscountValue = 20, DiscountTypeId = 1, StartDate = new DateTime(2024, 8, 19), EndDate = new DateTime(2024, 12, 24) }
-            };
-
-            var newDiscounts = discounts.Where(d => !context.Discounts.Any(dbDiscount => dbDiscount.DiscountValue == d.DiscountValue && dbDiscount.DiscountTypeId == d.DiscountTypeId)).ToList();
-            if (newDiscounts.Any())
-            {
-                context.Discounts.AddRange(newDiscounts);
-                context.SaveChanges();
-            }
-
-
-
             // DiscountBrand
             var discountBrands = new List<DiscountBrand>
             {
@@ -406,21 +507,7 @@ namespace FashionStore.Infrastructure.Data
 
 
 
-            // DiscountProduct
-            var discountProducts = new List<DiscountProduct>
-            {
-                new DiscountProduct { DiscountId = 1, ProductId = 1 }
-            };
-
-            var newDiscountProducts = discountProducts.Where(dp => !context.DiscountProducts.Any(dbDiscountProduct => dbDiscountProduct.DiscountId == dp.DiscountId && dbDiscountProduct.ProductId == dp.ProductId)).ToList();
-            if (newDiscountProducts.Any())
-            {
-                context.DiscountProducts.AddRange(newDiscountProducts);
-                context.SaveChanges();
-            }
-
-
-
+            //DressStyle
             var dressStyles = new List<DressStyle>
             {
                 new DressStyle("Casual"),
@@ -682,7 +769,6 @@ namespace FashionStore.Infrastructure.Data
                 context.SizePs.AddRange(newSizePs);
                 context.SaveChanges();
             }
-            
 
 
 

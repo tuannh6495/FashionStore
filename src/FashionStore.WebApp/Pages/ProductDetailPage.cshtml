@@ -60,9 +60,16 @@
             </div>
 
             <div class="price-container">
-                <span class="price-discount">@Model.ProductDetail.Unit@Model.ProductDetail.Price</span>
-                @* <span class="price-original">$@Model.PriceOriginal</span> *@
-                <span class="discount">-40%</span>
+                @if (Model.ProductDetail.DiscountId == null)
+                {
+                    <span class="price-original">@Model.ProductDetail.Unit@Model.ProductDetail.Price</span>
+                }
+                else
+                {
+                    <span class="price-discount">@Model.ProductDetail.Unit@Model.ProductDetail.DiscountedPrice</span>
+                    <span class="price-original">@Model.ProductDetail.Unit@Model.ProductDetail.Price</span>
+                    <span class="discount">-@Model.ProductDetail.DiscountValue%</span>
+                }
             </div>
 
             <div class="describe">
@@ -117,7 +124,7 @@
                     </div>
 
                     <button type="submit" class="add-to-cart">
-                            Add to Cart
+                        Add to Cart
                     </button>
                 </div>
             </form>

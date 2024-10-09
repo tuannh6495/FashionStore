@@ -14,7 +14,7 @@ namespace FashionStore.Application.DTOs
         public string SizeName { get; set; }    
         public int Quantity { get; set; }
         public string Unit { get; } = "$";
-        public double Price { get; set; }   
+        public double Price { get; set; }
         public double TotalPrice { get; set; }
     }
 }

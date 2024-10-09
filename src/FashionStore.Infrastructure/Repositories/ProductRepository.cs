@@ -24,7 +24,8 @@ namespace FashionStore.Infrastructure.Repositories
                                            .ToListAsync();
             var products = await _context.Products
                                          .Where(product => productIds.Contains(product.Id))
-                                         .ToListAsync();
+										 .Include(product => product.Discount)
+										 .ToListAsync();
             return products;
         }
 
@@ -36,7 +37,8 @@ namespace FashionStore.Infrastructure.Repositories
                                            .ToListAsync();
             var products = await _context.Products
                                          .Where(product => productIds.Contains(product.Id))
-                                         .ToListAsync();
+										 .Include(product => product.Discount)
+										 .ToListAsync();
             return products;
         }
 
@@ -48,10 +50,10 @@ namespace FashionStore.Infrastructure.Repositories
                                            .ToListAsync();
             var products = await _context.Products
                                          .Where(product => productIds.Contains(product.Id))
-                                         .ToListAsync();
+										 .Include(product => product.Discount)
+										 .ToListAsync();
             return products;
         }
-
 
         public async Task<Product> GetProductsWithDetailAsync(int productId)
         {
@@ -60,7 +62,8 @@ namespace FashionStore.Infrastructure.Repositories
                     .ThenInclude(cp => cp.Color)
                 .Include(p => p.SizePs)
                     .ThenInclude(sp => sp.Size)
-                .FirstOrDefaultAsync(p => p.Id == productId);
+				.Include(product => product.Discount)
+				.FirstOrDefaultAsync(p => p.Id == productId);
             product.SizePs = product.SizePs.OrderBy(sp => sp.SizeId).ToList();
             return product;
         }
@@ -69,7 +72,8 @@ namespace FashionStore.Infrastructure.Repositories
         {
             return await _context.Products
                 .Where(p => p.CategoryId == categoryId && p.Id != excludeProductId)
-                .Take(4) 
+				.Include(product => product.Discount)
+				.Take(4) 
                 .ToListAsync();
         }
 

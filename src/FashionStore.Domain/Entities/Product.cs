@@ -17,21 +17,23 @@ namespace FashionStore.Domain.Entities
 		public decimal AvgRating { get; set; } 
 
 		public int CategoryId { get; set; }
-		public Category? Category { get; set; }
+		public Category Category { get; set; }
 
 		public int GenderId { get; set; }
-		public Gender? Gender { get; set; }
+		public Gender Gender { get; set; }
 
 		public int BrandId { get; set; }
-		public Brand? Brand { get; set; }
+		public Brand Brand { get; set; }
 
-		public ICollection<OutP>? OutPs { get; set; }
-		public ICollection<SizeP>? SizePs { get; set; }
-		public ICollection<ColorP>? ColorPs { get; set; }
-		public ICollection<CartP>? CartPs { get; set; }
-		public ICollection<Review>? Reviews { get; set; }
-		public ICollection<DressStyleP>? DressStylePs { get; set; }
-		public ICollection<DiscountProduct>? DiscountProducts { get; set; }
+		public int ?DiscountId { get; set; }
+		public Discount Discount { get; set; }
+
+		public ICollection<OutP> OutPs { get; set; }
+		public ICollection<SizeP> SizePs { get; set; }
+		public ICollection<ColorP> ColorPs { get; set; }
+		public ICollection<CartP> CartPs { get; set; }
+		public ICollection<Review> Reviews { get; set; }
+		public ICollection<DressStyleP> DressStylePs { get; set; }
 
         public Product(List<string> imageUrls, string name)
         {
