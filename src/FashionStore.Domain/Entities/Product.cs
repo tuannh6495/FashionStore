@@ -10,6 +10,19 @@ namespace FashionStore.Domain.Entities
 	public class Product : BaseEntity
 	{
         public List<string> ImageUrls { get; set; }
+        public string MainImageUrl
+        {
+            get
+            {
+                if (ImageUrls != null && ImageUrls.Count > 0)
+                {
+                    var foreImage = ImageUrls.FirstOrDefault(url => System.IO.Path.GetFileNameWithoutExtension(url).Equals("fore", StringComparison.OrdinalIgnoreCase));
+
+                    return foreImage ?? ImageUrls[0];
+                }
+                return string.Empty;
+            }
+        }
         public string Name { get; set; }
         public string Unit { get; } = "$";
         public double Price { get; set; } 

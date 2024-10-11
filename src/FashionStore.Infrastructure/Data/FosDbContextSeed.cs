@@ -376,8 +376,31 @@ namespace FashionStore.Infrastructure.Data
                     GenderId = 2,
                     BrandId = 1,
 					DiscountId = 5
+				},
+
+                new Product(new List<string> { "/Images/T-shirts/Asymmetric Ribbed T-shirt/fore.webp", "/Images/T-shirts/Asymmetric Ribbed T-shirt/back.webp", "/Images/T-shirts/Asymmetric Ribbed T-shirt/model.webp" }, "Asymmetric Ribbed T-shirt")
+                {
+                    Price = 120,
+                    Description = "Simple yet striking, this black striped t-shirt is a wardrobe essential. Its soft, breathable fabric ensures you stay comfortable while looking effortlessly cool.",
+                    AvgRating = 4.5m,
+                    CategoryId = 1,
+                    GenderId = 2,
+                    BrandId = 1,
+                    DiscountId = 5
+                },
+
+
+				new Product(new List<string> { "/Images/T-shirts/Monogram Logo Overlay Graphic Classic T-shirt/back.webp", "/Images/T-shirts/Monogram Logo Overlay Graphic Classic T-shirt/fore.webp", "/Images/T-shirts/Monogram Logo Overlay Graphic Classic T-shirt/model.webp" }, "Monogram Logo Overlay Graphic Classic T-shirt")
+				{
+					Price = 120,
+					Description = "Simple yet striking, this black striped t-shirt is a wardrobe essential. Its soft, breathable fabric ensures you stay comfortable while looking effortlessly cool.",
+					AvgRating = 4.5m,
+					CategoryId = 1,
+					GenderId = 2,
+					BrandId = 1,
+					DiscountId = 5
 				}
-            };
+			};
 
             var newProducts = products.Where(p => !context.Products.Any(dbProduct => dbProduct.Name == p.Name)).ToList();
             if (newProducts.Any())
@@ -536,8 +559,10 @@ namespace FashionStore.Infrastructure.Data
                 new DressStyleP { DressStyleId = 1, ProductId = 4 },
                 new DressStyleP { DressStyleId = 1, ProductId = 5 },
                 new DressStyleP { DressStyleId = 1, ProductId = 6 },
-                new DressStyleP { DressStyleId = 1, ProductId = 7 }
-            };
+                new DressStyleP { DressStyleId = 1, ProductId = 7 },
+                new DressStyleP { DressStyleId = 1, ProductId = 13 },
+				new DressStyleP { DressStyleId = 1, ProductId = 14 }
+			};
 
             var newDressStylePs = dressStylePs.Where(dsp => !context.DressStylePs.Any(dbDressStyleP => dbDressStyleP.DressStyleId == dsp.DressStyleId && dbDressStyleP.ProductId == dsp.ProductId)).ToList();
 

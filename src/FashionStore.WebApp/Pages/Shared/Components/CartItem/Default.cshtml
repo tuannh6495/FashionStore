@@ -11,12 +11,20 @@
                 <div class="size-text">Size: <span class="large-text">@Model.SizeName</span></div>
                 <div class="size-text">Color: <span class="large-text">@Model.ColorName</span></div>
             </div>
-            <form method="post" asp-page-handler="RemoveItemFromCart">
+            <form id="deleteForm" method="post" asp-page-handler="RemoveItemFromCart" onsubmit="event.preventDefault(); showDeletePopup();">
                 <input type="hidden" name="productId" value="@Model.ProductId" />
-                <button type="submit">
+                <button type="submit" style="border: none; background-color: transparent;">
                     <img src="/Images/RecycleBin.png" alt="Cart Recycle" class="icon-recyclebin" />
                 </button>
             </form>
+            <div id="deletePopup" class="popup-overlay">
+                <div class="popup-content">
+                    <h2>Confirm Deletion</h2>
+                    <p>Are you sure you want to remove this item from the cart?</p>
+                    <button onclick="confirmDelete()" style="background-color: rgba(0, 0, 0, 0.40);">Yes</button>
+                    <button onclick="closeDeletePopup()" style="background-color: #000;">No</button>
+                </div>
+            </div>
         </div>
         <div class="edit-item d-flex justify-content-between">
             <div class="price-item-cart">@Model.Unit @Model.Price</div>
@@ -28,3 +36,19 @@
         </div>
     </div>
 </div>
+
+<script>
+    function showDeletePopup() {
+        document.getElementById("deletePopup").style.display = "flex";
+    }
+
+    function closeDeletePopup() {
+        document.getElementById("deletePopup").style.display = "none";
+    }
+
+    function confirmDelete() {
+        document.querySelector("form[method='post']").submit();
+    }
+</script>
+
+

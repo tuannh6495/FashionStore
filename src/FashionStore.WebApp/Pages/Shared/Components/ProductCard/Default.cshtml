@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="~/css/ProductCard.css" asp-append-version="true" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-<a asp-page="/ProductDetailPage" asp-route-id="@Model.Id">
+<a asp-page="/ProductDetailPage" asp-route-id="@Model.Id" style="text-decoration: none;">
     <div class="card custom-card">
         <img class="card-img-top" src="@Model.ImageUrls[0]">
         <div class="card-body">

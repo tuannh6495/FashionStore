@@ -78,13 +78,10 @@
 
             <div class="divider"></div>
 
-            <form method="post" asp-page-handler="AddToCart">
+            <form method="post" asp-page-handler="AddToCart" id="addToCartForm">
                 <input type="hidden" name="productId" value="@Model.ProductDetail.Id" />
-
                 <input type="hidden" id="selectedColorName" name="colorName" />
-
                 <input type="hidden" id="selectedSizeName" name="sizeName" />
-
                 <input type="hidden" id="quantity-input" name="quantity" value="1" />
 
                 <span class="select-colors">Select Colors</span>
@@ -93,7 +90,8 @@
                     {
                         <div class="circle"
                              style="background-color: @color.colorHex; border: 1px solid #00000033;"
-                             onclick="selectColor(this, '@color.colorName')">
+                             onclick="selectColor(this, '@color.colorName')"
+                             data-color="@color.colorName">
                         </div>
                     }
                 </div>
@@ -104,7 +102,7 @@
                 <div class="size">
                     @foreach (var size in Model.ProductDetail.SizeNames)
                     {
-                        <div class="size-box">@size</div>
+                        <div class="size-box" data-size="@size">@size</div>
                     }
                 </div>
 
@@ -123,11 +121,16 @@
                         </button>
                     </div>
 
-                    <button type="submit" class="add-to-cart">
-                        Add to Cart
-                    </button>
+                    <button type="submit" class="add-to-cart">Add to Cart</button>
                 </div>
             </form>
+            <div id="overlay" class="overlay"></div>
+            <div id="customAlert" class="popup-overlay">
+                <div class="popup-content">
+                    <p id="alertMessage"></p>
+                    <button onclick="closeAlert()">OK</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -246,3 +249,46 @@
 </script>
 
 <script src="~/js/ProductDetail.js" asp-append-version="true"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    //JS cho Popup khi chưa chọn color và size
+    $(document).ready(function () {
+        $('.circle').click(function () {
+            var colorName = $(this).data('color');
+            $('#selectedColorName').val(colorName);
+        });
+
+        $('.size-box').click(function () {
+            var sizeName = $(this).data('size');
+            $('#selectedSizeName').val(sizeName);
+        });
+
+        $('#addToCartForm').on('submit', function (event) {
+            var selectedColor = $('#selectedColorName').val();
+            var selectedSize = $('#selectedSizeName').val();
+
+            if (!selectedColor) {
+                showAlert("Please select a color!");
+                event.preventDefault();
+                return;
+            }
+
+            if (!selectedSize) {
+                showAlert("Please select a size.");
+                event.preventDefault();
+                return;
+            }
+        });
+    });
+
+    function showAlert(message) {
+        $('#alertMessage').text(message);
+        $('#overlay').css('display', 'block');
+        $('#customAlert').css('display', 'block');
+    }
+
+    function closeAlert() {
+        $('#overlay').css('display', 'none');
+        $('#customAlert').css('display', 'none');
+    }
+</script>

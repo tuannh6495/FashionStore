@@ -148,7 +148,7 @@
 			<div class="d-flex justify-content-between">
 				@if (Model.CategoryProducts.HasPreviousPage)
 				{
-					<a class="btn" style="border: 1px solid rgba(0, 0, 0, 0.10); border-radius: 8px; background-color: #fff;" asp-route-pageIndex="@(Model.CategoryProducts.PageIndex - 1)">
+					<a class="btn" style="border: 1px solid rgba(0, 0, 0, 0.10); border-radius: 8px; background-color: #fff;" asp-route-pageIndex="@(Model.CategoryProducts.PageIndex - 1)" asp-route-id="@Model.DressStyleId">
 						<i class="fa-solid fa-arrow-left me-2"></i> Previous
 					</a>
 				}
@@ -165,13 +165,13 @@
 						@if (i == Model.CategoryProducts.PageIndex)
 						{
 							<li class="page-item active">
-								<span class="page-link">@i</span>
+								<a class="page-link" asp-route-pageIndex="@i" asp-route-id="@Model.DressStyleId">@i</a>
 							</li>
 						}
 						else
 						{
 							<li class="page-item">
-								<a class="page-link" asp-route-pageIndex="@i">@i</a>
+								<a class="page-link" asp-route-pageIndex="@i" asp-route-id="@Model.DressStyleId">@i</a>
 							</li>
 						}
 					}
@@ -179,7 +179,7 @@
 
 				@if (Model.CategoryProducts.HasNextPage)
 				{
-					<a class="btn" style="border: 1px solid rgba(0, 0, 0, 0.10); border-radius: 8px; background-color: #fff;" asp-route-pageIndex="@(Model.CategoryProducts.PageIndex + 1)">
+					<a class="btn" style="border: 1px solid rgba(0, 0, 0, 0.10); border-radius: 8px; background-color: #fff;" asp-route-pageIndex="@(Model.CategoryProducts.PageIndex + 1)" asp-route-id="@Model.DressStyleId">
 						Next <i class="fa-solid fa-arrow-right ms-2"></i>
 					</a>
 				}

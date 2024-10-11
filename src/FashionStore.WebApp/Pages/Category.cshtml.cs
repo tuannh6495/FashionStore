@@ -21,6 +21,7 @@ namespace FashionStore.WebApp.Pages
         public IEnumerable<Color> Colors { get; set; }
         public IEnumerable<DressStyle> DressStyles { get; set; }
         public string DressStyleName { get; set; }
+        public int DressStyleId { get; set; }
         public PaginatedList<ProductDTO> CategoryProducts { get; set; }
 
         public int PageIndex { get; set; } = 1;
@@ -49,10 +50,9 @@ namespace FashionStore.WebApp.Pages
 
             if (int.TryParse(Request.Query["id"], out int id))
             {
-                DressStyleName = await _dressStyleService.GetDressStyleNameAsync(id);
-
+				DressStyleId = id;
+				DressStyleName = await _dressStyleService.GetDressStyleNameAsync(id);
                 var products = await _productService.GetDressStyleProductsAsync(id);
-
                 CategoryProducts = PaginatedList<ProductDTO>.Create(products, PageIndex, PageSize);
             }
             else
