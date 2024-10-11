@@ -10,7 +10,9 @@ namespace FashionStore.Application.DTOs
     {
         public int Id { get; set; }
         public List<string> ImageUrls { get; set; }
-        public string Name { get; set; }
+		public string MainImageUrl { get; set; }
+
+		public string Name { get; set; }
         public string Unit { get; } = "$";
         public double Price { get; set; }
         public int ?DiscountId { get; set; }

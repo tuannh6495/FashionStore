@@ -10,6 +10,17 @@ namespace FashionStore.Application.DTOs
     {
         public int Id { get; set; }
         public List<string> ImageUrls { get; set; }
+        public string GetImageByType(string imageType)
+        {
+            if (ImageUrls != null && ImageUrls.Count > 0)
+            {
+                var imageUrl = ImageUrls.FirstOrDefault(url =>
+                    string.Equals(Path.GetFileNameWithoutExtension(url), imageType, StringComparison.OrdinalIgnoreCase));
+
+                return imageUrl ?? ImageUrls[0];
+            }
+            return string.Empty;
+        }
         public string Name { get; set; }
         public string Unit { get; } = "$";
         public double Price { get; set; }

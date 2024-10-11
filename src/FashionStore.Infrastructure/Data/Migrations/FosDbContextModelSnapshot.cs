@@ -22,23 +22,6 @@ namespace FashionStore.Infrastructure.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("FashionStore.Domain.Entities.Brand", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Brands", (string)null);
-                });
-
             modelBuilder.Entity("FashionStore.Domain.Entities.Cart", b =>
                 {
                     b.Property<int>("Id")
@@ -55,7 +38,7 @@ namespace FashionStore.Infrastructure.Data.Migrations
                     b.HasIndex("UserId")
                         .IsUnique();
 
-                    b.ToTable("Carts", (string)null);
+                    b.ToTable("Carts");
                 });
 
             modelBuilder.Entity("FashionStore.Domain.Entities.CartP", b =>
@@ -81,7 +64,7 @@ namespace FashionStore.Infrastructure.Data.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("CartPs", (string)null);
+                    b.ToTable("CartPs");
                 });
 
             modelBuilder.Entity("FashionStore.Domain.Entities.Category", b =>
@@ -98,7 +81,7 @@ namespace FashionStore.Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("FashionStore.Domain.Entities.Color", b =>
@@ -119,7 +102,7 @@ namespace FashionStore.Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Colors", (string)null);
+                    b.ToTable("Colors");
                 });
 
             modelBuilder.Entity("FashionStore.Domain.Entities.ColorP", b =>
@@ -142,7 +125,7 @@ namespace FashionStore.Infrastructure.Data.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ColorPs", (string)null);
+                    b.ToTable("ColorPs");
                 });
 
             modelBuilder.Entity("FashionStore.Domain.Entities.Discount", b =>
@@ -169,30 +152,7 @@ namespace FashionStore.Infrastructure.Data.Migrations
 
                     b.HasIndex("DiscountTypeId");
 
-                    b.ToTable("Discounts", (string)null);
-                });
-
-            modelBuilder.Entity("FashionStore.Domain.Entities.DiscountBrand", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("BrandId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("DiscountId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BrandId");
-
-                    b.HasIndex("DiscountId");
-
-                    b.ToTable("DiscountBrands", (string)null);
+                    b.ToTable("Discounts");
                 });
 
             modelBuilder.Entity("FashionStore.Domain.Entities.DiscountType", b =>
@@ -209,7 +169,7 @@ namespace FashionStore.Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("DiscountTypes", (string)null);
+                    b.ToTable("DiscountTypes");
                 });
 
             modelBuilder.Entity("FashionStore.Domain.Entities.DressStyle", b =>
@@ -226,7 +186,7 @@ namespace FashionStore.Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("DressStyles", (string)null);
+                    b.ToTable("DressStyles");
                 });
 
             modelBuilder.Entity("FashionStore.Domain.Entities.DressStyleP", b =>
@@ -249,24 +209,7 @@ namespace FashionStore.Infrastructure.Data.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("DressStylePs", (string)null);
-                });
-
-            modelBuilder.Entity("FashionStore.Domain.Entities.Gender", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Genders", (string)null);
+                    b.ToTable("DressStylePs");
                 });
 
             modelBuilder.Entity("FashionStore.Domain.Entities.OutP", b =>
@@ -289,7 +232,7 @@ namespace FashionStore.Infrastructure.Data.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("OutPs", (string)null);
+                    b.ToTable("OutPs");
                 });
 
             modelBuilder.Entity("FashionStore.Domain.Entities.Outstanding", b =>
@@ -306,7 +249,7 @@ namespace FashionStore.Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Outstandings", (string)null);
+                    b.ToTable("Outstandings");
                 });
 
             modelBuilder.Entity("FashionStore.Domain.Entities.Product", b =>
@@ -322,9 +265,6 @@ namespace FashionStore.Infrastructure.Data.Migrations
                         .HasColumnType("decimal(2,1)")
                         .HasDefaultValue(0.0m);
 
-                    b.Property<int>("BrandId")
-                        .HasColumnType("int");
-
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
@@ -334,7 +274,7 @@ namespace FashionStore.Infrastructure.Data.Migrations
                     b.Property<int?>("DiscountId")
                         .HasColumnType("int");
 
-                    b.Property<int>("GenderId")
+                    b.Property<int>("Gender")
                         .HasColumnType("int");
 
                     b.Property<string>("ImageUrls")
@@ -350,15 +290,11 @@ namespace FashionStore.Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BrandId");
-
                     b.HasIndex("CategoryId");
 
                     b.HasIndex("DiscountId");
 
-                    b.HasIndex("GenderId");
-
-                    b.ToTable("Products", (string)null);
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("FashionStore.Domain.Entities.Promotion", b =>
@@ -381,7 +317,7 @@ namespace FashionStore.Infrastructure.Data.Migrations
                     b.HasIndex("CartId")
                         .IsUnique();
 
-                    b.ToTable("Promotions", (string)null);
+                    b.ToTable("Promotions");
                 });
 
             modelBuilder.Entity("FashionStore.Domain.Entities.Review", b =>
@@ -414,7 +350,7 @@ namespace FashionStore.Infrastructure.Data.Migrations
                     b.HasIndex("UserId", "ProductId")
                         .IsUnique();
 
-                    b.ToTable("Reviews", (string)null);
+                    b.ToTable("Reviews");
                 });
 
             modelBuilder.Entity("FashionStore.Domain.Entities.Size", b =>
@@ -431,7 +367,7 @@ namespace FashionStore.Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Sizes", (string)null);
+                    b.ToTable("Sizes");
                 });
 
             modelBuilder.Entity("FashionStore.Domain.Entities.SizeP", b =>
@@ -454,7 +390,7 @@ namespace FashionStore.Infrastructure.Data.Migrations
 
                     b.HasIndex("SizeId");
 
-                    b.ToTable("SizePs", (string)null);
+                    b.ToTable("SizePs");
                 });
 
             modelBuilder.Entity("FashionStore.Domain.Entities.User", b =>
@@ -487,7 +423,7 @@ namespace FashionStore.Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("FashionStore.Domain.Entities.UserPromotion", b =>
@@ -510,7 +446,7 @@ namespace FashionStore.Infrastructure.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserPromotions", (string)null);
+                    b.ToTable("UserPromotions");
                 });
 
             modelBuilder.Entity("FashionStore.Domain.Entities.Cart", b =>
@@ -573,25 +509,6 @@ namespace FashionStore.Infrastructure.Data.Migrations
                     b.Navigation("DiscountType");
                 });
 
-            modelBuilder.Entity("FashionStore.Domain.Entities.DiscountBrand", b =>
-                {
-                    b.HasOne("FashionStore.Domain.Entities.Brand", "Brand")
-                        .WithMany("DiscountBrands")
-                        .HasForeignKey("BrandId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("FashionStore.Domain.Entities.Discount", "Discount")
-                        .WithMany("DiscountBrands")
-                        .HasForeignKey("DiscountId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Brand");
-
-                    b.Navigation("Discount");
-                });
-
             modelBuilder.Entity("FashionStore.Domain.Entities.DressStyleP", b =>
                 {
                     b.HasOne("FashionStore.Domain.Entities.DressStyle", "DressStyle")
@@ -632,12 +549,6 @@ namespace FashionStore.Infrastructure.Data.Migrations
 
             modelBuilder.Entity("FashionStore.Domain.Entities.Product", b =>
                 {
-                    b.HasOne("FashionStore.Domain.Entities.Brand", "Brand")
-                        .WithMany("Products")
-                        .HasForeignKey("BrandId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("FashionStore.Domain.Entities.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
@@ -649,19 +560,9 @@ namespace FashionStore.Infrastructure.Data.Migrations
                         .HasForeignKey("DiscountId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("FashionStore.Domain.Entities.Gender", "Gender")
-                        .WithMany("Products")
-                        .HasForeignKey("GenderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Brand");
-
                     b.Navigation("Category");
 
                     b.Navigation("Discount");
-
-                    b.Navigation("Gender");
                 });
 
             modelBuilder.Entity("FashionStore.Domain.Entities.Promotion", b =>
@@ -732,13 +633,6 @@ namespace FashionStore.Infrastructure.Data.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("FashionStore.Domain.Entities.Brand", b =>
-                {
-                    b.Navigation("DiscountBrands");
-
-                    b.Navigation("Products");
-                });
-
             modelBuilder.Entity("FashionStore.Domain.Entities.Cart", b =>
                 {
                     b.Navigation("CartPs");
@@ -756,8 +650,6 @@ namespace FashionStore.Infrastructure.Data.Migrations
 
             modelBuilder.Entity("FashionStore.Domain.Entities.Discount", b =>
                 {
-                    b.Navigation("DiscountBrands");
-
                     b.Navigation("Products");
                 });
 
@@ -769,11 +661,6 @@ namespace FashionStore.Infrastructure.Data.Migrations
             modelBuilder.Entity("FashionStore.Domain.Entities.DressStyle", b =>
                 {
                     b.Navigation("DressStylePs");
-                });
-
-            modelBuilder.Entity("FashionStore.Domain.Entities.Gender", b =>
-                {
-                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("FashionStore.Domain.Entities.Outstanding", b =>

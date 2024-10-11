@@ -20,7 +20,11 @@ namespace FashionStore.WebApp.Pages
         public ProductDetailDTO ProductDetail { get; set; }
         public IEnumerable<ReviewDTO> AllReviews { get; set; }
         public IEnumerable<ProductDTO> RelatedProducts { get; set; }
-        
+
+        public string ForeImage { get; set; }
+        public string BackImage { get; set; }
+        public string ModelImage { get; set; }
+
         public ProductDetailPageModel(IProductService productService, IReviewService reviewService)
         {
             _productService = productService;
@@ -35,6 +39,10 @@ namespace FashionStore.WebApp.Pages
                 AllReviews = await _reviewService.GetProductReviewsAsync(id);
                 ReviewCount = AllReviews?.Count() ?? 0;
                 RelatedProducts = await _productService.GetRelatedProductsAsync(id);
+
+                ForeImage = ProductDetail.GetImageByType("fore");
+                BackImage = ProductDetail.GetImageByType("back");
+                ModelImage = ProductDetail.GetImageByType("model");
             }
             else
             {
@@ -51,7 +59,6 @@ namespace FashionStore.WebApp.Pages
             }
 
             var cart = HttpContext.Session.GetObjectFromJson<List<CartPDTO>>("Cart") ?? new List<CartPDTO>();
-
             var cartItem = cart.FirstOrDefault(c => c.ProductId == productId && c.SizeName == sizeName && c.ColorName == colorName);
             if (cartItem != null)
             {
@@ -59,6 +66,7 @@ namespace FashionStore.WebApp.Pages
             }
             else
             {
+                var foreImage = ProductDetail.GetImageByType("fore");
                 cart.Add(new CartPDTO
                 {
                     ProductId = productId,
@@ -68,6 +76,7 @@ namespace FashionStore.WebApp.Pages
                     ColorName = colorName,
                     Price = product.Result.Price,
                     TotalPrice = product.Result.Price * quantity,
+                    ImageUrls = new List<string> { foreImage }
                 });
             }
 

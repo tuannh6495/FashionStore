@@ -24,6 +24,7 @@ namespace FashionStore.Application.Mapping
                 .ForMember(dest => dest.SizeNames, opt => opt.MapFrom(src => src.SizePs.Select(sp => sp.Size.Name).ToList()));
 
             CreateMap<CartP, CartPDTO>()
+                .ForMember(dest => dest.ImageUrls, opt => opt.MapFrom(src => src.Product.ImageUrls))
                 .ForMember(dest => dest.ProductName, opt => opt.MapFrom(src => src.Product.Name))
                 .ForMember(dest => dest.ColorName, opt => opt.MapFrom(src => src.Product.ColorPs.FirstOrDefault().Color.Name))
                 .ForMember(dest => dest.SizeName, opt => opt.MapFrom(src => src.Product.SizePs.FirstOrDefault().Size.Name))

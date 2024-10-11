@@ -26,16 +26,6 @@ namespace FashionStore.Infrastructure.Data.Configuration
                 .HasForeignKey(p => p.CategoryId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOne(p => p.Gender)
-                .WithMany(g => g.Products)
-                .HasForeignKey(p => p.GenderId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            builder.HasOne(p => p.Brand)
-                .WithMany(b => b.Products)
-                .HasForeignKey(p => p.BrandId)
-                .OnDelete(DeleteBehavior.Cascade);
-
             builder.HasOne(p => p.Discount)
                 .WithMany(d => d.Products)
                 .HasForeignKey(p => p.DiscountId)

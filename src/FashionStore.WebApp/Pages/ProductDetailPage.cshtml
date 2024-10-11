@@ -1,6 +1,7 @@
 ﻿@page
 @model FashionStore.WebApp.Pages.ProductDetailPageModel
 @using ProductVC
+
 @{
     ViewData["Title"] = "Product Detail Page";
 }
@@ -22,14 +23,19 @@
     <div class="row pt-4">
         <div class="col-12 col-md-6">
             <div class="row">
-                <div class="col-3 d-flex flex-column gap-14">
-                    @foreach (var ImageUrl in Model.ProductDetail.ImageUrls)
-                    {
-                        <div class="product-photo" data-photo="@ImageUrl"></div>
-                    }
+                <div class="col-md-3 d-flex flex-column gap-14">
+                    <div class="product-photo" data-photo="@Model.ForeImage">
+                        <img src="@Model.ForeImage" alt="Fore View" />
+                    </div>
+                    <div class="product-photo" data-photo="@Model.BackImage">
+                        <img src="@Model.BackImage" alt="Back View" />
+                    </div>
+                    <div class="product-photo" data-photo="@Model.ModelImage">
+                        <img src="@Model.ModelImage" alt="Model View" />
+                    </div>
                 </div>
 
-                <div class="col-9" style="padding-right: 0;">
+                <div class="col-md-9" style="padding-right: 0;">
                     <div class="product-main-photo" id="main-photo"></div>
                 </div>
             </div>
