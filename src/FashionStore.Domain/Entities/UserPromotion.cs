@@ -8,8 +8,8 @@ namespace FashionStore.Domain.Entities
 {
 	public class UserPromotion : BaseEntity
 	{
-		public int UserId { get; set; }
-		public User? User { get; set; }
+		public string AppUserId { get; set; }
+		public AppUser? AppUser { get; set; }
 
 		public int PromotionId { get; set; }
 		public Promotion? Promotion { get; set; }

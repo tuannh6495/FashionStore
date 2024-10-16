@@ -1,4 +1,5 @@
 ﻿using FashionStore.Domain.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace FashionStore.Infrastructure.Data
 {
-    public class FosDbContext : DbContext
+    public class FosDbContext : IdentityDbContext<AppUser>
     {
 		public FosDbContext(DbContextOptions<FosDbContext> options) : base(options) { }
 
@@ -24,7 +25,7 @@ namespace FashionStore.Infrastructure.Data
 		public DbSet<Color> Colors { get; set; }
 		public DbSet<ColorP> ColorPs { get; set; }
 		public DbSet<Cart> Carts { get; set; }
-		public DbSet<User> Users { get; set; }
+		public DbSet<AppUser> AppUsers { get; set; }
 		public DbSet<CartP> CartPs { get; set; }
 		public DbSet<Review> Reviews { get; set; }
 		public DbSet<DiscountType> DiscountTypes { get; set; }
@@ -36,6 +37,15 @@ namespace FashionStore.Infrastructure.Data
 		{
 			base.OnModelCreating(builder);
 			builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-		}
+
+            foreach (var entityType in builder.Model.GetEntityTypes())
+            {
+                var tableName = entityType.GetTableName();
+                if (tableName.StartsWith("AspNet"))
+                {
+                    entityType.SetTableName(tableName.Substring(6));
+                }
+            }
+        }
     }
 }

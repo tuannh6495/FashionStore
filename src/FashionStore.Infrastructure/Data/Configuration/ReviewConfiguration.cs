@@ -21,9 +21,9 @@ namespace FashionStore.Infrastructure.Data.Configuration
                 .HasForeignKey(r => r.ProductId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOne(r => r.User)
+            builder.HasOne(r => r.AppUser)
                 .WithMany(u => u.Reviews)
-                .HasForeignKey(r => r.UserId)
+                .HasForeignKey(r => r.AppUserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             builder.Property(r => r.ReviewRating)
@@ -31,7 +31,7 @@ namespace FashionStore.Infrastructure.Data.Configuration
                 .HasColumnType("decimal(2,1)");
 
 
-			builder.HasIndex(r => new { r.UserId, r.ProductId })
+			builder.HasIndex(r => new { r.AppUserId, r.ProductId })
                 .IsUnique();  // Unique Index for UserId and ProductId
         }
     }

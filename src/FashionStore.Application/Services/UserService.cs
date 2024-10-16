@@ -41,7 +41,7 @@
 
 //        public async Task CreateUserAsync(UserDto userDto)
 //        {
-//            var user = new User
+//            var user = new AppUser
 //            {
 //                //Name = userDto.Name,
 //                Email = userDto.Email

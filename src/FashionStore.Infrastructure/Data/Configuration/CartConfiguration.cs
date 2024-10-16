@@ -1,11 +1,5 @@
 ﻿using FashionStore.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FashionStore.Infrastructure.Data.Configuration
 {
@@ -15,9 +9,9 @@ namespace FashionStore.Infrastructure.Data.Configuration
         {
             builder.HasKey(c => c.Id);
 
-            builder.HasOne(c => c.User)
+            builder.HasOne(c => c.AppUser)
                 .WithOne()
-                .HasForeignKey<Cart>(c => c.UserId)
+                .HasForeignKey<Cart>(c => c.AppUserId)
                 .OnDelete(DeleteBehavior.Cascade);
         }
     }

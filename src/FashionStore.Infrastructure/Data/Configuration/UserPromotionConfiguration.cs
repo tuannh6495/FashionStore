@@ -16,9 +16,9 @@ namespace FashionStore.Infrastructure.Data.Configuration
         {
             builder.HasKey(up => up.Id);
 
-            builder.HasOne(up => up.User)
+            builder.HasOne(up => up.AppUser)
                 .WithMany(u => u.UserPromotions)
-                .HasForeignKey(up => up.UserId)
+                .HasForeignKey(up => up.AppUserId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(up => up.Promotion)

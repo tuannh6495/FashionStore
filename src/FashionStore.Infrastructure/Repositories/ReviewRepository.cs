@@ -19,7 +19,7 @@ namespace FashionStore.Infrastructure.Repositories
         public async Task<IEnumerable<Review>> GetReviewsForOurHappyCustomersAsync()
         {
             return await _context.Reviews
-                             .Include(r => r.User)
+                             .Include(r => r.AppUser)
                              .Where(r => r.ReviewRating >= 4)
                              .OrderByDescending(r => r.ReviewRating) 
                              .ToListAsync();
@@ -28,7 +28,7 @@ namespace FashionStore.Infrastructure.Repositories
         public async Task<IEnumerable<Review>> GetReviewsForProductAsync(int productId)
         {
             return await _context.Reviews
-                    .Include(r => r.User)
+                    .Include(r => r.AppUser)
                     .Where(r => r.ProductId == productId)
                     .ToListAsync();
         }

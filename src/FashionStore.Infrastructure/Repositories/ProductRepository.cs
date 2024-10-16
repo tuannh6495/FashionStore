@@ -19,7 +19,7 @@ namespace FashionStore.Infrastructure.Repositories
         public async Task<IEnumerable<Product>> GetProductsForNewArrivalsAsync()
         {
             var productIds = await _context.OutPs
-                                           .Where(outP => outP.OutstandingId == 2)
+                                           .Where(outP => outP.OutstandingId == 1)
                                            .Select(outP => outP.ProductId)
                                            .ToListAsync();
             var products = await _context.Products
@@ -32,7 +32,7 @@ namespace FashionStore.Infrastructure.Repositories
         public async Task<IEnumerable<Product>> GetProductsForTopSellingAsync()
         {
             var productIds = await _context.OutPs
-                                           .Where(outP => outP.OutstandingId == 3)
+                                           .Where(outP => outP.OutstandingId == 2)
                                            .Select(outP => outP.ProductId)
                                            .ToListAsync();
             var products = await _context.Products
