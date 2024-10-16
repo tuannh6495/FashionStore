@@ -1,4 +1,4 @@
-using AutoMapper;
+﻿using AutoMapper;
 using FashionStore.Application.Interfaces;
 using FashionStore.Application.Mapping;
 using FashionStore.Application.Services;
@@ -11,7 +11,6 @@ using FashionStore.Infrastructure.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -81,6 +80,21 @@ builder.Services.ConfigureApplicationCookie(options => {
     options.LoginPath = "/Login";
     options.LogoutPath = "/Logout";
     options.AccessDeniedPath = "/Identity/Account/AccessDenied";
+});
+
+builder.Services.AddAuthentication(options =>
+{
+	options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
+	options.DefaultChallengeScheme = IdentityConstants.ApplicationScheme;
+})
+.AddGoogle(googleOptions =>
+{
+	IConfigurationSection googleAuthNSection = builder.Configuration.GetSection("Authentication:Google");
+
+	googleOptions.ClientId = googleAuthNSection["ClientId"];
+	googleOptions.ClientSecret = googleAuthNSection["ClientSecret"];
+
+	googleOptions.CallbackPath = "/GoogleLogin";
 });
 
 var app = builder.Build();
