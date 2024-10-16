@@ -6,9 +6,11 @@ using FashionStore.WebApp.Common;
 using FashionStore.Application.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using FashionStore.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FashionStore.WebApp.Pages
 {
+    [Authorize]
 	public class CartModel : PageModel
 	{
         private readonly IProductService _productService;

@@ -72,7 +72,7 @@
                 }
                 else
                 {
-                    <span class="price-discount">@Model.ProductDetail.Unit@Model.ProductDetail.DiscountedPrice</span>
+                    <span class="price-discount">@Model.ProductDetail.Unit@Math.Ceiling(Model.ProductDetail.DiscountedPrice)</span>
                     <span class="price-original">@Model.ProductDetail.Unit@Model.ProductDetail.Price</span>
                     <span class="discount">-@Model.ProductDetail.DiscountValue%</span>
                 }

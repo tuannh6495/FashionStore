@@ -1,28 +1,36 @@
-﻿using AutoMapper;
+using AutoMapper;
 using FashionStore.Application.Interfaces;
 using FashionStore.Application.Mapping;
 using FashionStore.Application.Services;
+using FashionStore.Domain.Entities;
 using FashionStore.Domain.Interfaces;
 using FashionStore.Infrastructure.Data;
+using FashionStore.Infrastructure.Middleware;
 using FashionStore.Infrastructure.Repositories;
-using Microsoft.AspNetCore.Hosting;
+using FashionStore.Infrastructure.Services;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddOptions();
+var mailSettings = builder.Configuration.GetSection("MailSettings");
+builder.Services.Configure<MailSettings>(mailSettings);
+
+builder.Services.AddTransient<IEmailSender, SendMailService>();
+
 builder.Services.AddRazorPages();
 builder.Services.AddSession();
 
 var mapperConfig = new MapperConfiguration(mc =>
 {
-    mc.AddProfile(new MappingProfile()); // Thêm các cấu hình ánh xạ
+    mc.AddProfile(new MappingProfile()); 
 });
 
 IMapper mapper = mapperConfig.CreateMapper();
 
-// Đăng ký AutoMapper thủ công với DI container
 builder.Services.AddSingleton(mapper);
 
 builder.Services.AddDbContext<FosDbContext>(options =>
@@ -42,7 +50,38 @@ builder.Services.AddScoped<ISizeService, SizeService>();
 builder.Services.AddScoped<IColorService, ColorService>();
 builder.Services.AddScoped<IDressStyleService, DressStyleService>();
 
-//builder.Services.AddAutoMapper(typeof(Program));
+
+builder.Services.AddIdentity<AppUser, IdentityRole>()
+           .AddEntityFrameworkStores<FosDbContext>()
+           .AddDefaultTokenProviders();
+
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.Password.RequireDigit = true;
+    options.Password.RequireLowercase = true; 
+    options.Password.RequireNonAlphanumeric = false; 
+    options.Password.RequireUppercase = true; 
+    options.Password.RequiredLength = 6; 
+    options.Password.RequiredUniqueChars = 1; 
+
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+    options.Lockout.MaxFailedAccessAttempts = 5; 
+    options.Lockout.AllowedForNewUsers = true;
+
+    options.User.AllowedUserNameCharacters =
+        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+    options.User.RequireUniqueEmail = true; 
+
+    options.SignIn.RequireConfirmedEmail = true; 
+    options.SignIn.RequireConfirmedPhoneNumber = false; 
+    options.SignIn.RequireConfirmedAccount = true;
+});
+
+builder.Services.ConfigureApplicationCookie(options => {
+    options.LoginPath = "/Login";
+    options.LogoutPath = "/Logout";
+    options.AccessDeniedPath = "/Identity/Account/AccessDenied";
+});
 
 var app = builder.Build();
 
@@ -62,24 +101,25 @@ using (var scope = app.Services.CreateScope())
 }
 
 
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
 app.UseHttpsRedirection(); 
-
 app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseMiddleware<ImageHandlerMiddleware>();
+
 app.UseSession();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
 
 app.Run();

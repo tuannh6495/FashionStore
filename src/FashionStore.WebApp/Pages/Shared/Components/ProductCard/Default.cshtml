@@ -5,7 +5,8 @@
 
 <a asp-page="/ProductDetailPage" asp-route-id="@Model.Id" style="text-decoration: none;">
     <div class="card custom-card">
-        <img class="card-img-top" src="@Model.MainImageUrl">
+        <img class="card-img-top" src="@Model.MainImageUrl.Replace(".avif", ".webp")" alt="Image">
+
         <div class="card-body">
             <h1 class="card-title">@Model.Name</h1>
             <div class="card-text">
@@ -35,7 +36,7 @@
                     }
                     else
                     {
-                        <span class="price-discount-pc">@Model.Unit@Model.DiscountedPrice</span>
+                        <span class="price-discount-pc">@Model.Unit@Math.Ceiling(Model.DiscountedPrice)</span>
                         <span class="price-original-pc">@Model.Unit@Model.Price</span>
                         <span class="discount-pc">-@Model.DiscountValue%</span>
                     }

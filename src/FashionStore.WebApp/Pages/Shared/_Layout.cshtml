@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@using FashionStore.Domain.Entities;
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
@@ -45,9 +50,6 @@
 							<li class="nav-item">
 								<a class="nav-link" href="#">New Arrivals</a>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">Brands</a>
-							</li>
 						</ul>
 					</div>
 
@@ -69,6 +71,31 @@
 						<a class="nav-link p-0" href="/Cart"><i class="fas fa-shopping-cart"></i></a>
 						<a class="nav-link p-0" href="#"><i class="fas fa-user"></i></a>
 					</div>
+
+					<ul class="navbar-nav">
+						@if (SignInManager.IsSignedIn(User))
+						{
+							<li class="nav-item">
+								<a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index">
+									Hello @UserManager.GetUserName(User)
+								</a>
+							</li>
+							<li class="nav-item">
+								<form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+									<button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+								</form>
+							</li>
+						}
+						else
+						{
+							<li class="nav-item">
+								<a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+							</li>
+						}
+					</ul>
 				</div>
 			</nav>
 		</div>
@@ -165,11 +192,11 @@
 				<div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-4" style="border-top: 1px solid #ddd; padding-top: 15px; padding-left: 0; ">
 					<p class="mb-2 mb-md-0" style="padding-left: 0;">Shop.co © 2000-2023, All Rights Reserved</p>
 					<div>
-						<img src="\Images\Visa.png" alt="Visa" class="mr-2" style="width: 40px;">
-						<img src="\Images\MasterCard.png" alt="Visa" class="mr-2" style="width: 40px;">
-						<img src="\Images\Paypal.png" alt="Visa" class="mr-2" style="width: 40px;">
-						<img src="\Images\ApplePay.png" alt="Visa" class="mr-2" style="width: 40px;">
-						<img src="\Images\GooglePay.png" alt="Visa" class="mr-2" style="width: 40px;">
+						<img src="\Images\Others\Visa.png" alt="Visa" class="mr-2" style="width: 40px;">
+						<img src="\Images\Others\MasterCard.png" alt="Visa" class="mr-2" style="width: 40px;">
+						<img src="\Images\Others\Paypal.png" alt="Visa" class="mr-2" style="width: 40px;">
+						<img src="\Images\Others\ApplePay.png" alt="Visa" class="mr-2" style="width: 40px;">
+						<img src="\Images\Others\GooglePay.png" alt="Visa" class="mr-2" style="width: 40px;">
 					</div>
 				</div>
 			</div>

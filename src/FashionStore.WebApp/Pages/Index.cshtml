@@ -36,7 +36,7 @@
 
     <div class="row d-lg-none">
         <div class="col-12">
-            <img src="/Images/back-mobile.png" alt="Mobile Banner Image" class="mobile-banner-image">
+            <img src="/Images/Others/back-mobile.png" alt="Mobile Banner Image" class="mobile-banner-image">
         </div>
     </div>
 
@@ -72,7 +72,7 @@
 
         <div class="row product-row">
 
-            @foreach (var product in Model.NewArrivals)
+            @foreach (var product in Model.NewArrivals.Take(4))
             {
                 <div class="col-md-3 col-3">
                     @await Component.InvokeAsync("ProductCard", product)
@@ -95,7 +95,7 @@
         </div>
 
         <div class="row product-row">
-            @foreach (var product in Model.TopSelling)
+            @foreach (var product in Model.TopSelling.Take(4))
             {
                 <div class="col-md-3 col-3">
                     @await Component.InvokeAsync("ProductCard", product)
@@ -119,7 +119,7 @@
             <div class="col-md-4 col-12 mb-3">
                 <a asp-page="/Category" asp-route-id="1">
                     <div class="card ds-card w-100 h-100" style="border-radius: 20px; overflow: hidden;">
-                        <img src="\Images\CasualDS.png" class="card-img" style="object-fit: cover; height: 100%; width: 100%;">
+                        <img src="\Images\Others\CasualDS.png" class="card-img" style="object-fit: cover; height: 100%; width: 100%;">
                         <div class="card-img-overlay">
                             <h5 class="card-title fs-1">Casual</h5>
                         </div>
@@ -130,7 +130,7 @@
             <div class="col-md-8 col-12 mb-3">
                 <a asp-page="/Category" asp-route-id="2">
                     <div class="card ds-card w-100" style=" border-radius: 20px; overflow: hidden;">
-                        <img src="\Images\FormalDS.png" class="card-img" style="object-fit: cover; height: 100%; width: 100%;">
+                        <img src="\Images\Others\FormalDS.png" class="card-img" style="object-fit: cover; height: 100%; width: 100%;">
                         <div class="card-img-overlay">
                             <h5 class="card-title fs-1">Formal</h5>
                         </div>
@@ -143,7 +143,7 @@
             <div class="col-md-8 col-12 mb-3">
                 <a asp-page="/Category" asp-route-id="3">
                     <div class="card ds-card w-100" style=" border-radius: 20px; overflow: hidden;">
-                        <img src="\Images\PartyDS.png" class="card-img" style="object-fit: cover; height: 100%; width: 100%;">
+                        <img src="\Images\Others\PartyDS.png" class="card-img" style="object-fit: cover; height: 100%; width: 100%;">
                         <div class="card-img-overlay">
                             <h5 class="card-title fs-1">Party</h5>
                         </div>
@@ -154,7 +154,7 @@
             <div class="col-md-4 col-12 mb-3">
                 <a asp-page="/Category" asp-route-id="4">
                     <div class="card ds-card w-100 h-100" style=" border-radius: 20px; overflow: hidden;">
-                        <img src="\Images\GymDS.png" class="card-img" style="object-fit: cover; height: 100%; width: 100%;">
+                        <img src="\Images\Others\GymDS.png" class="card-img" style="object-fit: cover; height: 100%; width: 100%;">
                         <div class="card-img-overlay">
                             <h5 class="card-title fs-1">Gym</h5>
                         </div>
@@ -178,7 +178,7 @@
 
     <div class="feedback-container">
         <div class="feedback-row">
-            @foreach (var review in Model.OurHappyCustomers)
+            @foreach (var review in Model.OurHappyCustomers.Take(8))
             {
                 bool isDatePostShowed = false;
                 @await Component.InvokeAsync("ReviewCard", new { isDatePostShowed = isDatePostShowed, review = review })
