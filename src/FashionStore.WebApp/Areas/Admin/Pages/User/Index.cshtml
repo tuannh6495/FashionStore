@@ -1,0 +1,44 @@
+﻿@page "/Admin/Users"
+@model App.Admin.User.IndexModel
+@{
+    ViewData["Title"] = "User list";
+}
+
+<h2>@ViewData["Title"]</h2>
+<partial name="_StatusMessage" model="@Model.StatusMessage" />
+
+<table class="table table-striped">
+    <tr>
+        <th>UserName</th>
+        <th>Role</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var User in @Model.Users)
+    {
+        <tr>
+            <td>@User.UserName</td>
+            <td></td>
+            <td>
+                <a class="btn btn-success btn-sm" asp-asp-page="./AddRole" asp-asp-route-id="@User.Id">Update</a>
+            </td>
+        </tr>
+
+    }
+</table>
+
+@{
+    var pagingModel = new XTL.Helpers.PagingModel()
+    {
+        currentpage = Model.currentPage,
+        countpages = Model.countPages,
+        generateUrl = (int? p) => Url.Page("./Index", new { p = p })
+    };
+}
+
+<partial name="_PagingXTL" model="@pagingModel" />
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

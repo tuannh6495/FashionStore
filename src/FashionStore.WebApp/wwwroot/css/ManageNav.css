@@ -1,0 +1,11 @@
+﻿.nav-pills .nav-link.active {
+    background-color: #000;
+}
+
+.btn-primary {
+    background-color: #000;
+}
+
+    .btn-primary:hover {
+        background-color: rgba(0, 0, 0, 0.40);
+    }
